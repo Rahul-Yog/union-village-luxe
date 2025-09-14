@@ -109,8 +109,8 @@ const CommunityRenderings = () => {
                 Ready to See More?
               </h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Experience Union Village in person. Contact us to schedule a private tour and 
-                discover why this community represents the pinnacle of modern living in Markham.
+                Get exclusive updates on Union Village's progress and be the first to know about 
+                availability, pricing, and construction milestones for this exceptional community in Markham.
               </p>
               <Button 
                 onClick={scrollToContact}
