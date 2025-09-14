@@ -2,12 +2,30 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Home, Maximize, Users, Car } from 'lucide-react';
+import traditionalTownhome from '@/assets/traditional-townhome.jpg';
+import rearLaneTownhome from '@/assets/rear-lane-townhome.jpg';
 import home36Feet from '@/assets/36-feet-home.jpg';
 import home43Feet from '@/assets/43-feet-home.jpg';
 import home50Feet from '@/assets/50-feet-home.jpg';
 
 const HomeCollection = () => {
   const homeTypes = [
+    {
+      title: "Traditional Townhomes",
+      image: traditionalTownhome,
+      description: "Timeless design meets thoughtful functionality. Available in Tudor and Modern/West Coast Contemporary styles with rich brick, stone, and stucco exteriors.",
+      features: ["Open-Concept Layouts", "Finished Basement", "Private Backyards", "Premium Finishes"],
+      priceRange: "Coming Soon",
+      badge: "Classic Style"
+    },
+    {
+      title: "Rear-Lane Townhomes",
+      image: rearLaneTownhome,
+      description: "Sophisticated townhomes with timeless architectural aesthetics available in Modern, French, and English Manor styles. Features double car garage and expansive rooftop terrace.",
+      features: ["Double Car Garage", "Rooftop Terrace", "Modern Design", "Lane Access"],
+      priceRange: "Coming Soon",
+      badge: "Urban Living"
+    },
     {
       title: "36' Single Family Home",
       image: home36Feet,
@@ -51,13 +69,13 @@ const HomeCollection = () => {
           </h2>
           <div className="w-24 h-1 luxury-gradient mx-auto mb-8"></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Discover our collection of single family homes, each designed with feng shui principles 
-            by international master Paul Ng to promote harmony, happiness, and a better quality of life.
+            Choose from our diverse collection of townhomes and single family homes, each designed with feng shui principles 
+            by international master Paul Ng. Available in Modern, English Manor, and French architectural styles to promote harmony, happiness, and a better quality of life.
           </p>
         </div>
 
         {/* Home Types Grid */}
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {homeTypes.map((home, index) => (
             <Card key={index} className="luxury-card group overflow-hidden animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
               {/* Image */}
