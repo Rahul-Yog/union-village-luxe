@@ -127,33 +127,6 @@ const LeadForm = () => {
                 </div>
               </div>
             </div>
-
-            {/* Agent Info */}
-            <Card className="luxury-card bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
-              <div className="p-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                    <User className="h-8 w-8 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-display font-bold text-primary">Rahul Jindal</h4>
-                    <p className="text-sm text-muted-foreground">Real Estate Sales Representative</p>
-                    <p className="text-sm text-muted-foreground">RE/MAX Skyway Realty Inc.</p>
-                  </div>
-                </div>
-                
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center gap-2">
-                    <Phone className="h-4 w-4 text-accent" />
-                    <span className="text-primary font-medium">416-903-8026</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Mail className="h-4 w-4 text-accent" />
-                    <span className="text-primary font-medium">info@rahuljindal.ca</span>
-                  </div>
-                </div>
-              </div>
-            </Card>
           </div>
 
           {/* Right Column - Form */}
@@ -230,12 +203,14 @@ const LeadForm = () => {
                       <SelectTrigger>
                         <SelectValue placeholder="Select home type" />
                       </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="36-feet">36' Single Family Home</SelectItem>
-                        <SelectItem value="43-feet">43' Single Family Home</SelectItem>
-                        <SelectItem value="50-feet">50' Single Family Home</SelectItem>
-                        <SelectItem value="not-sure">Not Sure Yet</SelectItem>
-                      </SelectContent>
+                       <SelectContent>
+                         <SelectItem value="traditional-townhomes">Traditional Townhomes</SelectItem>
+                         <SelectItem value="rear-lane-townhomes">Rear-Lane Townhomes</SelectItem>
+                         <SelectItem value="36-feet">36' Single Family Home</SelectItem>
+                         <SelectItem value="43-feet">43' Single Family Home</SelectItem>
+                         <SelectItem value="50-feet">50' Single Family Home</SelectItem>
+                         <SelectItem value="not-sure">Not Sure Yet</SelectItem>
+                       </SelectContent>
                     </Select>
                   </div>
 
