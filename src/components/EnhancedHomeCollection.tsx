@@ -8,9 +8,13 @@ import { Eye, MapPin, Maximize, Users, Car, Bath, Bed, Home } from 'lucide-react
 import LeadForm from '@/components/LeadForm';
 
 // Import all home images
-import home50Feet from '@/assets/50-feet-home.jpg';
-import home50Meadow from '@/assets/home-50-meadow.jpg';
-import home50WhitePine from '@/assets/home-50-white-pine.jpg';
+// 50 Feet Home Images
+import home50Modern from '@/assets/50-feet-modern.jpg';
+import home50English from '@/assets/50-feet-english.jpg';
+import home50French from '@/assets/50-feet-french.jpg';
+import home50Contemporary from '@/assets/50-feet-contemporary.jpg';
+import home50FamilyRoom from '@/assets/50-feet-family-room.jpg';
+import home50Foyer from '@/assets/50-feet-foyer.jpg';
 import floorPlanTeaser from '@/assets/floor-plan-teaser.jpg';
 // Traditional Townhome Images
 import traditionalModern from '@/assets/traditional-modern.jpg';
@@ -104,7 +108,7 @@ const EnhancedHomeCollection = () => {
     {
       id: '50-single-family',
       title: "50' Single Family Home",
-      images: [home50Feet, home50Meadow, home50WhitePine],
+      images: [home50Modern, home50English, home50French, home50Contemporary, home50FamilyRoom, home50Foyer],
       description: "Luxury estate homes on generous 50-foot lots, featuring the finest finishes and most spacious layouts in the community, designed with feng shui expertise.",
       features: ["5-6 Bedrooms", "5-6 Baths", "Triple Car Garage", "Estate Lots"],
       priceRange: "Starting from $2.7M",
