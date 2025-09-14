@@ -1,9 +1,10 @@
 import Navigation from '@/components/Navigation';
-import HeroSection from '@/components/HeroSection';
+import HeroSectionWithModal from '@/components/HeroSectionWithModal';
 import OverviewSection from '@/components/OverviewSection';
 import LocationSection from '@/components/LocationSection';
-import SitePlanSection from '@/components/SitePlanSection';
+import SitePlanSectionWithModal from '@/components/SitePlanSectionWithModal';
 import EnhancedHomeCollection from '@/components/EnhancedHomeCollection';
+import CommunityRenderings from '@/components/CommunityRenderings';
 import LeadForm from '@/components/LeadForm';
 import Footer from '@/components/Footer';
 
@@ -11,11 +12,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <HeroSection />
+      <HeroSectionWithModal />
       <OverviewSection />
       <LocationSection />
-      <SitePlanSection />
+      <SitePlanSectionWithModal />
       <EnhancedHomeCollection />
+      <CommunityRenderings />
       <LeadForm />
       <Footer />
     </div>

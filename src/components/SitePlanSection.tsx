@@ -2,7 +2,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Trees, Car, Home, Waves, Clock } from 'lucide-react';
-import sitePlanImage from '@/assets/union-village-site-plan.jpg';
+import sitePlanImage from '@/assets/union-village-site-plan-new.jpg';
 
 const SitePlanSection = () => {
   const phases = [

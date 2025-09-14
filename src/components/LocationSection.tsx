@@ -91,10 +91,24 @@ const LocationSection = () => {
           </Card>
         </div>
 
-        {/* Amenities Grid */}
+        {/* Neighbourhood Map */}
+        <div className="mb-16">
+          <h3 className="text-3xl font-display font-bold text-primary text-center mb-8">
+            Neighbourhood Map
+          </h3>
+          <Card className="luxury-card overflow-hidden max-w-4xl mx-auto">
+            <img 
+              src={neighbourhoodMap} 
+              alt="Union Village Neighbourhood Map" 
+              className="w-full h-auto"
+            />
+          </Card>
+        </div>
+
+        {/* Neighborhood Amenities Grid */}
         <div className="mb-16">
           <h3 className="text-3xl font-display font-bold text-primary text-center mb-12">
-            Everything You Need Nearby
+            Neighborhood Amenities
           </h3>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -171,19 +185,6 @@ const LocationSection = () => {
           </Card>
         </div>
 
-        {/* Neighbourhood Map */}
-        <div className="mt-16">
-          <h3 className="text-3xl font-display font-bold text-primary text-center mb-8">
-            Neighbourhood Map
-          </h3>
-          <Card className="luxury-card overflow-hidden max-w-4xl mx-auto">
-            <img 
-              src={neighbourhoodMap} 
-              alt="Union Village Neighbourhood Map" 
-              className="w-full h-auto"
-            />
-          </Card>
-        </div>
       </div>
     </section>
   );

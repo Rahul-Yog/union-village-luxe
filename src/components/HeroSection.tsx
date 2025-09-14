@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, DollarSign } from 'lucide-react';
-import heroImage from '@/assets/hero-union-village.jpg';
+import heroImage from '@/assets/hero-union-village-new.jpg';
 
 const HeroSection = () => {
   const scrollToSection = (href: string) => {
