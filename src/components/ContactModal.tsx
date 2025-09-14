@@ -92,7 +92,7 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
 
     try {
       // Save lead to database
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from('leads')
         .insert({
           first_name: formData.firstName,
@@ -108,7 +108,8 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
           source: 'website',
           form_type: formType,
           user_agent: navigator.userAgent,
-        });
+        })
+        .select();
 
       if (error) {
         console.error('Error saving lead:', error);
@@ -118,6 +119,20 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
           variant: "destructive",
         });
         return;
+      }
+
+      // Send notification email
+      try {
+        const { error: notificationError } = await supabase.functions.invoke('send-lead-notification', {
+          body: { leadId: data?.[0]?.id }
+        });
+        
+        if (notificationError) {
+          console.error('Notification error:', notificationError);
+        }
+      } catch (notificationError) {
+        console.error('Failed to send notification:', notificationError);
+        // Don't show error to user since the lead was saved successfully
       }
 
       toast({
