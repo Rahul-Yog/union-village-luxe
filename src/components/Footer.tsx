@@ -70,7 +70,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 luxury-gradient rounded-full"></div>
-                <span className="text-primary-foreground/80">Expected Completion: 2027</span>
+                <span className="text-primary-foreground/80">Expected Completion: Late 2026</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 luxury-gradient rounded-full"></div>

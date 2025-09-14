@@ -40,7 +40,7 @@ const HeroSectionWithModal = () => {
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
                 <Clock size={16} className="text-luxury-gold" />
-                <span>2027 Completion</span>
+                <span>Late 2026 Completion</span>
               </div>
             </div>
 
