@@ -93,7 +93,7 @@ const LeadForm = () => {
       
       toast({
         title: "Thank you for your interest!",
-        description: "Floor plans and pricing information will be sent to your email within 5 minutes.",
+        description: "Floor plans and pricing information will be sent to your email.",
       });
       
       // Reset form

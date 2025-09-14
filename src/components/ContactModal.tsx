@@ -122,7 +122,7 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
 
       toast({
         title: "Thank You!",
-        description: "Your information has been submitted. We'll contact you within 24 hours.",
+        description: "Your information has been submitted. We'll contact you soon.",
       });
 
       // Reset form and close modal
