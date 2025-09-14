@@ -23,6 +23,7 @@ export type Database = {
           id: string
           interested_in: string | null
           ip_address: unknown | null
+          is_realtor: boolean | null
           last_name: string
           message: string | null
           newsletter_consent: boolean | null
@@ -42,6 +43,7 @@ export type Database = {
           id?: string
           interested_in?: string | null
           ip_address?: unknown | null
+          is_realtor?: boolean | null
           last_name: string
           message?: string | null
           newsletter_consent?: boolean | null
@@ -61,6 +63,7 @@ export type Database = {
           id?: string
           interested_in?: string | null
           ip_address?: unknown | null
+          is_realtor?: boolean | null
           last_name?: string
           message?: string | null
           newsletter_consent?: boolean | null

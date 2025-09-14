@@ -6,7 +6,8 @@ import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
-import { useToast } from '@/components/ui/use-toast';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { Mail, Phone, User, Home, Shield, FileText, DollarSign } from 'lucide-react';
 
@@ -19,11 +20,13 @@ const LeadForm = () => {
     email: '',
     phone: '',
     interestedIn: '',
-        priceRange: '',
+    priceRange: '',
     timeline: '',
     message: '',
+    isRealtor: '',
     newsletter: false,
     privacy: false,
+    phoneConsent: false,
     honeypot: '' // Bot protection
   });
 
@@ -37,10 +40,19 @@ const LeadForm = () => {
     }
     
     // Basic validation
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.privacy) {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.isRealtor || !formData.privacy) {
       toast({
         title: "Please fill in all required fields",
-        description: "Make sure to accept the privacy policy to continue.",
+        description: "Make sure to complete all required fields including the realtor question and privacy policy.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!formData.newsletter && !formData.phoneConsent) {
+      toast({
+        title: "Contact method required",
+        description: "Please allow us to contact you via email or phone.",
         variant: "destructive",
       });
       return;
@@ -61,6 +73,7 @@ const LeadForm = () => {
           price_range: formData.priceRange || null,
           timeline: formData.timeline || null,
           message: formData.message || null,
+          is_realtor: formData.isRealtor === 'yes',
           newsletter_consent: formData.newsletter,
           privacy_consent: formData.privacy,
           source: 'website',
@@ -93,8 +106,10 @@ const LeadForm = () => {
         priceRange: '',
         timeline: '',
         message: '',
+        isRealtor: '',
         newsletter: false,
         privacy: false,
+        phoneConsent: false,
         honeypot: ''
       });
     } catch (error) {
@@ -276,47 +291,80 @@ const LeadForm = () => {
                     </Select>
                   </div>
 
-                  {/* Message */}
-                  <div>
-                    <Label htmlFor="message">Additional Comments</Label>
-                    <Textarea
-                      id="message"
-                      value={formData.message}
-                      onChange={(e) => handleInputChange('message', e.target.value)}
-                      placeholder="Any specific questions or requirements?"
-                      rows={3}
-                    />
-                  </div>
+                   {/* Realtor Question */}
+                   <div>
+                     <Label className="text-base font-medium">Are you a Realtor? *</Label>
+                     <RadioGroup 
+                       value={formData.isRealtor} 
+                       onValueChange={(value) => handleInputChange('isRealtor', value)}
+                       className="flex gap-6 mt-2"
+                     >
+                       <div className="flex items-center space-x-2">
+                         <RadioGroupItem value="yes" id="realtor-yes" />
+                         <Label htmlFor="realtor-yes">Yes</Label>
+                       </div>
+                       <div className="flex items-center space-x-2">
+                         <RadioGroupItem value="no" id="realtor-no" />
+                         <Label htmlFor="realtor-no">No</Label>
+                       </div>
+                     </RadioGroup>
+                   </div>
 
-                  {/* Checkboxes */}
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-2">
-                      <Checkbox 
-                        id="newsletter"
-                        checked={formData.newsletter}
-                        onCheckedChange={(checked) => handleInputChange('newsletter', !!checked)}
-                      />
-                      <Label htmlFor="newsletter" className="text-sm leading-relaxed">
-                        Yes, I would like to receive updates about Union Village and other real estate opportunities.
-                      </Label>
-                    </div>
-                    
-                    <div className="flex items-start gap-2">
-                      <Checkbox 
-                        id="privacy"
-                        checked={formData.privacy}
-                        onCheckedChange={(checked) => handleInputChange('privacy', !!checked)}
-                        required
-                      />
-                      <Label htmlFor="privacy" className="text-sm leading-relaxed">
-                        I agree to the{' '}
-                        <a href="/privacy-policy" target="_blank" className="text-accent hover:underline">
-                          privacy policy
-                        </a>{' '}
-                        and consent to being contacted about Union Village. *
-                      </Label>
-                    </div>
-                  </div>
+                   {/* Message */}
+                   <div>
+                     <Label htmlFor="message">Additional Comments</Label>
+                     <Textarea
+                       id="message"
+                       value={formData.message}
+                       onChange={(e) => handleInputChange('message', e.target.value)}
+                       placeholder="Any specific questions or requirements?"
+                       rows={3}
+                     />
+                   </div>
+
+                   {/* Contact Preferences */}
+                   <div className="space-y-3 bg-muted/50 p-4 rounded-lg">
+                     <p className="text-sm font-medium text-primary mb-3">How would you like us to contact you? (Select at least one) *</p>
+                     
+                     <div className="flex items-start gap-2">
+                       <Checkbox 
+                         id="newsletter"
+                         checked={formData.newsletter}
+                         onCheckedChange={(checked) => handleInputChange('newsletter', !!checked)}
+                       />
+                       <Label htmlFor="newsletter" className="text-sm leading-relaxed">
+                         Yes, you may contact me via email with information about Union Village and other real estate opportunities.
+                       </Label>
+                     </div>
+                     
+                     <div className="flex items-start gap-2">
+                       <Checkbox 
+                         id="phoneConsent"
+                         checked={formData.phoneConsent}
+                         onCheckedChange={(checked) => handleInputChange('phoneConsent', !!checked)}
+                       />
+                       <Label htmlFor="phoneConsent" className="text-sm leading-relaxed">
+                         Yes, you may contact me via phone/text with information about Union Village and other real estate opportunities.
+                       </Label>
+                     </div>
+                   </div>
+
+                   {/* Privacy Policy */}
+                   <div className="flex items-start gap-2">
+                     <Checkbox 
+                       id="privacy"
+                       checked={formData.privacy}
+                       onCheckedChange={(checked) => handleInputChange('privacy', !!checked)}
+                       required
+                     />
+                     <Label htmlFor="privacy" className="text-sm leading-relaxed">
+                       I agree to the{' '}
+                       <a href="/privacy-policy" target="_blank" className="text-accent hover:underline">
+                         privacy policy
+                       </a>{' '}
+                       and consent to being contacted about Union Village. *
+                     </Label>
+                   </div>
 
                   {/* Submit Button */}
                   <Button 

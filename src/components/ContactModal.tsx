@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { Mail, Phone, User, MessageSquare, Clock, Home } from 'lucide-react';
@@ -27,6 +28,7 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
     interestedIn: '',
     timeline: '',
     message: '',
+    isRealtor: '',
     emailConsent: false,
     phoneConsent: false,
     honeypot: '' // Bot protection
@@ -68,10 +70,10 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
     }
 
     // Basic validation
-    if (!formData.firstName || !formData.lastName || !formData.email) {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.isRealtor) {
       toast({
         title: "Missing Information",
-        description: "Please fill in all required fields.",
+        description: "Please fill in all required fields including the realtor question.",
         variant: "destructive",
       });
       return;
@@ -100,6 +102,7 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
           interested_in: formData.interestedIn || null,
           timeline: formData.timeline || null,
           message: formData.message || null,
+          is_realtor: formData.isRealtor === 'yes',
           newsletter_consent: formData.emailConsent,
           privacy_consent: formData.emailConsent || formData.phoneConsent,
           source: 'website',
@@ -131,6 +134,7 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
         interestedIn: '',
         timeline: '',
         message: '',
+        isRealtor: '',
         emailConsent: false,
         phoneConsent: false,
         honeypot: ''
@@ -275,6 +279,25 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
                 </SelectContent>
               </Select>
             </div>
+          </div>
+
+          {/* Realtor Question */}
+          <div>
+            <Label className="text-base font-medium">Are you a Realtor? *</Label>
+            <RadioGroup 
+              value={formData.isRealtor} 
+              onValueChange={(value) => handleInputChange('isRealtor', value)}
+              className="flex gap-6 mt-2"
+            >
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="yes" id="realtor-yes-modal" />
+                <Label htmlFor="realtor-yes-modal">Yes</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="no" id="realtor-no-modal" />
+                <Label htmlFor="realtor-no-modal">No</Label>
+              </div>
+            </RadioGroup>
           </div>
 
           {/* Message */}
