@@ -92,10 +92,9 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
     setIsSubmitting(true);
 
     try {
-      // Save lead to database
-      const { data, error } = await supabase
-        .from('leads')
-        .insert({
+      // Submit via secure edge function (bypasses RLS)
+      const { data, error } = await supabase.functions.invoke('submit-lead', {
+        body: {
           first_name: formData.firstName,
           last_name: formData.lastName,
           email: formData.email,
@@ -106,14 +105,13 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
           is_realtor: formData.isRealtor === 'yes',
           newsletter_consent: formData.emailConsent,
           privacy_consent: formData.privacy,
-          source: 'website',
           form_type: formType,
-          user_agent: navigator.userAgent,
-        })
-        .select();
+          user_agent: navigator.userAgent
+        }
+      });
 
       if (error) {
-        console.error('Error saving lead:', error);
+        console.error('Error submitting lead:', error);
         toast({
           title: "Error",
           description: "Something went wrong. Please try again or contact us directly.",
@@ -122,19 +120,7 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
         return;
       }
 
-      // Send notification email
-      try {
-        const { error: notificationError } = await supabase.functions.invoke('send-lead-notification', {
-          body: { leadId: data?.[0]?.id }
-        });
-        
-        if (notificationError) {
-          console.error('Notification error:', notificationError);
-        }
-      } catch (notificationError) {
-        console.error('Failed to send notification:', notificationError);
-        // Don't show error to user since the lead was saved successfully
-      }
+      console.log('Lead submitted successfully:', data);
 
       toast({
         title: "Thank You!",

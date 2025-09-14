@@ -61,10 +61,9 @@ const LeadForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Save lead to database
-      const { data, error } = await supabase
-        .from('leads')
-        .insert({
+      // Submit via secure edge function (bypasses RLS)
+      const { data, error } = await supabase.functions.invoke('submit-lead', {
+        body: {
           first_name: formData.firstName,
           last_name: formData.lastName,
           email: formData.email,
@@ -76,14 +75,13 @@ const LeadForm = () => {
           is_realtor: formData.isRealtor === 'yes',
           newsletter_consent: formData.newsletter,
           privacy_consent: formData.privacy,
-          source: 'website',
           form_type: 'lead_form',
-          user_agent: navigator.userAgent,
-        })
-        .select();
+          user_agent: navigator.userAgent
+        }
+      });
 
       if (error) {
-        console.error('Error saving lead:', error);
+        console.error('Error submitting lead:', error);
         toast({
           title: "Something went wrong",
           description: "Please try again or contact us directly.",
@@ -92,19 +90,7 @@ const LeadForm = () => {
         return;
       }
 
-      // Send notification email
-      try {
-        const { error: notificationError } = await supabase.functions.invoke('send-lead-notification', {
-          body: { leadId: data?.[0]?.id }
-        });
-        
-        if (notificationError) {
-          console.error('Notification error:', notificationError);
-        }
-      } catch (notificationError) {
-        console.error('Failed to send notification:', notificationError);
-        // Don't show error to user since the lead was saved successfully
-      }
+      console.log('Lead submitted successfully:', data);
       
       toast({
         title: "Thank you for your interest!",
