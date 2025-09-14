@@ -80,7 +80,7 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
     }
 
     // Basic validation
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
+    if (!formData.firstName || !formData.lastName || !formData.email) {
       toast({
         title: "Missing Information",
         description: "Please fill in all required fields.",
@@ -215,14 +215,13 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
             <div className="space-y-2">
               <Label htmlFor="phone" className="text-sm font-medium flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                Phone Number *
+                Phone Number
               </Label>
               <Input
                 id="phone"
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => handleInputChange('phone', e.target.value)}
-                required
                 className="border-input focus:border-accent"
                 placeholder="(555) 123-4567"
               />

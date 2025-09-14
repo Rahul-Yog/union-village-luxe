@@ -269,32 +269,6 @@ const EnhancedHomeCollection = () => {
           ))}
         </div>
 
-        {/* Comparison CTA */}
-        <div className="text-center">
-          <Card className="luxury-card bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20 max-w-3xl mx-auto">
-            <div className="p-8">
-              <h3 className="text-2xl font-display font-bold text-primary mb-4">
-                Compare All Home Types Side-by-Side
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Get a comprehensive comparison of all home types, pricing, floor plans, and exclusive incentives available for Union Village.
-              </p>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button 
-                    size="lg"
-                    className="luxury-gradient text-primary font-semibold px-8 py-4 hover:scale-105 transition-transform duration-200"
-                  >
-                    Get Complete Home Comparison Guide
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="max-w-2xl">
-                  <LeadForm />
-                </DialogContent>
-              </Dialog>
-            </div>
-          </Card>
-        </div>
       </div>
     </section>
   );

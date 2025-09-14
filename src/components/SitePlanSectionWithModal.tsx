@@ -22,18 +22,6 @@ const SitePlanSectionWithModal = () => {
       status: "Coming 2026",
       badge: "Pre-Launch",
       badgeColor: "bg-blue-500"
-    },
-    {
-      name: "Phase Three",
-      status: "Coming 2027", 
-      badge: "Future",
-      badgeColor: "bg-gray-500"
-    },
-    {
-      name: "Phase Four",
-      status: "Coming 2028",
-      badge: "Future", 
-      badgeColor: "bg-gray-500"
     }
   ];
 
@@ -113,7 +101,7 @@ const SitePlanSectionWithModal = () => {
             <h3 className="text-3xl font-display font-bold text-primary text-center mb-12">
               Development Phases
             </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 justify-center max-w-2xl mx-auto">
               {phases.map((phase, index) => (
                 <Card key={index} className="luxury-card group animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="p-6 text-center">
