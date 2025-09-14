@@ -115,7 +115,7 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
         console.error('Error saving lead:', error);
         toast({
           title: "Error",
-          description: "Something went wrong. Please try again or call us directly.",
+          description: "Something went wrong. Please try again or contact us directly.",
           variant: "destructive",
         });
         return;

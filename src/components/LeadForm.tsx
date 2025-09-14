@@ -86,7 +86,7 @@ const LeadForm = () => {
         console.error('Error saving lead:', error);
         toast({
           title: "Something went wrong",
-          description: "Please try again or call us directly at 416-903-8026.",
+          description: "Please try again or contact us directly.",
           variant: "destructive",
         });
         return;
