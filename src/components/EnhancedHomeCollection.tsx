@@ -8,16 +8,20 @@ import { Eye, MapPin, Maximize, Users, Car, Bath, Bed, Home } from 'lucide-react
 import LeadForm from '@/components/LeadForm';
 
 // Import all home images
-import traditionalTownhome from '@/assets/traditional-townhome.jpg';
 import home36Feet from '@/assets/36-feet-home.jpg';
 import home43Feet from '@/assets/43-feet-home.jpg';
 import home50Feet from '@/assets/50-feet-home.jpg';
-import townhomesTraditional from '@/assets/townhomes-traditional.jpg';
 import home36Linden from '@/assets/home-36-linden.jpg';
 import home43RedOak from '@/assets/home-43-red-oak.jpg';
 import home50Meadow from '@/assets/home-50-meadow.jpg';
 import home50WhitePine from '@/assets/home-50-white-pine.jpg';
 import floorPlanTeaser from '@/assets/floor-plan-teaser.jpg';
+// Traditional Townhome Images
+import traditionalModern from '@/assets/traditional-modern.jpg';
+import traditionalContemporary from '@/assets/traditional-contemporary.jpg';
+import traditionalTudor from '@/assets/traditional-tudor.jpg';
+import traditionalKitchen from '@/assets/traditional-kitchen.jpg';
+import traditionalBedroom from '@/assets/traditional-bedroom.jpg';
 // Rear-Lane Townhome Images
 import rearLaneModern from '@/assets/rear-lane-modern.jpg';
 import rearLaneFrench from '@/assets/rear-lane-french.jpg';
@@ -32,7 +36,7 @@ const EnhancedHomeCollection = () => {
     {
       id: 'traditional-townhomes',
       title: "Traditional Townhomes",
-      images: [traditionalTownhome, townhomesTraditional],
+      images: [traditionalModern, traditionalContemporary, traditionalTudor, traditionalKitchen, traditionalBedroom],
       description: "Timeless design meets thoughtful functionality. Available in Tudor and Modern/West Coast Contemporary styles with rich brick, stone, and stucco exteriors.",
       features: ["Open-Concept Layouts", "Finished Basement", "Private Backyards", "Premium Finishes"],
       priceRange: "Starting from $1.4M",
