@@ -13,9 +13,9 @@ const SitePlanSectionWithModal = () => {
   const phases = [
     {
       name: "Phase One",
-      status: "Now Selling",
-      badge: "Available",
-      badgeColor: "bg-green-500"
+      status: "Sold Out",
+      badge: "Sold Out",
+      badgeColor: "bg-red-500"
     },
     {
       name: "Phase Two", 

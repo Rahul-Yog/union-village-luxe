@@ -99,29 +99,6 @@ const CommunityRenderings = () => {
           </Carousel>
         </div>
 
-        {/* Rendering Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {renderings.slice(0, 6).map((rendering, index) => (
-            <Card key={rendering.id} className="luxury-card group overflow-hidden animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className="relative">
-                <img
-                  src={rendering.image}
-                  alt={rendering.title}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Image className="h-8 w-8 text-white" />
-                </div>
-              </div>
-              <div className="p-4">
-                <h4 className="font-semibold text-primary mb-2">{rendering.title}</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {rendering.description}
-                </p>
-              </div>
-            </Card>
-          ))}
-        </div>
 
         {/* Call to Action */}
         <div className="text-center">
@@ -140,7 +117,7 @@ const CommunityRenderings = () => {
                 size="lg"
                 className="luxury-gradient text-primary font-semibold px-8 py-3 hover:scale-105 transition-transform duration-200 shadow-luxury"
               >
-                Schedule Your Private Tour
+                Request Brochure
               </Button>
             </div>
           </Card>
