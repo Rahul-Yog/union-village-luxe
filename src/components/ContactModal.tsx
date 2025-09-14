@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 import { Mail, Phone, User, MessageSquare, Clock, Home } from 'lucide-react';
 
 interface ContactModalProps {
@@ -28,34 +29,26 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
     message: '',
     emailConsent: false,
     phoneConsent: false,
-    honeypot: '' // Anti-spam field
+    honeypot: '' // Bot protection
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const getFormTitle = () => {
     switch (formType) {
-      case 'floorplans':
-        return 'Get Exclusive Floor Plans';
-      case 'siteplan':
-        return 'Get Detailed Site Plan';
-      case 'tour':
-        return 'Schedule Your Private Tour';
-      default:
-        return 'Contact Us';
+      case 'floorplans': return 'Get Exclusive Floor Plans';
+      case 'siteplan': return 'Download Site Plan';
+      case 'tour': return 'Schedule a Tour';
+      default: return 'Contact Us';
     }
   };
 
   const getFormMessage = () => {
     switch (formType) {
-      case 'floorplans':
-        return 'Get instant access to floor plans and pricing for all home types.';
-      case 'siteplan':
-        return 'Receive detailed site plan information and phase development details.';
-      case 'tour':
-        return 'Book a personalized tour of our model homes and community.';
-      default:
-        return 'Get in touch with our sales team for more information.';
+      case 'floorplans': return 'Get detailed floor plans and pricing information for Union Village homes.';
+      case 'siteplan': return 'Download the complete site plan to see all available lots and community layout.';
+      case 'tour': return 'Schedule a private tour of our model homes and community amenities.';
+      default: return 'Get in touch with our sales team for any questions about Union Village.';
     }
   };
 
@@ -71,11 +64,6 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
     
     // Bot protection - check honeypot field
     if (formData.honeypot) {
-      toast({
-        title: "Error",
-        description: "Spam detected. Please try again.",
-        variant: "destructive",
-      });
       return;
     }
 
@@ -101,15 +89,33 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call - integrate with your CRM
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Here you would integrate with your CRM system
-      console.log('Form submission:', {
-        ...formData,
-        formType,
-        timestamp: new Date().toISOString()
-      });
+      // Save lead to database
+      const { error } = await supabase
+        .from('leads')
+        .insert({
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          email: formData.email,
+          phone: formData.phone || null,
+          interested_in: formData.interestedIn || null,
+          timeline: formData.timeline || null,
+          message: formData.message || null,
+          newsletter_consent: formData.emailConsent,
+          privacy_consent: formData.emailConsent || formData.phoneConsent,
+          source: 'website',
+          form_type: formType,
+          user_agent: navigator.userAgent,
+        });
+
+      if (error) {
+        console.error('Error saving lead:', error);
+        toast({
+          title: "Error",
+          description: "Something went wrong. Please try again or call us directly.",
+          variant: "destructive",
+        });
+        return;
+      }
 
       toast({
         title: "Thank You!",
@@ -131,6 +137,7 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
       });
       onClose();
     } catch (error) {
+      console.error('Error submitting form:', error);
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",
@@ -148,16 +155,16 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
           <DialogTitle className="text-2xl font-display font-bold text-primary">
             {getFormTitle()}
           </DialogTitle>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground mt-2">
             {getFormMessage()}
           </p>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Honeypot field for spam protection */}
+        <form onSubmit={handleSubmit} className="space-y-6 mt-6">
+          {/* Honeypot field - hidden from users */}
           <input
             type="text"
-            name="website"
+            name="honeypot"
             value={formData.honeypot}
             onChange={(e) => handleInputChange('honeypot', e.target.value)}
             style={{ display: 'none' }}
@@ -167,9 +174,9 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
 
           {/* Name Fields */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="firstName" className="text-sm font-medium flex items-center gap-2">
-                <User className="h-4 w-4" />
+            <div>
+              <Label htmlFor="firstName" className="flex items-center gap-2">
+                <User size={16} />
                 First Name *
               </Label>
               <Input
@@ -177,12 +184,13 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
                 type="text"
                 value={formData.firstName}
                 onChange={(e) => handleInputChange('firstName', e.target.value)}
+                placeholder="John"
                 required
-                className="border-input focus:border-accent"
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="lastName" className="text-sm font-medium">
+            <div>
+              <Label htmlFor="lastName" className="flex items-center gap-2">
+                <User size={16} />
                 Last Name *
               </Label>
               <Input
@@ -190,31 +198,31 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
                 type="text"
                 value={formData.lastName}
                 onChange={(e) => handleInputChange('lastName', e.target.value)}
+                placeholder="Smith"
                 required
-                className="border-input focus:border-accent"
               />
             </div>
           </div>
 
-          {/* Contact Fields */}
+          {/* Contact Information */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="email" className="text-sm font-medium flex items-center gap-2">
-                <Mail className="h-4 w-4" />
-                Email *
+            <div>
+              <Label htmlFor="email" className="flex items-center gap-2">
+                <Mail size={16} />
+                Email Address *
               </Label>
               <Input
                 id="email"
                 type="email"
                 value={formData.email}
                 onChange={(e) => handleInputChange('email', e.target.value)}
+                placeholder="john@example.com"
                 required
-                className="border-input focus:border-accent"
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="phone" className="text-sm font-medium flex items-center gap-2">
-                <Phone className="h-4 w-4" />
+            <div>
+              <Label htmlFor="phone" className="flex items-center gap-2">
+                <Phone size={16} />
                 Phone Number
               </Label>
               <Input
@@ -222,120 +230,111 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => handleInputChange('phone', e.target.value)}
-                className="border-input focus:border-accent"
-                placeholder="(555) 123-4567"
+                placeholder="(416) 123-4567"
               />
             </div>
           </div>
 
-          {/* Interest Fields */}
+          {/* Interest and Timeline */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="interestedIn" className="text-sm font-medium flex items-center gap-2">
-                <Home className="h-4 w-4" />
+            <div>
+              <Label htmlFor="interestedIn" className="flex items-center gap-2">
+                <Home size={16} />
                 Interested In
               </Label>
-              <Select onValueChange={(value) => handleInputChange('interestedIn', value)}>
-                <SelectTrigger className="border-input focus:border-accent">
+              <Select value={formData.interestedIn} onValueChange={(value) => handleInputChange('interestedIn', value)}>
+                <SelectTrigger>
                   <SelectValue placeholder="Select home type" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="36-feet">36' Single Family Homes</SelectItem>
-                  <SelectItem value="43-feet">43' Single Family Homes</SelectItem>
-                  <SelectItem value="50-feet">50' Single Family Homes</SelectItem>
-                  <SelectItem value="traditional-townhome">Traditional Townhomes</SelectItem>
-                  <SelectItem value="rear-lane-townhome">Rear Lane Townhomes</SelectItem>
-                  <SelectItem value="general">General Information</SelectItem>
+                  <SelectItem value="traditional-townhomes">Traditional Townhomes</SelectItem>
+                  <SelectItem value="rear-lane-townhomes">Rear-Lane Townhomes</SelectItem>
+                  <SelectItem value="36-feet">36' Single Family Home</SelectItem>
+                  <SelectItem value="43-feet">43' Single Family Home</SelectItem>
+                  <SelectItem value="50-feet">50' Single Family Home</SelectItem>
+                  <SelectItem value="not-sure">Not Sure Yet</SelectItem>
                 </SelectContent>
               </Select>
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="timeline" className="text-sm font-medium flex items-center gap-2">
-                <Clock className="h-4 w-4" />
+
+            <div>
+              <Label htmlFor="timeline" className="flex items-center gap-2">
+                <Clock size={16} />
                 Purchase Timeline
               </Label>
-              <Select onValueChange={(value) => handleInputChange('timeline', value)}>
-                <SelectTrigger className="border-input focus:border-accent">
-                  <SelectValue placeholder="Select timeline" />
+              <Select value={formData.timeline} onValueChange={(value) => handleInputChange('timeline', value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="When are you looking to buy?" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="immediate">Immediate (0-3 months)</SelectItem>
-                  <SelectItem value="short-term">Short-term (3-6 months)</SelectItem>
-                  <SelectItem value="medium-term">Medium-term (6-12 months)</SelectItem>
-                  <SelectItem value="long-term">Long-term (12+ months)</SelectItem>
-                  <SelectItem value="exploring">Just exploring</SelectItem>
+                  <SelectItem value="asap">As soon as possible</SelectItem>
+                  <SelectItem value="3-6-months">3-6 months</SelectItem>
+                  <SelectItem value="6-12-months">6-12 months</SelectItem>
+                  <SelectItem value="1-2-years">1-2 years</SelectItem>
+                  <SelectItem value="researching">Just researching</SelectItem>
                 </SelectContent>
               </Select>
             </div>
           </div>
 
           {/* Message */}
-          <div className="space-y-2">
-            <Label htmlFor="message" className="text-sm font-medium flex items-center gap-2">
-              <MessageSquare className="h-4 w-4" />
+          <div>
+            <Label htmlFor="message" className="flex items-center gap-2">
+              <MessageSquare size={16} />
               Additional Comments
             </Label>
             <Textarea
               id="message"
               value={formData.message}
               onChange={(e) => handleInputChange('message', e.target.value)}
-              placeholder="Tell us about your specific needs or questions..."
-              rows={4}
-              className="border-input focus:border-accent resize-none"
+              placeholder="Any specific questions or requirements?"
+              rows={3}
             />
           </div>
 
           {/* Consent Checkboxes */}
-          <div className="space-y-4 p-4 bg-muted/30 rounded-lg border">
-            <h4 className="font-medium text-primary">Contact Preferences *</h4>
+          <div className="space-y-3 bg-muted/50 p-4 rounded-lg">
+            <p className="text-sm font-medium text-primary mb-3">How would you like us to contact you?</p>
             
-            <div className="flex items-start space-x-2">
-              <Checkbox
+            <div className="flex items-start gap-2">
+              <Checkbox 
                 id="emailConsent"
                 checked={formData.emailConsent}
-                onCheckedChange={(checked) => handleInputChange('emailConsent', checked)}
+                onCheckedChange={(checked) => handleInputChange('emailConsent', !!checked)}
               />
               <Label htmlFor="emailConsent" className="text-sm leading-relaxed">
-                I consent to receive marketing communications via email about Union Village, 
-                including floor plans, pricing updates, and exclusive offers.
+                Yes, you may contact me via email with information about Union Village and other real estate opportunities.
               </Label>
             </div>
             
-            <div className="flex items-start space-x-2">
-              <Checkbox
+            <div className="flex items-start gap-2">
+              <Checkbox 
                 id="phoneConsent"
                 checked={formData.phoneConsent}
-                onCheckedChange={(checked) => handleInputChange('phoneConsent', checked)}
+                onCheckedChange={(checked) => handleInputChange('phoneConsent', !!checked)}
               />
               <Label htmlFor="phoneConsent" className="text-sm leading-relaxed">
-                I consent to receive phone calls and text messages about Union Village, 
-                including follow-up communications and appointment scheduling.
+                Yes, you may contact me via phone/text with information about Union Village and other real estate opportunities.
               </Label>
             </div>
-            
-            <p className="text-xs text-muted-foreground">
-              * You must provide consent for at least one form of communication. 
-              You can withdraw consent at any time.
-            </p>
           </div>
 
           {/* Submit Button */}
           <Button 
             type="submit" 
             disabled={isSubmitting}
-            className="w-full luxury-gradient text-primary font-semibold py-3 text-base hover:scale-105 transition-transform duration-200 shadow-luxury"
+            className="w-full luxury-gradient text-primary font-semibold py-4 text-lg hover:scale-105 transition-transform duration-200 disabled:hover:scale-100"
           >
-            {isSubmitting ? 'Submitting...' : 'Submit Request'}
+            {isSubmitting ? 'Submitting...' : 'Submit Information'}
           </Button>
 
-          {/* Trust Message */}
-          <div className="text-center text-sm text-muted-foreground bg-muted/30 p-4 rounded-lg">
-            <p>
-              ✓ Your information is secure and will never be shared with third parties
-              <br />
-              ✓ We'll respond within 24 hours during business days
-              <br />
-              ✓ No high-pressure sales - just helpful information
+          {/* Trust Messages */}
+          <div className="text-center space-y-2 pt-4 border-t border-border">
+            <p className="text-xs text-muted-foreground">
+              🔒 Your information is secure and will never be shared with third parties
+            </p>
+            <p className="text-xs text-muted-foreground">
+              ⚡ We typically respond within 2 hours during business hours
             </p>
           </div>
         </form>

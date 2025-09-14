@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/components/ui/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 import { Mail, Phone, User, Home, Shield, FileText, DollarSign } from 'lucide-react';
 
 const LeadForm = () => {
@@ -48,8 +49,34 @@ const LeadForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission (replace with actual CRM integration)
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Save lead to database
+      const { error } = await supabase
+        .from('leads')
+        .insert({
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          email: formData.email,
+          phone: formData.phone || null,
+          interested_in: formData.interestedIn || null,
+          price_range: formData.priceRange || null,
+          timeline: formData.timeline || null,
+          message: formData.message || null,
+          newsletter_consent: formData.newsletter,
+          privacy_consent: formData.privacy,
+          source: 'website',
+          form_type: 'lead_form',
+          user_agent: navigator.userAgent,
+        });
+
+      if (error) {
+        console.error('Error saving lead:', error);
+        toast({
+          title: "Something went wrong",
+          description: "Please try again or call us directly at 416-903-8026.",
+          variant: "destructive",
+        });
+        return;
+      }
       
       toast({
         title: "Thank you for your interest!",
@@ -71,6 +98,7 @@ const LeadForm = () => {
         honeypot: ''
       });
     } catch (error) {
+      console.error('Error submitting form:', error);
       toast({
         title: "Something went wrong",
         description: "Please try again or call us directly at 416-903-8026.",
@@ -214,7 +242,24 @@ const LeadForm = () => {
                     </Select>
                   </div>
 
-                  {/* Timeline */}
+                   {/* Price Range */}
+                   <div>
+                     <Label htmlFor="priceRange">Price Range</Label>
+                     <Select value={formData.priceRange} onValueChange={(value) => handleInputChange('priceRange', value)}>
+                       <SelectTrigger>
+                         <SelectValue placeholder="Select your budget range" />
+                       </SelectTrigger>
+                       <SelectContent>
+                         <SelectItem value="1.4-1.6M">$1.4M - $1.6M</SelectItem>
+                         <SelectItem value="1.6-1.8M">$1.6M - $1.8M</SelectItem>
+                         <SelectItem value="1.8-2.0M">$1.8M - $2.0M</SelectItem>
+                         <SelectItem value="2.0M+">$2.0M+</SelectItem>
+                         <SelectItem value="flexible">Flexible</SelectItem>
+                       </SelectContent>
+                     </Select>
+                   </div>
+
+                   {/* Timeline */}
                   <div>
                     <Label htmlFor="timeline">Purchase Timeline</Label>
                     <Select value={formData.timeline} onValueChange={(value) => handleInputChange('timeline', value)}>

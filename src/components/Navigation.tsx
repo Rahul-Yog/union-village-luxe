@@ -2,9 +2,14 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import unionVillageLogo from '@/assets/union-village-logo.jpg';
+import AuthButton from '@/components/AuthButton';
+import { useAuth } from '@/hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   const navItems = [
     { label: 'Overview', href: '#overview' },
@@ -51,7 +56,16 @@ const Navigation = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
+            {user && (
+              <Button
+                variant="outline"
+                onClick={() => navigate('/dashboard')}
+              >
+                Dashboard
+              </Button>
+            )}
+            <AuthButton />
             <Button 
               onClick={() => scrollToSection('#contact')}
               className="luxury-gradient text-primary font-semibold hover:scale-105 transition-transform duration-200"
@@ -85,7 +99,17 @@ const Navigation = () => {
                   {item.label}
                 </button>
               ))}
-              <div className="pt-4">
+              <div className="pt-4 space-y-2">
+                {user && (
+                  <Button
+                    variant="outline"
+                    onClick={() => navigate('/dashboard')}
+                    className="w-full"
+                  >
+                    Dashboard
+                  </Button>
+                )}
+                <AuthButton />
                 <Button 
                   onClick={() => scrollToSection('#contact')}
                   className="luxury-gradient text-primary font-semibold w-full"
