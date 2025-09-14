@@ -31,6 +31,7 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
     isRealtor: '',
     emailConsent: false,
     phoneConsent: false,
+    privacy: false,
     honeypot: '' // Bot protection
   });
 
@@ -70,10 +71,10 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
     }
 
     // Basic validation
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.isRealtor) {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.isRealtor || !formData.privacy) {
       toast({
         title: "Missing Information",
-        description: "Please fill in all required fields including the realtor question.",
+        description: "Please fill in all required fields including the realtor question and privacy policy.",
         variant: "destructive",
       });
       return;
@@ -104,7 +105,7 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
           message: formData.message || null,
           is_realtor: formData.isRealtor === 'yes',
           newsletter_consent: formData.emailConsent,
-          privacy_consent: formData.emailConsent || formData.phoneConsent,
+          privacy_consent: formData.privacy,
           source: 'website',
           form_type: formType,
           user_agent: navigator.userAgent,
@@ -152,6 +153,7 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
         isRealtor: '',
         emailConsent: false,
         phoneConsent: false,
+        privacy: false,
         honeypot: ''
       });
       onClose();
@@ -355,6 +357,23 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
                 Yes, you may contact me via phone/text with information about Union Village and other real estate opportunities.
               </Label>
             </div>
+          </div>
+
+          {/* Privacy Policy */}
+          <div className="flex items-start gap-2">
+            <Checkbox 
+              id="privacy"
+              checked={formData.privacy}
+              onCheckedChange={(checked) => handleInputChange('privacy', !!checked)}
+              required
+            />
+            <Label htmlFor="privacy" className="text-sm leading-relaxed">
+              I agree to the{' '}
+              <a href="/privacy-policy" target="_blank" className="text-accent hover:underline">
+                privacy policy
+              </a>{' '}
+              and consent to being contacted about Union Village. *
+            </Label>
           </div>
 
           {/* Submit Button */}
