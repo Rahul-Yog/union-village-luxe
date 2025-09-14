@@ -157,7 +157,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send the notification email
     const emailResponse = await resend.emails.send({
       from: "Union Village <onboarding@resend.dev>",
-      to: ["info@rahuljindal.ca"], // Update this with your actual email
+      to: ["rahuljindal82@gmail.com"], // Using verified testing email
       subject: `🏠 New Lead: ${lead.first_name} ${lead.last_name} - ${formatFormType(lead.form_type || 'general')}`,
       html: emailHtml,
     });
