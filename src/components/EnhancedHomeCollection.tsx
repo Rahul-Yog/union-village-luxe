@@ -8,10 +8,8 @@ import { Eye, MapPin, Maximize, Users, Car, Bath, Bed, Home } from 'lucide-react
 import LeadForm from '@/components/LeadForm';
 
 // Import all home images
-import home36Feet from '@/assets/36-feet-home.jpg';
 import home43Feet from '@/assets/43-feet-home.jpg';
 import home50Feet from '@/assets/50-feet-home.jpg';
-import home36Linden from '@/assets/home-36-linden.jpg';
 import home43RedOak from '@/assets/home-43-red-oak.jpg';
 import home50Meadow from '@/assets/home-50-meadow.jpg';
 import home50WhitePine from '@/assets/home-50-white-pine.jpg';
@@ -28,6 +26,13 @@ import rearLaneFrench from '@/assets/rear-lane-french.jpg';
 import rearLaneEnglish from '@/assets/rear-lane-english.jpg';
 import rearLaneKitchen from '@/assets/rear-lane-kitchen.jpg';
 import rearLaneBedroom from '@/assets/rear-lane-bedroom.jpg';
+// 36 Feet Home Images
+import home36French from '@/assets/36-feet-french.jpg';
+import home36English from '@/assets/36-feet-english.jpg';
+import home36Modern from '@/assets/36-feet-modern.jpg';
+import home36Contemporary from '@/assets/36-feet-contemporary.jpg';
+import home36Living from '@/assets/36-feet-living.jpg';
+import home36Kitchen from '@/assets/36-feet-kitchen.jpg';
 
 const EnhancedHomeCollection = () => {
   const [selectedHome, setSelectedHome] = useState<string | null>(null);
@@ -64,7 +69,7 @@ const EnhancedHomeCollection = () => {
     {
       id: '36-single-family',
       title: "36' Single Family Home",
-      images: [home36Feet, home36Linden],
+      images: [home36French, home36English, home36Modern, home36Contemporary, home36Living, home36Kitchen],
       description: "Spacious single family homes on 36-foot lots offering the perfect balance of luxury and functionality with thoughtfully designed layouts following feng shui principles.",
       features: ["4-5 Bedrooms", "3.5-4.5 Baths", "Double Car Garage", "Private Driveway"],
       priceRange: "Starting from $1.9M",
