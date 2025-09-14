@@ -19,7 +19,7 @@ const SitePlanSectionWithModal = () => {
     },
     {
       name: "Phase Two", 
-      status: "Coming 2026",
+      status: "Late 2026",
       badge: "Pre-Launch",
       badgeColor: "bg-blue-500"
     }
