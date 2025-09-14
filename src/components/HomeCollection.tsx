@@ -2,8 +2,6 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Home, Maximize, Users, Car } from 'lucide-react';
-import traditionalTownhome from '@/assets/traditional-townhome.jpg';
-import rearLaneTownhome from '@/assets/rear-lane-townhome.jpg';
 import home36Feet from '@/assets/36-feet-home.jpg';
 import home43Feet from '@/assets/43-feet-home.jpg';
 import home50Feet from '@/assets/50-feet-home.jpg';
@@ -11,43 +9,27 @@ import home50Feet from '@/assets/50-feet-home.jpg';
 const HomeCollection = () => {
   const homeTypes = [
     {
-      title: "Traditional Townhomes",
-      image: traditionalTownhome,
-      description: "Classic townhome design with front-facing garages and traditional architecture. Perfect for families seeking community living with modern amenities.",
-      features: ["3-4 Bedrooms", "2.5-3.5 Baths", "Integrated Garage", "Private Outdoor Space"],
-      priceRange: "From $1.4M",
-      badge: "Most Popular"
-    },
-    {
-      title: "Rear Lane Townhomes", 
-      image: rearLaneTownhome,
-      description: "Contemporary design with rear lane access garages, maximizing curb appeal and creating pedestrian-friendly streetscapes.",
-      features: ["3-4 Bedrooms", "2.5-3.5 Baths", "Rear Lane Garage", "Enhanced Curb Appeal"],
-      priceRange: "From $1.5M",
-      badge: "Limited Release"
-    },
-    {
-      title: "36 Feet Detached",
+      title: "36' Single Family Home",
       image: home36Feet,
-      description: "Spacious detached homes on 36-foot lots offering the perfect balance of luxury and value with thoughtful layouts.",
+      description: "Spacious single family homes on 36-foot lots offering the perfect balance of luxury and functionality with thoughtfully designed layouts following feng shui principles.",
       features: ["4-5 Bedrooms", "3.5-4.5 Baths", "Double Car Garage", "Private Driveway"],
-      priceRange: "From $1.8M",
+      priceRange: "Coming Soon",
       badge: "Great Value"
     },
     {
-      title: "43 Feet Detached",
+      title: "43' Single Family Home",
       image: home43Feet,
-      description: "Premium detached homes with enhanced lot sizes, offering more space for families and elegant entertaining areas.",
+      description: "Premium single family homes with enhanced lot sizes, offering more space for families and elegant entertaining areas designed for harmony and happiness.",
       features: ["4-6 Bedrooms", "4-5 Baths", "Double Car Garage", "Larger Lots"],
-      priceRange: "From $2.1M",
+      priceRange: "Coming Soon", 
       badge: "Premium"
     },
     {
-      title: "50 Feet Detached",
+      title: "50' Single Family Home",
       image: home50Feet,
-      description: "Luxury estate homes on generous 50-foot lots, featuring the finest finishes and most spacious layouts in the community.",
+      description: "Luxury estate homes on generous 50-foot lots, featuring the finest finishes and most spacious layouts in the community, designed with feng shui expertise.",
       features: ["5-6 Bedrooms", "5-6 Baths", "Triple Car Garage", "Estate Lots"],
-      priceRange: "From $2.5M",
+      priceRange: "Coming Soon",
       badge: "Ultra Luxury"
     }
   ];
@@ -69,8 +51,8 @@ const HomeCollection = () => {
           </h2>
           <div className="w-24 h-1 luxury-gradient mx-auto mb-8"></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Discover our curated selection of homes, each designed with feng shui principles 
-            and modern luxury in mind. From intimate townhomes to grand estate homes.
+            Discover our collection of single family homes, each designed with feng shui principles 
+            by international master Paul Ng to promote harmony, happiness, and a better quality of life.
           </p>
         </div>
 

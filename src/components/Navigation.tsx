@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import unionVillageLogo from '@/assets/union-village-logo.jpg';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,9 +28,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-display font-bold text-primary">
-              Union Village
-            </h1>
+            <img 
+              src={unionVillageLogo} 
+              alt="Union Village" 
+              className="h-12 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}

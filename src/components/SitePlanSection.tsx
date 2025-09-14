@@ -9,23 +9,14 @@ const SitePlanSection = () => {
     {
       name: "Phase 1",
       status: "Completed",
-      homes: "350 Homes",
       badge: "Sold Out",
       badgeColor: "bg-trust-green"
     },
     {
       name: "Phase 2", 
       status: "Now Available",
-      homes: "180 Homes",
       badge: "Available",
       badgeColor: "luxury-gradient"
-    },
-    {
-      name: "Phase 3",
-      status: "Coming 2025",
-      homes: "220 Homes",
-      badge: "Future",
-      badgeColor: "bg-muted"
     }
   ];
 
@@ -116,14 +107,9 @@ const SitePlanSection = () => {
                     {phase.name}
                   </h4>
                   
-                  <p className="text-accent font-semibold mb-2">
+                  <p className="text-accent font-semibold mb-4">
                     {phase.status}
                   </p>
-                  
-                  <div className="flex items-center justify-center gap-2 text-muted-foreground mb-4">
-                    <Home className="h-4 w-4" />
-                    <span className="text-sm">{phase.homes}</span>
-                  </div>
                   
                   {phase.badge === "Available" && (
                     <Button 
@@ -131,16 +117,6 @@ const SitePlanSection = () => {
                       className="cta-secondary w-full"
                     >
                       View Available Homes
-                    </Button>
-                  )}
-                  
-                  {phase.badge === "Future" && (
-                    <Button 
-                      onClick={scrollToContact}
-                      variant="outline"
-                      className="w-full"
-                    >
-                      Join Interest List
                     </Button>
                   )}
                 </div>
@@ -174,37 +150,6 @@ const SitePlanSection = () => {
           </div>
         </div>
 
-        {/* Green Spaces Highlight */}
-        <div className="text-center">
-          <Card className="luxury-card bg-gradient-to-br from-trust-green/5 to-primary/5 border-trust-green/20 max-w-4xl mx-auto">
-            <div className="p-8">
-              <Trees className="h-16 w-16 text-trust-green mx-auto mb-6" />
-              <h3 className="text-3xl font-display font-bold text-primary mb-4">
-                40% Green Space Commitment
-              </h3>
-              <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Union Village is committed to preserving and creating green spaces that enhance 
-                quality of life. With preserved wetlands, community parks, and tree-lined streets, 
-                residents enjoy a natural oasis within the urban setting.
-              </p>
-              
-              <div className="grid sm:grid-cols-3 gap-6 mt-8">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-trust-green mb-2">15 Acres</div>
-                  <div className="text-sm text-muted-foreground">Central Park & Recreation</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-trust-green mb-2">8 km</div>
-                  <div className="text-sm text-muted-foreground">Walking & Cycling Trails</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-trust-green mb-2">25 Acres</div>
-                  <div className="text-sm text-muted-foreground">Preserved Wetlands</div>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </div>
       </div>
     </section>
   );

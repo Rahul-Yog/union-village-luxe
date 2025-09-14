@@ -1,5 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { MapPin, Train, Plane, ShoppingBag, GraduationCap, Hospital, TreePine } from 'lucide-react';
+import neighbourhoodMap from '@/assets/neighbourhood-map.jpg';
 
 const LocationSection = () => {
   const amenities = [
@@ -167,6 +168,20 @@ const LocationSection = () => {
                 the peaceful suburban lifestyle you desire.
               </p>
             </div>
+          </Card>
+        </div>
+
+        {/* Neighbourhood Map */}
+        <div className="mt-16">
+          <h3 className="text-3xl font-display font-bold text-primary text-center mb-8">
+            Neighbourhood Map
+          </h3>
+          <Card className="luxury-card overflow-hidden max-w-4xl mx-auto">
+            <img 
+              src={neighbourhoodMap} 
+              alt="Union Village Neighbourhood Map" 
+              className="w-full h-auto"
+            />
           </Card>
         </div>
       </div>

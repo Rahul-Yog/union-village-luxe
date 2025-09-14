@@ -52,14 +52,6 @@ const Footer = () => {
                     </a>
                   </div>
                   
-                  <div className="flex items-start gap-3">
-                    <MapPin className="h-4 w-4 text-luxury-gold flex-shrink-0 mt-1" />
-                    <span className="text-primary-foreground/80 text-sm">
-                      Union Village<br />
-                      16th Avenue & Kennedy Road<br />
-                      Markham, ON
-                    </span>
-                  </div>
                 </div>
               </div>
             </Card>
@@ -119,15 +111,6 @@ const Footer = () => {
                 Schedule Consultation
               </Button>
               
-              <div className="bg-primary-light border border-primary-lighter rounded-lg p-4">
-                <h4 className="font-semibold text-primary-foreground mb-2">
-                  Available 7 Days a Week
-                </h4>
-                <p className="text-primary-foreground/80 text-sm">
-                  Monday - Sunday: 8:00 AM - 9:00 PM<br />
-                  Emergency: 24/7 availability
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -141,8 +124,11 @@ const Footer = () => {
               <p className="mb-2">
                 © {currentYear} Rahul Jindal, Real Estate Sales Representative, RE/MAX Skyway Realty Inc. Brokerage
               </p>
-              <p>
+              <p className="mb-2">
                 Not intended to solicit buyers or sellers currently under contract with a real estate brokerage.
+              </p>
+              <p>
+                <strong>Disclaimer:</strong> We are independent Real Estate Broker/Sales Representatives. We do not represent the Builder. All information on the project is subject to change by the Builder. E. & O.E.
               </p>
             </div>
             

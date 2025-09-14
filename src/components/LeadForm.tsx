@@ -18,7 +18,7 @@ const LeadForm = () => {
     email: '',
     phone: '',
     interestedIn: '',
-    priceRange: '',
+        priceRange: '',
     timeline: '',
     message: '',
     newsletter: false,
@@ -36,7 +36,7 @@ const LeadForm = () => {
     }
     
     // Basic validation
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.privacy) {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.privacy) {
       toast({
         title: "Please fill in all required fields",
         description: "Make sure to accept the privacy policy to continue.",
@@ -212,51 +212,31 @@ const LeadForm = () => {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="phone">Phone Number *</Label>
+                      <Label htmlFor="phone">Phone Number (Optional)</Label>
                       <Input
                         id="phone"
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => handleInputChange('phone', e.target.value)}
                         placeholder="(416) 123-4567"
-                        required
                       />
                     </div>
                   </div>
 
-                  {/* Interest & Budget */}
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="interestedIn">Interested In</Label>
-                      <Select value={formData.interestedIn} onValueChange={(value) => handleInputChange('interestedIn', value)}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select home type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="traditional-townhomes">Traditional Townhomes</SelectItem>
-                          <SelectItem value="rear-lane-townhomes">Rear Lane Townhomes</SelectItem>
-                          <SelectItem value="36-feet">36 Feet Detached</SelectItem>
-                          <SelectItem value="43-feet">43 Feet Detached</SelectItem>
-                          <SelectItem value="50-feet">50 Feet Detached</SelectItem>
-                          <SelectItem value="not-sure">Not Sure Yet</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div>
-                      <Label htmlFor="priceRange">Budget Range</Label>
-                      <Select value={formData.priceRange} onValueChange={(value) => handleInputChange('priceRange', value)}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select budget" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="1.4-1.7m">$1.4M - $1.7M</SelectItem>
-                          <SelectItem value="1.7-2.0m">$1.7M - $2.0M</SelectItem>
-                          <SelectItem value="2.0-2.5m">$2.0M - $2.5M</SelectItem>
-                          <SelectItem value="2.5m+">$2.5M+</SelectItem>
-                          <SelectItem value="flexible">Flexible</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
+                  {/* Interest */}
+                  <div>
+                    <Label htmlFor="interestedIn">Interested In</Label>
+                    <Select value={formData.interestedIn} onValueChange={(value) => handleInputChange('interestedIn', value)}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select home type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="36-feet">36' Single Family Home</SelectItem>
+                        <SelectItem value="43-feet">43' Single Family Home</SelectItem>
+                        <SelectItem value="50-feet">50' Single Family Home</SelectItem>
+                        <SelectItem value="not-sure">Not Sure Yet</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   {/* Timeline */}
@@ -309,7 +289,11 @@ const LeadForm = () => {
                         required
                       />
                       <Label htmlFor="privacy" className="text-sm leading-relaxed">
-                        I agree to the privacy policy and consent to being contacted about Union Village. *
+                        I agree to the{' '}
+                        <a href="/privacy-policy" target="_blank" className="text-accent hover:underline">
+                          privacy policy
+                        </a>{' '}
+                        and consent to being contacted about Union Village. *
                       </Label>
                     </div>
                   </div>
