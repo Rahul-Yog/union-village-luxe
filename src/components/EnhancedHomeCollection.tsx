@@ -9,17 +9,21 @@ import LeadForm from '@/components/LeadForm';
 
 // Import all home images
 import traditionalTownhome from '@/assets/traditional-townhome.jpg';
-import rearLaneTownhome from '@/assets/rear-lane-townhome.jpg';
 import home36Feet from '@/assets/36-feet-home.jpg';
 import home43Feet from '@/assets/43-feet-home.jpg';
 import home50Feet from '@/assets/50-feet-home.jpg';
 import townhomesTraditional from '@/assets/townhomes-traditional.jpg';
-import townhomesRearLane from '@/assets/townhomes-rear-lane.jpg';
 import home36Linden from '@/assets/home-36-linden.jpg';
 import home43RedOak from '@/assets/home-43-red-oak.jpg';
 import home50Meadow from '@/assets/home-50-meadow.jpg';
 import home50WhitePine from '@/assets/home-50-white-pine.jpg';
 import floorPlanTeaser from '@/assets/floor-plan-teaser.jpg';
+// Rear-Lane Townhome Images
+import rearLaneModern from '@/assets/rear-lane-modern.jpg';
+import rearLaneFrench from '@/assets/rear-lane-french.jpg';
+import rearLaneEnglish from '@/assets/rear-lane-english.jpg';
+import rearLaneKitchen from '@/assets/rear-lane-kitchen.jpg';
+import rearLaneBedroom from '@/assets/rear-lane-bedroom.jpg';
 
 const EnhancedHomeCollection = () => {
   const [selectedHome, setSelectedHome] = useState<string | null>(null);
@@ -42,7 +46,7 @@ const EnhancedHomeCollection = () => {
     {
       id: 'rear-lane-townhomes',
       title: "Rear-Lane Townhomes",
-      images: [rearLaneTownhome, townhomesRearLane],
+      images: [rearLaneModern, rearLaneFrench, rearLaneEnglish, rearLaneKitchen, rearLaneBedroom],
       description: "Sophisticated townhomes with timeless architectural aesthetics available in Modern, French, and English Manor styles. Features double car garage and expansive rooftop terrace.",
       features: ["Double Car Garage", "Rooftop Terrace", "Modern Design", "Lane Access"],
       priceRange: "Starting from $1.4M",
