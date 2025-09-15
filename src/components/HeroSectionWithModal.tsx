@@ -29,22 +29,22 @@ const HeroSectionWithModal = () => {
         <div className="relative z-10 container-custom text-center text-white">
           <div className="max-w-4xl mx-auto animate-fade-in">
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center gap-3 md:gap-6 mb-8 text-xs sm:text-sm">
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-2 md:px-4 md:py-2 rounded-full">
-                <MapPin size={14} className="text-luxury-gold sm:w-4 sm:h-4" />
-                <span className="whitespace-nowrap">16th Avenue & Kennedy Road</span>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-6 mb-8 text-xs sm:text-sm px-4">
+              <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-md px-2.5 sm:px-3 py-1.5 sm:py-2 md:px-4 md:py-2 rounded-full">
+                <MapPin size={12} className="text-luxury-gold sm:w-4 sm:h-4 flex-shrink-0" />
+                <span className="text-[10px] sm:text-xs md:text-sm">16th Ave & Kennedy</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-2 md:px-4 md:py-2 rounded-full">
-                <DollarSign size={14} className="text-luxury-gold sm:w-4 sm:h-4" />
-                <span className="whitespace-nowrap">From $1.4M</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-md px-2.5 sm:px-3 py-1.5 sm:py-2 md:px-4 md:py-2 rounded-full">
+                <DollarSign size={12} className="text-luxury-gold sm:w-4 sm:h-4 flex-shrink-0" />
+                <span className="text-[10px] sm:text-xs md:text-sm">From $1.4M</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-2 md:px-4 md:py-2 rounded-full">
-                <Clock size={14} className="text-luxury-gold sm:w-4 sm:h-4" />
-                <span className="whitespace-nowrap">Late 2026 Completion</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-md px-2.5 sm:px-3 py-1.5 sm:py-2 md:px-4 md:py-2 rounded-full">
+                <Clock size={12} className="text-luxury-gold sm:w-4 sm:h-4 flex-shrink-0" />
+                <span className="text-[10px] sm:text-xs md:text-sm">Late 2026</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-2 md:px-4 md:py-2 rounded-full">
-                <span className="w-3.5 h-3.5 sm:w-4 sm:h-4 bg-luxury-gold rounded-full flex items-center justify-center text-[10px] sm:text-xs font-bold text-primary">2</span>
-                <span className="whitespace-nowrap">Phase 2 Now Selling</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-md px-2.5 sm:px-3 py-1.5 sm:py-2 md:px-4 md:py-2 rounded-full">
+                <span className="w-3 h-3 sm:w-4 sm:h-4 bg-luxury-gold rounded-full flex items-center justify-center text-[8px] sm:text-xs font-bold text-primary flex-shrink-0">2</span>
+                <span className="text-[10px] sm:text-xs md:text-sm">Phase 2 Now</span>
               </div>
             </div>
 
