@@ -37,6 +37,10 @@ const HeroSection = () => {
               <Clock size={16} className="text-luxury-gold" />
               <span>2027 Completion</span>
             </div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
+              <span className="w-4 h-4 bg-luxury-gold rounded-full flex items-center justify-center text-xs font-bold text-primary">2</span>
+              <span>Phase 2 Now Selling</span>
+            </div>
           </div>
 
           {/* Main Headline */}
