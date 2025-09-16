@@ -52,7 +52,7 @@ const CommunityRenderings = () => {
   };
 
   return (
-    <section className="section-spacing bg-background">
+    <section id="community-renderings" className="section-spacing bg-background">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">

@@ -39,7 +39,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="section-spacing bg-muted/30">
+    <section id="faq" className="section-spacing bg-muted/30">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
