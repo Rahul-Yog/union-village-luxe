@@ -12,11 +12,11 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   const navItems = [
-    { label: 'Overview', href: '#overview' },
-    { label: 'Location', href: '#location' },
-    { label: 'Site Plan', href: '#site-plan' },
-    { label: 'Home Collection', href: '#home-collection' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'New Homes Overview', href: '#overview' },
+    { label: 'Markham Location', href: '#location' },
+    { label: 'Community Site Plan', href: '#site-plan' },
+    { label: 'Unionville Houses For Sale', href: '#home-collection' },
+    { label: 'Contact Agent', href: '#contact' },
   ];
 
   const scrollToSection = (href: string) => {

@@ -27,10 +27,100 @@
     
     <link rel="canonical" href="https://unionvillage.ca" />
     
-    <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' *.google-analytics.com *.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:;">
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/assets/hero-union-village-new.jpg" as="image" type="image/jpeg">
+    <link rel="preload" href="/src/assets/union-village-logo.jpg" as="image" type="image/jpeg">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="geo.region" content="CA-ON">
+    <meta name="geo.placename" content="Markham, Ontario">
+    <meta name="geo.position" content="43.8561;-79.2929">
+    <meta name="ICBM" content="43.8561, -79.2929">
+    <meta name="language" content="en-CA">
+    <meta name="distribution" content="global">
+    <meta name="target" content="all">
+    <meta name="audience" content="all">
+    <meta name="coverage" content="Worldwide">
+    <meta name="rating" content="General">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Rahul Jindal",
+      "jobTitle": "Real Estate Sales Representative",
+      "worksFor": {
+        "@type": "RealEstateAgency",
+        "name": "RE/MAX Skyway Realty Inc. Brokerage"
+      },
+      "telephone": "+1-416-903-8026",
+      "email": "info@rahuljindal.ca",
+      "url": "https://unionvillage.ca",
+      "areaServed": ["Markham", "Unionville", "York Region", "Greater Toronto Area"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Markham",
+        "@type": "PostalAddress",
+        "addressRegion": "Ontario",
+        "addressCountry": "CA"
+      },
+      "knowsAbout": ["Unionville Houses For Sale", "New Homes in Markham", "Luxury Real Estate", "Pre-construction Homes"],
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "43.8561",
+          "longitude": "-79.2929"
+        },
+        "geoRadius": "50000"
+      }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Where are Union Village homes located?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Union Village is located at 16th Avenue and Kennedy Road in Markham, Ontario. This prestigious location offers easy access to Unionville's historic charm and metropolitan conveniences."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the price range for Unionville houses for sale at Union Village?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Union Village luxury homes start from $1.4 million. These are premium new homes in Markham with expected completion in late 2026."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who are the developers of Union Village?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Union Village is developed by The Minto Group and Metropia, two renowned builders known for creating exceptional master-planned communities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When will the new homes in Markham be ready for occupancy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The new homes at Union Village are expected to be move-in ready by late 2026. Phase 2 is currently available for pre-construction sales."
+          }
+        }
+      ]
+    }
+    </script>
     
     <!-- Structured Data for Real Estate -->
     <script type="application/ld+json">

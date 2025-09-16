@@ -66,12 +66,12 @@ const LocationSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mb-6">
-            Prime Markham Location
+            Unionville Location & Neighbourhood
           </h2>
           <div className="w-24 h-1 luxury-gradient mx-auto mb-8"></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Located at the prestigious intersection of 16th Avenue and Kennedy Road, 
-            Union Village offers the perfect balance of small-town charm and metropolitan convenience.
+            our Unionville houses for sale offer the perfect balance of small-town charm and metropolitan convenience.
           </p>
         </div>
 

@@ -5,6 +5,7 @@ import LocationSection from '@/components/LocationSection';
 import SitePlanSectionWithModal from '@/components/SitePlanSectionWithModal';
 import EnhancedHomeCollection from '@/components/EnhancedHomeCollection';
 import CommunityRenderings from '@/components/CommunityRenderings';
+import FAQSection from '@/components/FAQSection';
 import LeadForm from '@/components/LeadForm';
 import Footer from '@/components/Footer';
 
@@ -18,6 +19,7 @@ const Index = () => {
       <SitePlanSectionWithModal />
       <EnhancedHomeCollection />
       <CommunityRenderings />
+      <FAQSection />
       <LeadForm />
       <Footer />
     </div>

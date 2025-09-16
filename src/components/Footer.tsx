@@ -66,19 +66,25 @@ const Footer = () => {
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 luxury-gradient rounded-full"></div>
-                <span className="text-primary-foreground/80">Developed by The Minto Group & Metropia</span>
+                <a href="#overview" className="text-primary-foreground/80 hover:text-luxury-gold transition-colors">
+                  New Homes in Markham by Minto Group & Metropia
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 luxury-gradient rounded-full"></div>
-                <span className="text-primary-foreground/80">Expected Completion: Late 2026</span>
+                <a href="#location" className="text-primary-foreground/80 hover:text-luxury-gold transition-colors">
+                  16th Avenue & Kennedy Road Location
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 luxury-gradient rounded-full"></div>
-                <span className="text-primary-foreground/80">Starting from $1.4 Million</span>
+                <a href="#home-collection" className="text-primary-foreground/80 hover:text-luxury-gold transition-colors">
+                  Luxury Unionville Houses Starting from $1.4M
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 luxury-gradient rounded-full"></div>
-                <span className="text-primary-foreground/80">Feng Shui Designed Interiors</span>
+                <span className="text-primary-foreground/80">Feng Shui Designed Interiors by Paul Ng</span>
               </div>
             </div>
 
