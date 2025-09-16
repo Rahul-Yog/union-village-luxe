@@ -92,6 +92,15 @@ const LeadForm = () => {
 
       console.log('Lead submitted successfully:', data);
       
+      // Track Google Ads conversion
+      if (typeof (window as any).gtag !== 'undefined') {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-482683507',
+          'event_category': 'Lead Generation',
+          'event_label': 'Lead Form Submission'
+        });
+      }
+      
       toast({
         title: "Thank you for your interest!",
         description: "Floor plans and pricing information will be sent to your email.",

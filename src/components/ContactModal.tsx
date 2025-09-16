@@ -122,6 +122,15 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
 
       console.log('Lead submitted successfully:', data);
 
+      // Track Google Ads conversion
+      if (typeof (window as any).gtag !== 'undefined') {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-482683507',
+          'event_category': 'Lead Generation',
+          'event_label': `${formType} Form Submission`
+        });
+      }
+
       toast({
         title: "Thank You!",
         description: "Your information has been submitted. We'll contact you soon.",
