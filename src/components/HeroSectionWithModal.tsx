@@ -50,15 +50,14 @@ const HeroSectionWithModal = () => {
 
             {/* Main Headline */}
             <h1 className="hero-title font-display font-bold mb-6 leading-tight">
-              Welcome to
-              <span className="block text-gradient">Union Village</span>
+              <span className="text-gradient">Unionville Houses For Sale</span>
+              <span className="block">at Union Village</span>
             </h1>
 
             {/* Subheadline */}
             <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
-              An extraordinary master-planned community that combines small-town charm 
-              with metropolitan opportunity. Discover thoughtfully designed homes 
-              where luxury meets livability.
+              Looking for luxury Unionville homes for sale? Our beautiful new homes in Markham 
+              combine modern design with the perfect location. Move-in ready late 2026.
             </p>
 
             {/* Builder Credibility */}

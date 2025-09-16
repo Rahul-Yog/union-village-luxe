@@ -72,7 +72,7 @@ const SitePlanSection = () => {
             <div className="relative">
               <img 
                 src={sitePlanImage} 
-                alt="Union Village Master Site Plan"
+                alt="Union Village Master Site Plan - Luxury Community Layout | Unionville Houses For Sale in Markham"
                 className="w-full h-auto"
               />
               <div className="absolute top-4 right-4">

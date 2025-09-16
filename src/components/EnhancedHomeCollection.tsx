@@ -149,7 +149,7 @@ const EnhancedHomeCollection = () => {
                         <div className="relative overflow-hidden rounded-t-lg">
                           <img 
                             src={image} 
-                            alt={`${home.title} - View ${idx + 1}`}
+                            alt={`${home.title} Luxury Home in Unionville - View ${idx + 1} | New Homes in Markham`}
                             className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                           />
                         </div>
@@ -216,7 +216,7 @@ const EnhancedHomeCollection = () => {
                 <div className="relative mb-4 group/teaser">
                   <img 
                     src={floorPlanTeaser} 
-                    alt="Floor Plan Preview"
+                    alt="Union Village Floor Plans - Luxury Unionville Houses For Sale | New Homes in Markham"
                     className="w-full h-24 object-cover rounded-lg filter blur-sm group-hover/teaser:blur-none transition-all duration-300"
                   />
                   <div className="absolute inset-0 bg-primary/20 rounded-lg flex items-center justify-center group-hover/teaser:bg-primary/10 transition-all duration-300">

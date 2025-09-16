@@ -82,7 +82,7 @@ const HomeCollection = () => {
               <div className="relative overflow-hidden rounded-t-lg">
                 <img 
                   src={home.image} 
-                  alt={home.title}
+                  alt={`${home.title} - Luxury Unionville Home For Sale | New Homes in Markham`}
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute top-4 left-4">

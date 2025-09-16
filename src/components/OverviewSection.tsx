@@ -31,7 +31,7 @@ const OverviewSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mb-6">
-            Welcome to Union Village
+            Explore Our Unionville Homes For Sale
           </h2>
           <div className="w-24 h-1 luxury-gradient mx-auto mb-8"></div>
         </div>
@@ -42,22 +42,25 @@ const OverviewSection = () => {
           <div className="animate-slide-up">
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                The vision for Union Village is an extraordinary new master-planned community that looks and feels like part of an established neighbourhood. With the first phase of distinctive homes, modern amenities, and abundant green space complete, that vision has become a reality.
+                Union Village offers luxury homes for sale in Unionville. Our master-planned community 
+                brings together beautiful new homes with established neighbourhood charm.
               </p>
               
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Located at the corner of 16th Avenue and Kennedy Road, Union Village offers the small-town charm and character of Unionville, with the access and opportunity of the Markham metropolis.
+                Located at 16th Avenue and Kennedy Road in Markham, these new homes in Markham 
+                offer small-town charm with big-city access.
               </p>
               
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                Beautiful homes and new local landmarks dot the landscape, nestled between preserved wetlands, new pedestrian and cycling trails, and sprawling parks. Today, the area is animated with residents strolling along the streetscapes, proud to be part of this master-planned masterpiece.
+                Beautiful homes sit between preserved wetlands, walking trails, and parks. 
+                This master-planned community is perfect for families looking for quality living.
               </p>
 
               <div className="bg-card-elevated border-l-4 border-accent p-6 rounded-lg">
-                <p className="text-primary font-semibold mb-2">New Release Available</p>
+                <p className="text-primary font-semibold mb-2">New Homes Available Now</p>
                 <p className="text-muted-foreground">
-                  The neighbourhood is growing once more, with a new release of homes. 
-                  Discover a truly complete community.
+                  Phase 2 homes are now available. Contact us to learn more about 
+                  these premium Unionville houses for sale.
                 </p>
               </div>
             </div>

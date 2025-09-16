@@ -1,3 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://unionvillage.ca/sitemap.xml
+
+# Specific bot rules
 User-agent: Googlebot
 Allow: /
 
@@ -10,5 +17,5 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+# Crawl-delay for general bots
+Crawl-delay: 1

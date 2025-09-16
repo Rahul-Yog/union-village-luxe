@@ -74,11 +74,11 @@ const CommunityRenderings = () => {
                 <CarouselItem key={rendering.id}>
                   <Card className="luxury-card overflow-hidden">
                     <div className="relative">
-                      <img
-                        src={rendering.image}
-                        alt={rendering.title}
-                        className="w-full h-[600px] object-cover"
-                      />
+                        <img
+                          src={rendering.image}
+                          alt={`${rendering.title} - Luxury Union Village Community Rendering | Unionville Homes For Sale`}
+                          className="w-full h-[600px] object-cover"
+                        />
                       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
                         <div className="max-w-2xl">
                           <h3 className="text-2xl font-display font-bold text-white mb-3">

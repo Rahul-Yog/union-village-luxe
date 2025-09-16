@@ -80,7 +80,7 @@ const SitePlanSectionWithModal = () => {
               <div className="relative">
                 <img 
                   src={sitePlan} 
-                  alt="Union Village Master Community Plan" 
+                  alt="Union Village Master Community Site Plan - 16th Avenue & Kennedy Road | New Homes in Markham Layout" 
                   className="w-full h-auto group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

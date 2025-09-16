@@ -35,7 +35,7 @@ const Navigation = () => {
           <div className="flex-shrink-0">
             <img 
               src={unionVillageLogo} 
-              alt="Union Village" 
+              alt="Union Village - Unionville Houses For Sale | Luxury New Homes in Markham" 
               className="h-12 w-auto"
             />
           </div>

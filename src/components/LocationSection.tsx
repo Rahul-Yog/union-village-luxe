@@ -99,7 +99,7 @@ const LocationSection = () => {
           <Card className="luxury-card overflow-hidden max-w-4xl mx-auto">
             <img 
               src={neighbourhoodMap} 
-              alt="Union Village Neighbourhood Map" 
+              alt="Union Village Neighbourhood Map - 16th Avenue & Kennedy Road Markham | Unionville Homes For Sale Location" 
               className="w-full h-auto"
             />
           </Card>
