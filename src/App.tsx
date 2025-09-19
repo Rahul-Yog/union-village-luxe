@@ -9,6 +9,7 @@ import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
+import CrownOfCaledon from "./pages/CrownOfCaledon";
 import { useState } from "react";
 
 const App = () => {
@@ -28,7 +29,8 @@ const App = () => {
           <Sonner />
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Index />} />
+              <Route path="/" element={<CrownOfCaledon />} />
+              <Route path="/union-village" element={<Index />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
