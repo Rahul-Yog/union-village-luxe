@@ -2,9 +2,6 @@ import { useState } from 'react';
 import { MapPin, Calendar, DollarSign, Building2, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ContactModal from '@/components/crown/CrownContactModal';
-import crownHeroImage from '@/assets/crown-hero-rendering.jpg';
-import fieldgateLogo from '@/assets/fieldgate-logo.jpg';
-
 const CrownHeroSection = () => {
   const [isFloorPlansModalOpen, setIsFloorPlansModalOpen] = useState(false);
 
@@ -18,7 +15,7 @@ const CrownHeroSection = () => {
   return (
     <section 
       className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden"
-      style={{ backgroundImage: `url(${crownHeroImage})` }}
+      style={{ backgroundImage: `url(/crown-hero-rendering.jpg)` }}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
       
@@ -61,7 +58,7 @@ const CrownHeroSection = () => {
 
             {/* Builder Credibility */}
             <div className="flex items-center gap-4 py-4">
-              <img src={fieldgateLogo} alt="Fieldgate Homes" className="h-12 object-contain" />
+              <img src="/fieldgate-logo.jpg" alt="Fieldgate Homes" className="h-12 object-contain" />
               <div>
                 <p className="font-semibold">Built by Fieldgate Homes</p>
                 <p className="text-sm text-gray-300">Over 65 Years of Excellence</p>
