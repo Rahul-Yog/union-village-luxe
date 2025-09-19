@@ -13,12 +13,12 @@ const CrownLocationSection = () => {
 
   const communityFeatures = [
     {
-      title: "Cultural Connectivity",
+      title: "Shopping & Services",
       items: [
-        "Gurdwaras within 10 minutes",
-        "Hindu temples nearby",
-        "Islamic centers accessible",
-        "Indian grocery stores"
+        "Major shopping centers nearby",
+        "Grocery stores and pharmacies",
+        "Restaurants and entertainment", 
+        "Banking and professional services"
       ]
     },
     {

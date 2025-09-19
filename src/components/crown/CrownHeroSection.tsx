@@ -56,7 +56,7 @@ const CrownHeroSection = () => {
                   Starting from $730K - <span className="text-accent font-semibold">$20K+ Less than Competitors!</span>
                 </p>
                 <p className="text-base text-gray-300">
-                  🏡 Perfect for Indian families • 🕌 Close to Temples & Gurudwaras • 🌟 Fieldgate's 65+ Years Excellence
+                  🏡 Perfect for modern families • ⛪ Minutes from places of worship • 🌟 Fieldgate's 65+ Years Excellence
                 </p>
               </div>
             </div>
@@ -101,7 +101,7 @@ const CrownHeroSection = () => {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-accent" />
-                <span>Punjabi & Hindi consultation</span>
+                <span>Punjabi, Hindi & English consultation</span>
               </div>
             </div>
           </div>

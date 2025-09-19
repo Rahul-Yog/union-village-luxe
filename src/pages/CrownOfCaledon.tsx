@@ -15,7 +15,7 @@ const CrownOfCaledon = () => {
       <Helmet>
         <title>Crown of Caledon - Freehold Townhomes & Detached Homes from $730K | Fieldgate</title>
         <meta name="description" content="Crown of Caledon by Fieldgate Homes - Luxury freehold townhomes and 38' & 60' detached homes starting from $730K. Located at Hurontario St & Mayfield Rd, Caledon. Beat competitor prices by $20K+." />
-        <meta name="keywords" content="Crown of Caledon, Fieldgate Homes, new homes Caledon, detached homes Brampton, freehold townhomes, Hurontario Mayfield, Indian community homes, Sikh community Caledon, Hindu families Brampton, Muslim community homes" />
+        <meta name="keywords" content="Crown of Caledon, Fieldgate Homes, new homes Caledon, detached homes Brampton, freehold townhomes, Hurontario Mayfield, new construction Caledon, luxury homes GTA, family homes Brampton, real estate Caledon" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />

@@ -1,315 +1,239 @@
-import { useState } from 'react';
-import { Bed, Bath, Car, Maximize, Eye, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import LeadForm from '@/components/LeadForm';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { Home, Bed, Bath, Car } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { useState } from 'react';
+import ContactModal from '@/components/crown/CrownContactModal';
+
+// Import elevation images
+import townElevA from '@/assets/town-elev-a.png';
+import townElevB from '@/assets/town-elev-b.png';
+import townElevC from '@/assets/town-elev-c.png';
 
 const CrownHomeCollection = () => {
-  const [selectedHome, setSelectedHome] = useState<string | null>(null);
-  const [isLeadModalOpen, setIsLeadModalOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [selectedCollection, setSelectedCollection] = useState<string>('');
 
-  const homeTypes = [
+  const homeCollections = [
     {
-      id: 'sterling',
-      title: 'The Sterling',
-      sqft: '1,602',
-      bedrooms: 3,
-      bathrooms: 2.5,
-      garage: '2-Car',
-      lotSize: '20\' x 50\'',
-      priceRange: '$730K - $750K',
-      architecturalStyle: 'Contemporary',
-      images: [
-        '/api/placeholder/600/400',
-        '/api/placeholder/600/400',
-        '/api/placeholder/600/400'
-      ],
-      floorPlanTeaser: '/api/placeholder/400/300',
-      description: 'Elegantly designed with an open-concept layout perfect for entertaining and family gatherings.',
-      features: [
-        '9\' ceilings on main floor',
-        'Granite countertops in kitchen',
-        'Hardwood floors in living areas',
-        'En-suite master bathroom',
-        'Walk-in closet',
-        'Covered balcony',
-        'Finished basement',
-        'Energy-efficient appliances'
-      ],
-      culturalFeatures: [
-        'Spacious kitchen for family cooking',
-        'Open layout for gatherings',
-        'Separate entrance to basement',
-        'Prayer room potential'
-      ]
+      id: 'city-townhomes',
+      title: 'City Townhomes',
+      subtitle: 'Regalia • Jewel • Sceptre • Sterling • Abbey',
+      description: 'Modern townhome designs featuring 6 distinct architectural elevations in the heart of the community.',
+      elevations: 6,
+      images: [townElevA, townElevB, townElevC],
+      features: ['3 Bedrooms', '2.5-3 Bathrooms', '1 Car Garage', '1,602-1,620 sq ft'],
+      priceRange: 'Starting from $730K',
+      badge: 'Popular Choice',
+      available: true
     },
     {
-      id: 'regalia',
-      title: 'The Regalia',
-      sqft: '1,602 - 1,620',
-      bedrooms: 3,
-      bathrooms: 2.5,
-      garage: '2-Car',
-      lotSize: '20\' x 50\'',
-      priceRange: '$735K - $760K',
-      architecturalStyle: 'Traditional',
-      images: [
-        '/api/placeholder/600/400',
-        '/api/placeholder/600/400',
-        '/api/placeholder/600/400'
-      ],
-      floorPlanTeaser: '/api/placeholder/400/300',
-      description: 'Classic design with modern amenities, featuring traditional charm and contemporary comfort.',
-      features: [
-        'Elegant crown molding',
-        'Coffered ceilings in dining',
-        'Upgraded kitchen cabinetry',
-        'Luxurious master suite',
-        'Double vanity ensuite',
-        'Private balcony',
-        'Premium fixtures',
-        'Smart home pre-wiring'
-      ],
-      culturalFeatures: [
-        'Large dining area for hosting',
-        'Multiple gathering spaces',
-        'Flexible room layouts',
-        'Cultural art display walls'
-      ]
+      id: 'freehold-townhomes',
+      title: 'Freehold Townhomes',
+      subtitle: 'Premium Ownership',
+      description: 'Spacious freehold townhomes with 3 unique elevation designs and premium finishes.',
+      elevations: 3,
+      images: [townElevA],
+      features: ['3-4 Bedrooms', '3-4 Bathrooms', '2 Car Garage', '1,800+ sq ft'],
+      priceRange: 'Starting from $780K',
+      badge: 'Freehold',
+      available: true
     },
     {
-      id: 'sceptre',
-      title: 'The Sceptre',
-      sqft: '1,602',
-      bedrooms: 3,
-      bathrooms: 2.5,
-      garage: '2-Car',
-      lotSize: '20\' x 50\'',
-      priceRange: '$732K - $755K',
-      architecturalStyle: 'Modern',
-      images: [
-        '/api/placeholder/600/400',
-        '/api/placeholder/600/400',
-        '/api/placeholder/600/400'
-      ],
-      floorPlanTeaser: '/api/placeholder/400/300',
-      description: 'Sleek modern design with clean lines and abundant natural light throughout.',
-      features: [
-        'Floor-to-ceiling windows',
-        'Quartz countertops',
-        'Stainless steel appliances',
-        'Modern light fixtures',
-        'Floating vanities',
-        'Glass shower enclosures',
-        'Vinyl plank flooring',
-        'USB outlets throughout'
-      ],
-      culturalFeatures: [
-        'Open concept for families',
-        'Easy maintenance finishes',
-        'Modern kitchen for cooking',
-        'Bright living spaces'
-      ]
+      id: 'monarch-38',
+      title: 'The Monarch - 38 Feet',
+      subtitle: 'Single Family Detached',
+      description: 'Elegant 38-foot detached homes with 2 sophisticated elevation options.',
+      elevations: 2,
+      images: [townElevB],
+      features: ['4-5 Bedrooms', '3.5-4 Bathrooms', '2 Car Garage', '2,400+ sq ft'],
+      priceRange: 'Starting from $950K',
+      badge: 'Detached',
+      available: true
     },
     {
-      id: 'jewel',
-      title: 'The Jewel',
-      sqft: '1,602',
-      bedrooms: 3,
-      bathrooms: 2.5,
-      garage: '2-Car',
-      lotSize: '20\' x 50\'',
-      priceRange: '$728K - $748K',
-      architecturalStyle: 'Transitional',
-      images: [
-        '/api/placeholder/600/400',
-        '/api/placeholder/600/400',
-        '/api/placeholder/600/400'
-      ],
-      floorPlanTeaser: '/api/placeholder/400/300',
-      description: 'Perfect blend of traditional and contemporary elements, offering timeless appeal.',
-      features: [
-        'Vaulted ceilings in great room',
-        'Upgraded trim package',
-        'Designer color palette',
-        'Spa-inspired bathrooms',
-        'Walk-in pantry',
-        'Laundry room upstairs',
-        'Covered front porch',
-        'Upgraded electrical package'
-      ],
-      culturalFeatures: [
-        'Flexible space usage',
-        'Family-friendly layout',
-        'Storage throughout',
-        'Multi-generational living ready'
-      ]
+      id: 'tradition-38',
+      title: 'The Tradition - 38 Feet',
+      subtitle: 'Classic Family Living',
+      description: 'Traditional 38-foot detached homes featuring 3 timeless elevation styles.',
+      elevations: 3,
+      images: [townElevC],
+      features: ['4-6 Bedrooms', '4-5 Bathrooms', '2 Car Garage', '2,600+ sq ft'],
+      priceRange: 'Starting from $980K',
+      badge: 'Family Home',
+      available: true
+    },
+    {
+      id: 'tiara-38',
+      title: 'The Tiara - 38 Feet',
+      subtitle: 'Luxury Collection',
+      description: 'Premium 38-foot detached homes with 3 luxury elevation designs and high-end finishes.',
+      elevations: 3,
+      images: [townElevA],
+      features: ['5-6 Bedrooms', '5-6 Bathrooms', '3 Car Garage', '3,000+ sq ft'],
+      priceRange: 'Starting from $1.2M',
+      badge: 'Luxury',
+      available: true
+    },
+    {
+      id: 'collection-6',
+      title: 'Premium Collection',
+      subtitle: 'Coming Soon',
+      description: 'Exclusive home designs currently in development. Register your interest for early access.',
+      elevations: 0,
+      images: [townElevB],
+      features: ['Details Coming Soon', 'Multiple Options', 'Premium Features', 'Various Sizes'],
+      priceRange: 'TBA',
+      badge: 'Coming Soon',
+      available: false
     }
   ];
 
-  const selectedHomeData = homeTypes.find(home => home.id === selectedHome);
+  const handleViewFloorPlans = (collectionId: string) => {
+    setSelectedCollection(collectionId);
+    setIsContactModalOpen(true);
+  };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-secondary/10 to-background">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="home-collection" className="py-20 bg-gradient-to-b from-background to-secondary/20">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            Crown Collection Homes
+            Home Collection
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto rounded-full"></div>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Four distinctive townhome designs crafted for modern families, starting from just $730,000
+          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+            Discover our diverse collection of townhomes and detached homes, each designed with premium finishes 
+            and thoughtful layouts. From urban townhomes to luxury detached homes, find your perfect match.
           </p>
         </div>
 
-        {/* Home Cards Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {homeTypes.map((home) => (
-            <Card key={home.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 group border-2 hover:border-accent/30">
-              <CardContent className="p-0">
-                {/* Image Carousel */}
-                <div className="relative">
-                  <Carousel className="w-full">
-                    <CarouselContent>
-                      {home.images.map((image, index) => (
-                        <CarouselItem key={index}>
+        {/* Collections Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {homeCollections.map((collection, index) => (
+            <Card key={collection.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
+              {/* Image Carousel */}
+              <div className="relative">
+                <Carousel className="w-full">
+                  <CarouselContent>
+                    {collection.images.map((image, imgIndex) => (
+                      <CarouselItem key={imgIndex}>
+                        <div className="relative h-64 overflow-hidden">
                           <img 
                             src={image} 
-                            alt={`${home.title} - View ${index + 1}`}
-                            className="w-full h-64 object-cover"
+                            alt={`${collection.title} - Elevation ${imgIndex + 1}`}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                           />
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="left-2" />
-                    <CarouselNext className="right-2" />
-                  </Carousel>
-                  
-                  <Badge className="absolute top-4 left-4 bg-accent text-white">
-                    {home.architecturalStyle}
-                  </Badge>
-                  <Badge className="absolute top-4 right-4 bg-primary text-white">
-                    {home.priceRange}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  {collection.images.length > 1 && (
+                    <>
+                      <CarouselPrevious className="left-2" />
+                      <CarouselNext className="right-2" />
+                    </>
+                  )}
+                </Carousel>
+                
+                {/* Badges */}
+                <div className="absolute top-4 left-4">
+                  <Badge className={`${collection.available ? 'bg-accent' : 'bg-muted'} text-white font-semibold`}>
+                    {collection.badge}
                   </Badge>
                 </div>
+                <div className="absolute top-4 right-4">
+                  <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                    <span className="font-semibold text-foreground text-sm">{collection.priceRange}</span>
+                  </div>
+                </div>
+              </div>
 
-                <div className="p-6 space-y-4">
-                  {/* Home Title & Details */}
+              {/* Content */}
+              <div className="p-6">
+                <div className="space-y-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-foreground mb-2">{home.title}</h3>
-                    <p className="text-muted-foreground">{home.description}</p>
+                    <h3 className="text-2xl font-bold text-foreground mb-1">
+                      {collection.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground font-medium">
+                      {collection.subtitle}
+                    </p>
                   </div>
+                  
+                  <p className="text-muted-foreground leading-relaxed text-sm">
+                    {collection.description}
+                  </p>
 
-                  {/* Key Features Grid */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-y border-border">
-                    <div className="text-center">
-                      <Bed className="h-6 w-6 text-accent mx-auto mb-1" />
-                      <p className="text-sm font-semibold">{home.bedrooms} BR</p>
-                    </div>
-                    <div className="text-center">
-                      <Bath className="h-6 w-6 text-accent mx-auto mb-1" />
-                      <p className="text-sm font-semibold">{home.bathrooms} BA</p>
-                    </div>
-                    <div className="text-center">
-                      <Car className="h-6 w-6 text-accent mx-auto mb-1" />
-                      <p className="text-sm font-semibold">{home.garage}</p>
-                    </div>
-                    <div className="text-center">
-                      <Maximize className="h-6 w-6 text-accent mx-auto mb-1" />
-                      <p className="text-sm font-semibold">{home.sqft} sq ft</p>
-                    </div>
-                  </div>
-
-                  {/* Floor Plan Teaser */}
-                  <div className="bg-secondary/20 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2 text-foreground">Floor Plan Preview</h4>
-                    <img 
-                      src={home.floorPlanTeaser} 
-                      alt={`${home.title} floor plan`}
-                      className="w-full h-32 object-cover rounded"
-                    />
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex gap-3">
-                    <Button 
-                      className="flex-1 bg-accent hover:bg-accent/90"
-                      onClick={() => setIsLeadModalOpen(true)}
-                    >
-                      <FileText className="h-4 w-4 mr-2" />
-                      Unlock Floor Plans & Pricing
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      onClick={() => setSelectedHome(selectedHome === home.id ? null : home.id)}
-                      className="px-6"
-                    >
-                      <Eye className="h-4 w-4 mr-2" />
-                      {selectedHome === home.id ? 'Hide' : 'View'} Details
-                    </Button>
-                  </div>
-
-                  {/* Expanded Details */}
-                  {selectedHome === home.id && (
-                    <div className="mt-6 space-y-4 border-t border-border pt-4 animate-fade-in">
-                      <div>
-                        <h5 className="font-semibold mb-2 text-foreground">Standard Features</h5>
-                        <div className="grid sm:grid-cols-2 gap-2">
-                          {home.features.map((feature, index) => (
-                            <div key={index} className="flex items-start gap-2">
-                              <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                              <span className="text-sm text-muted-foreground">{feature}</span>
-                            </div>
-                          ))}
-                        </div>
+                  {/* Features Grid */}
+                  <div className="grid grid-cols-2 gap-2">
+                    {collection.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <div className="w-1.5 h-1.5 bg-accent rounded-full"></div>
+                        <span>{feature}</span>
                       </div>
-                      
-                      <div>
-                        <h5 className="font-semibold mb-2 text-foreground">Perfect for Indian Families</h5>
-                        <div className="grid sm:grid-cols-2 gap-2">
-                          {home.culturalFeatures.map((feature, index) => (
-                            <div key={index} className="flex items-start gap-2">
-                              <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                              <span className="text-sm text-muted-foreground">{feature}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div className="bg-accent/5 p-4 rounded-lg">
-                        <p className="text-sm text-muted-foreground">
-                          <span className="font-semibold">Lot Size:</span> {home.lotSize} • 
-                          <span className="font-semibold"> Architecture:</span> {home.architecturalStyle} Style
-                        </p>
-                      </div>
+                    ))}
+                  </div>
+
+                  {/* Elevations Info */}
+                  {collection.elevations > 0 && (
+                    <div className="flex items-center gap-2 text-sm text-accent">
+                      <Home className="h-4 w-4" />
+                      <span>{collection.elevations} Elevation{collection.elevations > 1 ? 's' : ''} Available</span>
                     </div>
                   )}
+
+                  {/* CTA Button */}
+                  <Button 
+                    onClick={() => handleViewFloorPlans(collection.id)}
+                    className={`w-full ${collection.available 
+                      ? 'bg-accent hover:bg-accent/90 text-white' 
+                      : 'bg-muted text-muted-foreground cursor-not-allowed'
+                    } transition-all duration-300`}
+                    disabled={!collection.available}
+                  >
+                    {collection.available ? 'View Floor Plans & Pricing' : 'Coming Soon - Register Interest'}
+                  </Button>
                 </div>
-              </CardContent>
+              </div>
             </Card>
           ))}
         </div>
 
-        {/* Lead Generation Modal */}
-        <Dialog open={isLeadModalOpen} onOpenChange={setIsLeadModalOpen}>
-          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-            <DialogHeader>
-              <DialogTitle>Get Exclusive Crown of Caledon Information</DialogTitle>
-            </DialogHeader>
-            <LeadForm />
-          </DialogContent>
-        </Dialog>
+        {/* CTA Section */}
+        <div className="text-center mt-16">
+          <Card className="bg-gradient-to-r from-accent/5 via-primary/5 to-secondary/5 border-accent/20 max-w-2xl mx-auto">
+            <div className="p-8">
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Can't Decide Which Home is Right for You?
+              </h3>
+              <p className="text-muted-foreground mb-6">
+                Our real estate experts will help you find the perfect home that matches 
+                your lifestyle and budget. Get personalized recommendations today.
+              </p>
+              <Button 
+                onClick={() => {
+                  setSelectedCollection('consultation');
+                  setIsContactModalOpen(true);
+                }}
+                size="lg"
+                className="bg-accent hover:bg-accent/90 text-white px-8 py-4 hover:scale-105 transition-transform duration-200"
+              >
+                Schedule Personal Consultation
+              </Button>
+            </div>
+          </Card>
+        </div>
       </div>
+
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)}
+        formType="floorplans"
+      />
     </section>
   );
 };

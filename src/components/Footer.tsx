@@ -60,31 +60,31 @@ const Footer = () => {
           {/* Quick Links & Project Info */}
           <div className="animate-slide-up">
             <h3 className="text-2xl font-display font-bold mb-6">
-              Union Village
+              Crown of Caledon
             </h3>
             
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 luxury-gradient rounded-full"></div>
                 <a href="#overview" className="text-primary-foreground/80 hover:text-luxury-gold transition-colors">
-                  New Homes in Markham by Minto Group & Metropia
+                  New Homes in Caledon by Fieldgate Homes
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 luxury-gradient rounded-full"></div>
                 <a href="#location" className="text-primary-foreground/80 hover:text-luxury-gold transition-colors">
-                  16th Avenue & Kennedy Road Location
+                  Hurontario St. & Mayfield Rd. Location
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 luxury-gradient rounded-full"></div>
                 <a href="#home-collection" className="text-primary-foreground/80 hover:text-luxury-gold transition-colors">
-                  Luxury Unionville Houses Starting from $1.4M
+                  Freehold Townhomes & Detached Homes Starting from $730K
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 luxury-gradient rounded-full"></div>
-                <span className="text-primary-foreground/80">Feng Shui Designed Interiors by Paul Ng</span>
+                <span className="text-primary-foreground/80">Premium Finishes & Modern Layouts</span>
               </div>
             </div>
 
@@ -103,7 +103,7 @@ const Footer = () => {
             </h3>
             
             <p className="text-primary-foreground/80 mb-6">
-              Have questions about Union Village? I'm here to help you find your perfect home 
+              Have questions about Crown of Caledon? I'm here to help you find your perfect home 
               in this exceptional community.
             </p>
             

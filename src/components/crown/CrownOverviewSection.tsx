@@ -10,18 +10,18 @@ const CrownOverviewSection = () => {
     },
     {
       icon: Heart,
-      title: "Community Focused",
-      description: "Designed with Indian families in mind - celebrating culture and tradition"
+      title: "Family-Focused Design",
+      description: "Thoughtfully designed layouts perfect for growing families of all backgrounds"
     },
     {
       icon: GraduationCap,
       title: "Excellent Schools",
-      description: "Top-rated schools in Peel & Dufferin regions serving diverse communities"
+      description: "Top-rated schools in Peel & Dufferin regions with diverse programs and excellence"
     },
     {
       icon: ShoppingCart,
-      title: "Cultural Shopping",
-      description: "Easy access to Indian grocery stores, temples, and cultural centers"
+      title: "Shopping & Amenities",
+      description: "Easy access to shopping plazas, specialty stores, and essential services"
     },
     {
       icon: TreePine,
@@ -47,7 +47,7 @@ const CrownOverviewSection = () => {
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
             Crown of Caledon offers <strong>both freehold townhomes AND detached homes (38' & 60')</strong> 
             starting from just $730K - significantly less than competitors at $750K+. Built by Fieldgate Homes 
-            with 65+ years of excellence, perfect for Indian families seeking quality & value.
+            with 65+ years of excellence, perfect for modern families seeking quality & value.
           </p>
         </div>
 
@@ -56,17 +56,17 @@ const CrownOverviewSection = () => {
           {/* Left Column - Description */}
           <div className="space-y-6">
             <div className="prose prose-lg">
-              <p className="text-muted-foreground leading-relaxed">
-                Crown of Caledon represents the perfect harmony between modern luxury and cultural connection. 
-                Built by Fieldgate Homes with over 65 years of excellence, this exceptional community offers 
-                <span className="font-semibold text-foreground"> both freehold townhomes AND 38'/60' detached homes starting from just $730,000</span> 
-                - <strong className="text-accent">$20,000+ less than competitors</strong> in the same area.
-              </p>
+               <p className="text-muted-foreground leading-relaxed">
+                 Crown of Caledon represents the perfect harmony between modern luxury and cultural connection. 
+                 Built by Fieldgate Homes with over 65 years of excellence, this exceptional community offers 
+                 <span className="font-semibold text-foreground"> both freehold townhomes AND 38'/60' detached homes starting from just $730,000</span> 
+                 - <strong className="text-accent">$20,000+ less than competitors</strong> in the same area.
+               </p>
               
               <p className="text-muted-foreground leading-relaxed">
-                Thoughtfully designed for the Indian community, Crown of Caledon celebrates diverse traditions 
-                while providing contemporary amenities. From spacious 1,602 to 1,620 sq ft layouts to 
-                proximity to cultural centers and temples, every detail has been carefully considered.
+                Thoughtfully designed for modern families seeking quality and value, Crown of Caledon celebrates 
+                contemporary living while providing spacious layouts and premium amenities. From spacious 1,602 to 1,620 sq ft 
+                layouts to proximity to all essential services, every detail has been carefully considered.
               </p>
 
               <p className="text-muted-foreground leading-relaxed">
@@ -93,39 +93,39 @@ const CrownOverviewSection = () => {
           </div>
         </div>
 
-        {/* Cultural Connection Section */}
+        {/* Premium Location Benefits */}
         <Card className="p-8 bg-gradient-to-r from-accent/5 via-primary/5 to-secondary/5 border-accent/20">
           <div className="text-center space-y-6">
             <div className="flex items-center justify-center gap-4">
               <Users className="h-8 w-8 text-accent" />
               <h3 className="text-2xl font-bold text-foreground">
-                Celebrating Diversity & Tradition
+                Premium Caledon Living
               </h3>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div>
-                <h4 className="font-semibold text-lg mb-2 text-foreground">Sikh Community</h4>
+                <h4 className="font-semibold text-lg mb-2 text-foreground">Nature & Recreation</h4>
                 <p className="text-sm text-muted-foreground">
-                  Close to Gurdwaras, Punjabi schools, and cultural centers throughout the region
+                  Conservation areas, golf courses, hiking trails, and outdoor activities throughout Caledon
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold text-lg mb-2 text-foreground">Hindu Community</h4>
+                <h4 className="font-semibold text-lg mb-2 text-foreground">Transportation Hub</h4>
                 <p className="text-sm text-muted-foreground">
-                  Convenient access to temples, Indian grocery stores, and traditional festivals
+                  Quick highway access, GO Transit connections, and easy commute to downtown Toronto
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold text-lg mb-2 text-foreground">Muslim Community</h4>
+                <h4 className="font-semibold text-lg mb-2 text-foreground">Growing Community</h4>
                 <p className="text-sm text-muted-foreground">
-                  Near mosques, halal markets, and Islamic educational institutions
+                  New amenities, shopping centers, schools, and infrastructure development in the area
                 </p>
               </div>
             </div>
             
             <p className="text-center text-muted-foreground italic">
-              "Where every family finds their home, and every tradition finds its place"
+              "Where luxury meets convenience in Caledon's most promising community"
             </p>
           </div>
         </Card>
