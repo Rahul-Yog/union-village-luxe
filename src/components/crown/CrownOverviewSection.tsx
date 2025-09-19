@@ -5,8 +5,8 @@ const CrownOverviewSection = () => {
   const highlights = [
     {
       icon: Home,
-      title: "4 Distinctive Models",
-      description: "The Sterling, Regalia, Sceptre & Jewel - each crafted for modern families"
+      title: "Townhomes & Detached Homes",
+      description: "Freehold townhomes AND 38'/60' single-family detached homes - both options available!"
     },
     {
       icon: Heart,
@@ -41,11 +41,13 @@ const CrownOverviewSection = () => {
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            Welcome to Crown of Caledon
+            The Gateway to <span className="text-accent">Affordable Luxury</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto rounded-full"></div>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Where premium townhome living meets the warmth of community in Caledon's most desirable location
+          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+            Crown of Caledon offers <strong>both freehold townhomes AND detached homes (38' & 60')</strong> 
+            starting from just $730K - significantly less than competitors at $750K+. Built by Fieldgate Homes 
+            with 65+ years of excellence, perfect for Indian families seeking quality & value.
           </p>
         </div>
 
@@ -57,8 +59,8 @@ const CrownOverviewSection = () => {
               <p className="text-muted-foreground leading-relaxed">
                 Crown of Caledon represents the perfect harmony between modern luxury and cultural connection. 
                 Built by Fieldgate Homes with over 65 years of excellence, this exceptional community offers 
-                <span className="font-semibold text-foreground"> premium city townhomes starting from just $730,000</span> 
-                - the most competitive pricing in Caledon.
+                <span className="font-semibold text-foreground"> both freehold townhomes AND 38'/60' detached homes starting from just $730,000</span> 
+                - <strong className="text-accent">$20,000+ less than competitors</strong> in the same area.
               </p>
               
               <p className="text-muted-foreground leading-relaxed">

@@ -23,37 +23,42 @@ const CrownHeroSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             {/* Trust Indicators */}
-            <div className="flex flex-wrap gap-4 text-sm">
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1">
+            <div className="flex flex-wrap gap-3 text-sm">
+              <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
                 <MapPin className="h-4 w-4 text-accent" />
-                <span>Caledon, ON</span>
+                <span>Hurontario St. & Mayfield Rd.</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1">
+              <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
                 <DollarSign className="h-4 w-4 text-accent" />
-                <span>From $730K</span>
+                <span>From $730K ⚡ Beat Competitors</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1">
-                <Calendar className="h-4 w-4 text-accent" />
-                <span>Now Selling</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1">
+              <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
                 <Building2 className="h-4 w-4 text-accent" />
-                <span>Phase 1</span>
+                <span>Townhomes & 38'/60' Detached</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
+                <Calendar className="h-4 w-4 text-accent" />
+                <span>VIP Pricing Available</span>
               </div>
             </div>
 
             {/* Main Headline */}
-            <div className="space-y-4">
+            <div className="space-y-6">
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 CROWN OF
                 <span className="block text-accent">CALEDON</span>
               </h1>
-              <p className="text-xl md:text-2xl font-light leading-relaxed">
-                Premium City Townhomes in the Heart of Caledon
-                <span className="block mt-2 text-lg text-gray-300">
-                  Where Modern Living Meets Natural Beauty
-                </span>
-              </p>
+              <div className="space-y-3">
+                <p className="text-2xl md:text-3xl font-semibold leading-relaxed">
+                  <strong>Freehold Townhomes & 38'/60' Detached Homes</strong>
+                </p>
+                <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                  Starting from $730K - <span className="text-accent font-semibold">$20K+ Less than Competitors!</span>
+                </p>
+                <p className="text-base text-gray-300">
+                  🏡 Perfect for Indian families • 🕌 Close to Temples & Gurudwaras • 🌟 Fieldgate's 65+ Years Excellence
+                </p>
+              </div>
             </div>
 
             {/* Builder Credibility */}
@@ -85,18 +90,18 @@ const CrownHeroSection = () => {
             </div>
 
             {/* Trust Building */}
-            <div className="flex flex-wrap gap-4 text-sm">
+            <div className="flex flex-wrap gap-6 text-sm">
               <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-400" />
-                <span>Best Price in Caledon</span>
+                <CheckCircle className="h-5 w-5 text-accent" />
+                <span><strong>Beat competitors by $20K+</strong></span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-400" />
-                <span>Prime Location</span>
+                <CheckCircle className="h-5 w-5 text-accent" />
+                <span>VIP floor plans sent instantly</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-400" />
-                <span>Limited Release</span>
+                <CheckCircle className="h-5 w-5 text-accent" />
+                <span>Punjabi & Hindi consultation</span>
               </div>
             </div>
           </div>
