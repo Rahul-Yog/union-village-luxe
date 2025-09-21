@@ -4,20 +4,32 @@ import { Menu, X } from 'lucide-react';
 import unionVillageLogo from '@/assets/union-village-logo.jpg';
 import AuthButton from '@/components/AuthButton';
 import { useAuth } from '@/hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  const isUnionVillage = location.pathname === '/';
+  const isCrownOfCaledon = location.pathname === '/crown-of-caledon';
 
-  const navItems = [
-    { label: 'New Homes Overview', href: '#overview' },
-    { label: 'Markham Location', href: '#location' },
-    { label: 'Community Site Plan', href: '#site-plan' },
-    { label: 'Unionville Houses For Sale', href: '#home-collection' },
-    { label: 'Contact Agent', href: '#contact' },
-  ];
+  const navItems = isUnionVillage 
+    ? [
+        { label: 'New Homes Overview', href: '#overview' },
+        { label: 'Markham Location', href: '#location' },
+        { label: 'Community Site Plan', href: '#site-plan' },
+        { label: 'Unionville Houses For Sale', href: '#home-collection' },
+        { label: 'Contact Agent', href: '#contact' },
+      ]
+    : [
+        { label: 'Overview', href: '#overview' },
+        { label: 'Location', href: '#location' },
+        { label: 'Homes', href: '#home-collection' },
+        { label: 'Amenities', href: '#amenities' },
+        { label: 'Contact', href: '#contact' },
+      ];
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -43,6 +55,27 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
+              {/* Site Switcher */}
+              <div className="flex items-center space-x-2 border-r border-border pr-4">
+                <Button
+                  variant={isUnionVillage ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => navigate('/')}
+                  className="text-xs"
+                >
+                  Union Village
+                </Button>
+                <Button
+                  variant={isCrownOfCaledon ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => navigate('/crown-of-caledon')}
+                  className="text-xs"
+                >
+                  Crown of Caledon
+                </Button>
+              </div>
+              
+              {/* Page Navigation */}
               {navItems.map((item) => (
                 <button
                   key={item.label}
@@ -90,6 +123,26 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-t border-border">
+              {/* Mobile Site Switcher */}
+              <div className="flex space-x-2 pb-3 border-b border-border mb-3">
+                <Button
+                  variant={isUnionVillage ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => navigate('/')}
+                  className="flex-1 text-xs"
+                >
+                  Union Village
+                </Button>
+                <Button
+                  variant={isCrownOfCaledon ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => navigate('/crown-of-caledon')}
+                  className="flex-1 text-xs"
+                >
+                  Crown of Caledon
+                </Button>
+              </div>
+              
               {navItems.map((item) => (
                 <button
                   key={item.label}
