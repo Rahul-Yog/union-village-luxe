@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { MapPin, Calendar, DollarSign, Building2, CheckCircle } from 'lucide-react';
+import { MapPin, Calendar, DollarSign, Building2, CheckCircle, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ContactModal from '@/components/crown/CrownContactModal';
+import crownHeroImage from '@/assets/crown-hero-image.png';
+import crownLogo from '@/assets/crown-logo.png';
 const CrownHeroSection = () => {
   const [isFloorPlansModalOpen, setIsFloorPlansModalOpen] = useState(false);
 
@@ -13,118 +15,120 @@ const CrownHeroSection = () => {
   };
 
   return (
-    <section 
-      className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden"
-      style={{ backgroundImage: `url(/crown-hero-rendering.jpg)` }}
-    >
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
-      
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-white">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
+    <>
+      <section 
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      >
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${crownHeroImage})` }}
+        >
+          <div className="absolute inset-0 overlay-gradient"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10 container-custom text-center text-white">
+          <div className="max-w-4xl mx-auto animate-fade-in">
             {/* Trust Indicators */}
-            <div className="flex flex-wrap gap-3 text-sm">
-              <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
-                <MapPin className="h-4 w-4 text-accent" />
-                <span>Hurontario St. & Mayfield Rd.</span>
+            <div className="flex flex-wrap justify-center gap-1 sm:gap-3 md:gap-6 mb-8 text-[9px] sm:text-xs md:text-sm px-2">
+              <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0">
+                <MapPin size={10} className="text-luxury-gold sm:w-3 sm:h-3 md:w-4 md:h-4 flex-shrink-0" />
+                <span className="truncate">Hurontario & Mayfield</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
-                <DollarSign className="h-4 w-4 text-accent" />
-                <span>From $730K ⚡ Beat Competitors</span>
+              <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0">
+                <DollarSign size={10} className="text-luxury-gold sm:w-3 sm:h-3 md:w-4 md:h-4 flex-shrink-0" />
+                <span className="truncate">From $730K</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
-                <Building2 className="h-4 w-4 text-accent" />
-                <span>Townhomes & 38'/60' Detached</span>
+              <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0">
+                <Clock size={10} className="text-luxury-gold sm:w-3 sm:h-3 md:w-4 md:h-4 flex-shrink-0" />
+                <span className="truncate">2026 Completion</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
-                <Calendar className="h-4 w-4 text-accent" />
-                <span>VIP Pricing Available</span>
+              <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0">
+                <span className="w-3 h-3 sm:w-4 sm:h-4 bg-luxury-gold rounded-full flex items-center justify-center text-[8px] sm:text-xs font-bold text-primary flex-shrink-0">B</span>
+                <span className="truncate">On Brampton Border</span>
               </div>
             </div>
 
             {/* Main Headline */}
-            <div className="space-y-6">
-              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-                CROWN OF
-                <span className="block text-accent">CALEDON</span>
-              </h1>
-              <div className="space-y-3">
-                <p className="text-2xl md:text-3xl font-semibold leading-relaxed">
-                  <strong>Freehold Townhomes & 38'/60' Detached Homes</strong>
-                </p>
-                <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                  Starting from $730K - <span className="text-accent font-semibold">$20K+ Less than Competitors!</span>
-                </p>
-                <p className="text-base text-gray-300">
-                  🏡 Perfect for modern families • ⛪ Minutes from places of worship • 🌟 Fieldgate's 65+ Years Excellence
-                </p>
+            <h1 className="hero-title font-display font-bold mb-6 leading-tight">
+              Welcome to
+              <span className="block text-gradient">Crown of Caledon</span>
+            </h1>
+
+            {/* Subheadline */}
+            <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
+              Discover premium freehold townhomes and stunning 38' detached homes on the vibrant 
+              border of Brampton. Where luxury living meets unbeatable value - offering the 
+              <span className="text-luxury-gold font-semibold"> best pricing in today's market</span>.
+            </p>
+
+            {/* Home Types */}
+            <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-white/80">
+              <span className="text-sm">Featuring:</span>
+              <div className="flex flex-wrap justify-center gap-3 text-sm">
+                <span className="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full">Rear Lane Townhomes</span>
+                <span className="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full">2-Story Townhomes</span>
+                <span className="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full">38' Single Detached</span>
               </div>
             </div>
 
             {/* Builder Credibility */}
-            <div className="flex items-center gap-4 py-4">
-              <img src="/fieldgate-logo.jpg" alt="Fieldgate Homes" className="h-12 object-contain" />
-              <div>
-                <p className="font-semibold">Built by Fieldgate Homes</p>
-                <p className="text-sm text-gray-300">Over 65 Years of Excellence</p>
+            <div className="flex flex-wrap justify-center items-center gap-4 mb-10 text-white/80">
+              <span className="text-sm">Developed by</span>
+              <div className="flex items-center gap-4">
+                <img src={crownLogo} alt="Crown of Caledon" className="h-8 object-contain" />
+                <span className="text-white/50">•</span>
+                <span className="font-semibold text-luxury-gold">Fieldgate Homes</span>
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 
-                size="lg" 
-                className="bg-accent hover:bg-accent/90 text-white px-8 py-4 text-lg font-semibold"
                 onClick={() => setIsFloorPlansModalOpen(true)}
+                size="lg"
+                className="luxury-gradient text-primary font-semibold px-8 py-4 text-lg hover:scale-105 transition-transform duration-200 shadow-luxury"
               >
                 Get Exclusive Floor Plans
               </Button>
               <Button 
-                variant="outline" 
-                size="lg"
-                className="border-white text-white hover:bg-white/20 px-8 py-4 text-lg"
                 onClick={() => scrollToSection('#overview')}
+                variant="outline"
+                size="lg"
+                className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg transition-all duration-300"
               >
                 Explore Community
               </Button>
             </div>
 
-            {/* Trust Building */}
-            <div className="flex flex-wrap gap-6 text-sm">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5 text-accent" />
-                <span><strong>Beat competitors by $20K+</strong></span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5 text-accent" />
-                <span>VIP floor plans sent instantly</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5 text-accent" />
-                <span>Punjabi, Hindi & English consultation</span>
-              </div>
+            {/* Trust Building Message */}
+            <div className="mt-12 text-white/70 text-sm max-w-2xl mx-auto">
+              <p>
+                ✓ Best market pricing guaranteed
+                <span className="mx-4">•</span>
+                ✓ Floor plans & pricing sheets sent instantly
+                <span className="mx-4">•</span>
+                ✓ No obligation consultation
+              </p>
             </div>
-          </div>
-
-          <div className="hidden md:block">
-            {/* Additional content space if needed */}
           </div>
         </div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
           </div>
         </div>
-      </div>
+      </section>
 
       <ContactModal 
         isOpen={isFloorPlansModalOpen} 
         onClose={() => setIsFloorPlansModalOpen(false)}
         formType="floorplans"
       />
-    </section>
+    </>
   );
 };
 
