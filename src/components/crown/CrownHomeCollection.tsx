@@ -448,12 +448,66 @@ const CrownHomeCollection = () => {
             </div>
             
             {sizeCategories.map((category) => (
-              <div key={category.id} className="space-y-4">
+              <div key={category.id} className="bg-muted/30 rounded-2xl p-8 space-y-6">
                 <div className="text-center">
-                  <h4 className="text-xl font-bold text-foreground">{category.title}</h4>
-                  <p className="text-accent font-semibold">{category.subtitle}</p>
-                  <p className="text-sm text-muted-foreground">{category.description}</p>
-                  <p className="text-sm font-medium text-foreground">{category.priceRange}</p>
+                  <h4 className="text-2xl font-bold text-foreground">{category.title}</h4>
+                  <p className="text-accent font-semibold text-lg">{category.subtitle}</p>
+                  <p className="text-muted-foreground mt-2">{category.description}</p>
+                  <p className="text-lg font-bold text-foreground mt-2">{category.priceRange}</p>
+                </div>
+
+                {/* Category-specific information */}
+                <div className="grid md:grid-cols-3 gap-6 mb-6">
+                  {category.id === 'compact' && (
+                    <>
+                      <div className="text-center bg-background/50 rounded-lg p-4">
+                        <div className="text-2xl font-bold text-accent mb-2">Perfect For</div>
+                        <p className="text-sm text-muted-foreground">Young professionals, couples, or those downsizing without compromising on quality</p>
+                      </div>
+                      <div className="text-center bg-background/50 rounded-lg p-4">
+                        <div className="text-2xl font-bold text-accent mb-2">Key Features</div>
+                        <p className="text-sm text-muted-foreground">Open-concept layouts, premium finishes, efficient use of space</p>
+                      </div>
+                      <div className="text-center bg-background/50 rounded-lg p-4">
+                        <div className="text-2xl font-bold text-accent mb-2">Lifestyle</div>
+                        <p className="text-sm text-muted-foreground">Low-maintenance living with luxury amenities and modern conveniences</p>
+                      </div>
+                    </>
+                  )}
+                  
+                  {category.id === 'family' && (
+                    <>
+                      <div className="text-center bg-background/50 rounded-lg p-4">
+                        <div className="text-2xl font-bold text-accent mb-2">Perfect For</div>
+                        <p className="text-sm text-muted-foreground">Growing families needing space for children, guests, and entertaining</p>
+                      </div>
+                      <div className="text-center bg-background/50 rounded-lg p-4">
+                        <div className="text-2xl font-bold text-accent mb-2">Key Features</div>
+                        <p className="text-sm text-muted-foreground">Spacious bedrooms, multiple bathrooms, family rooms, and large kitchens</p>
+                      </div>
+                      <div className="text-center bg-background/50 rounded-lg p-4">
+                        <div className="text-2xl font-bold text-accent mb-2">Lifestyle</div>
+                        <p className="text-sm text-muted-foreground">Room to grow with flexible spaces that adapt to your family's changing needs</p>
+                      </div>
+                    </>
+                  )}
+                  
+                  {category.id === 'estate' && (
+                    <>
+                      <div className="text-center bg-background/50 rounded-lg p-4">
+                        <div className="text-2xl font-bold text-accent mb-2">Perfect For</div>
+                        <p className="text-sm text-muted-foreground">Luxury seekers wanting premium corner lots with enhanced privacy and prestige</p>
+                      </div>
+                      <div className="text-center bg-background/50 rounded-lg p-4">
+                        <div className="text-2xl font-bold text-accent mb-2">Key Features</div>
+                        <p className="text-sm text-muted-foreground">Premium finishes, corner lot positioning, larger outdoor spaces, luxury amenities</p>
+                      </div>
+                      <div className="text-center bg-background/50 rounded-lg p-4">
+                        <div className="text-2xl font-bold text-accent mb-2">Lifestyle</div>
+                        <p className="text-sm text-muted-foreground">Executive living with impressive entertaining spaces and ultimate comfort</p>
+                      </div>
+                    </>
+                  )}
                 </div>
                 
                 <Carousel className="w-full">
@@ -461,7 +515,7 @@ const CrownHomeCollection = () => {
                     {category.collections.flatMap((collection) => 
                       collection.images.map((image, imageIndex) => (
                         <CarouselItem key={`${collection.id}-${imageIndex}`}>
-                          <div className="relative h-96 overflow-hidden bg-muted/20 rounded-lg">
+                          <div className="relative h-96 overflow-hidden bg-background rounded-lg shadow-lg">
                             <img 
                               src={image} 
                               alt={`${category.title} - Elevation`}
