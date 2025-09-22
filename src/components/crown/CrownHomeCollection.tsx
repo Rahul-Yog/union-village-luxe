@@ -29,6 +29,16 @@ import compactHome2ElevB from '@/assets/compact-home-2-elev-b.png';
 import compactHome3ElevB from '@/assets/compact-home-3-elev-b.png';
 import compactHome3ElevC from '@/assets/compact-home-3-elev-c.png';
 
+// Import new executive home elevation images
+import estateHome2ElevA from '@/assets/estate-home-2-elev-a.png';
+import estateHome2ElevB from '@/assets/estate-home-2-elev-b.png';
+import estateHome2ElevC from '@/assets/estate-home-2-elev-c.png';
+import estateHome3ElevA from '@/assets/estate-home-3-elev-a.png';
+import estateHome3ElevB from '@/assets/estate-home-3-elev-b.png';
+import estateHome3ElevC from '@/assets/estate-home-3-elev-c.png';
+import estateHome4ElevA from '@/assets/estate-home-4-elev-a.png';
+import estateHome4ElevB from '@/assets/estate-home-4-elev-b.png';
+
 const CrownHomeCollection = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [selectedCollection, setSelectedCollection] = useState<string>('');
@@ -171,31 +181,31 @@ const CrownHomeCollection = () => {
     },
     {
       id: 'family-home-1',
-      title: 'Spacious Family Homes',
-      subtitle: 'Family Homes Collection',
-      description: 'Spacious family detached homes with multiple elevation options and premium finishes.',
+      title: 'Modern Executive Homes',
+      subtitle: 'Executive Homes Collection',
+      description: 'Sophisticated executive homes with contemporary architectural elevations and luxury finishes.',
       category: 'detached',
       tier: 'premium',
       elevations: 3,
-      images: [endUnitElevA, endUnitElevB, endUnitElevC],
+      images: [estateHome2ElevA, estateHome2ElevB, estateHome2ElevC],
       features: ['4-5 Bedrooms', '3.5-4 Bathrooms', '2 Car Garage', '2,200-2,600 sq ft'],
       priceRange: 'Starting from $950K',
-      badge: 'Family Size',
+      badge: 'Executive Style',
       available: true,
       units: 'Multiple lots available'
     },
     {
       id: 'family-home-2',
-      title: 'Contemporary Family Homes',
-      subtitle: 'Family Homes Collection',
-      description: 'Contemporary detached homes featuring open-concept layouts and modern architectural details.',
+      title: 'Premium Executive Homes',
+      subtitle: 'Executive Homes Collection',
+      description: 'Premium executive homes featuring distinctive architectural designs with open-concept layouts.',
       category: 'detached',
       tier: 'premium',
-      elevations: 3,
-      images: [cityHomeElevA, cityHomeElevB, cityHomeElevC],
+      elevations: 4,
+      images: [estateHome3ElevA, estateHome3ElevB, estateHome3ElevC, estateHome4ElevA],
       features: ['4-5 Bedrooms', '4-4.5 Bathrooms', '2-3 Car Garage', '2,400-2,800 sq ft'],
       priceRange: 'Starting from $1.05M',
-      badge: 'Popular Choice',
+      badge: 'Premium Features',
       available: true,
       units: '15 lots available'
     }
@@ -215,9 +225,9 @@ const CrownHomeCollection = () => {
     },
     {
       id: 'family',
-      title: 'Family Homes', 
+      title: 'Executive Homes', 
       subtitle: '2,000 - 3,000 sq ft',
-      description: 'Ideal for growing families with spacious layouts',
+      description: 'Sophisticated homes for executives and established families',
       priceRange: '$950K - $1.1M',
       collections: detachedCollections.filter(c => 
         ['family-home-1', 'family-home-2'].includes(c.id)

@@ -24,10 +24,16 @@ const CrownImageAdmin = () => {
       category: 'Townhomes'
     },
     {
-      name: 'Family Home Collection',
-      images: ['town-elev-a.png', 'town-elev-b.png', 'town-elev-c.png'],
-      status: 'Has Branding',
-      category: 'Detached - Estate'
+      name: 'Executive Home Collection - Modern',
+      images: ['estate-home-2-elev-a.png', 'estate-home-2-elev-b.png', 'estate-home-2-elev-c.png'],
+      status: 'Cleaned',
+      category: 'Detached - Executive'
+    },
+    {
+      name: 'Executive Home Collection - Premium',
+      images: ['estate-home-3-elev-a.png', 'estate-home-3-elev-b.png', 'estate-home-3-elev-c.png', 'estate-home-4-elev-a.png'],
+      status: 'Cleaned',
+      category: 'Detached - Executive'
     },
     {
       name: 'Classic Compact Homes',
