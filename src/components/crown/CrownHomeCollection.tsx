@@ -10,6 +10,9 @@ import ContactModal from '@/components/crown/CrownContactModal';
 import townElevA from '@/assets/town-elev-a.png';
 import townElevB from '@/assets/town-elev-b.png';
 import townElevC from '@/assets/town-elev-c.png';
+import abbeyElevA from '@/assets/abbey-elev-a.png';
+import abbeyElevB from '@/assets/abbey-elev-b.png';
+import abbeyElevC from '@/assets/abbey-elev-c.png';
 
 const CrownHomeCollection = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -19,13 +22,25 @@ const CrownHomeCollection = () => {
     {
       id: 'city-townhomes',
       title: 'City Townhomes',
-      subtitle: 'Regalia • Jewel • Sceptre • Sterling • Abbey',
-      description: 'Modern townhome designs featuring 6 distinct architectural elevations in the heart of the community.',
-      elevations: 6,
+      subtitle: 'Regalia • Jewel • Sceptre • Sterling',
+      description: 'Modern townhome designs featuring 4 distinct architectural elevations in the heart of the community.',
+      elevations: 4,
       images: [townElevA, townElevB, townElevC],
       features: ['3 Bedrooms', '2.5-3 Bathrooms', '1 Car Garage', '1,602-1,620 sq ft'],
       priceRange: 'Starting from $730K',
       badge: 'Popular Choice',
+      available: true
+    },
+    {
+      id: 'end-units-city-townhomes',
+      title: 'End Units - City Townhomes',
+      subtitle: 'Abbey Collection',
+      description: 'Premium end unit townhomes featuring 3 sophisticated Abbey elevation designs with enhanced privacy and additional windows.',
+      elevations: 3,
+      images: [abbeyElevA, abbeyElevB, abbeyElevC],
+      features: ['3 Bedrooms', '2.5-3 Bathrooms', '1 Car Garage', '1,620+ sq ft'],
+      priceRange: 'Starting from $750K',
+      badge: 'End Unit',
       available: true
     },
     {
