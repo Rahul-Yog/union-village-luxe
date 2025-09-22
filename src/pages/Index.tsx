@@ -1,27 +1,25 @@
-import Navigation from '@/components/Navigation';
-import HeroSectionWithModal from '@/components/HeroSectionWithModal';
-import OverviewSection from '@/components/OverviewSection';
-import LocationSection from '@/components/LocationSection';
-import SitePlanSectionWithModal from '@/components/SitePlanSectionWithModal';
-import EnhancedHomeCollection from '@/components/EnhancedHomeCollection';
-import CommunityRenderings from '@/components/CommunityRenderings';
-import FAQSection from '@/components/FAQSection';
-import UnionVillageLeadForm from '@/components/UnionVillageLeadForm';
-import UnionVillageFooter from '@/components/UnionVillageFooter';
+import CrownNavigation from '@/components/crown/CrownNavigation';
+import CrownHeroSection from '@/components/crown/CrownHeroSection';
+import CrownOverviewSection from '@/components/crown/CrownOverviewSection';
+import CrownLocationSection from '@/components/crown/CrownLocationSection';
+import CrownHomeCollection from '@/components/crown/CrownHomeCollection';
+import CrownAmenities from '@/components/crown/CrownAmenities';
+import CrownFAQSection from '@/components/crown/CrownFAQSection';
+import CrownLeadForm from '@/components/crown/CrownLeadForm';
+import CrownFooter from '@/components/crown/CrownFooter';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      <HeroSectionWithModal />
-      <OverviewSection />
-      <LocationSection />
-      <SitePlanSectionWithModal />
-      <EnhancedHomeCollection />
-      <CommunityRenderings />
-      <FAQSection />
-      <UnionVillageLeadForm />
-      <UnionVillageFooter />
+    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/5">
+      <CrownNavigation />
+      <CrownHeroSection />
+      <CrownOverviewSection />
+      <CrownLocationSection />
+      <CrownHomeCollection />
+      <CrownAmenities />
+      <CrownFAQSection />
+      <CrownLeadForm />
+      <CrownFooter />
     </div>
   );
 };
