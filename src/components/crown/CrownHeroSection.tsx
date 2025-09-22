@@ -31,22 +31,22 @@ const CrownHeroSection = () => {
         <div className="relative z-10 container-custom text-center text-white">
           <div className="max-w-4xl mx-auto animate-fade-in">
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-6 mb-8 text-sm sm:text-sm md:text-sm px-4">
-              <div className="flex items-center gap-2 bg-white/30 backdrop-blur-md px-4 py-3 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-xl border border-white/20">
-                <MapPin size={16} className="text-luxury-gold sm:w-4 sm:h-4 md:w-4 md:h-4 flex-shrink-0" />
-                <span className="truncate font-semibold text-white">Hurontario & Mayfield</span>
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-2 sm:gap-3 md:gap-6 mb-8 text-xs sm:text-sm md:text-sm px-4">
+              <div className="flex items-center gap-1 sm:gap-2 bg-white/30 backdrop-blur-md px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-xl border border-white/20">
+                <MapPin size={12} className="text-luxury-gold sm:w-4 sm:h-4 md:w-4 md:h-4 flex-shrink-0" />
+                <span className="truncate font-semibold text-white text-xs sm:text-sm">Hurontario & Mayfield</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/30 backdrop-blur-md px-4 py-3 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-xl border border-white/20">
-                <DollarSign size={16} className="text-luxury-gold sm:w-4 sm:h-4 md:w-4 md:h-4 flex-shrink-0" />
-                <span className="truncate font-semibold text-white">From $730K</span>
+              <div className="flex items-center gap-1 sm:gap-2 bg-white/30 backdrop-blur-md px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-xl border border-white/20">
+                <DollarSign size={12} className="text-luxury-gold sm:w-4 sm:h-4 md:w-4 md:h-4 flex-shrink-0" />
+                <span className="truncate font-semibold text-white text-xs sm:text-sm">From $730K</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/30 backdrop-blur-md px-4 py-3 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-xl border border-white/20">
-                <Clock size={16} className="text-luxury-gold sm:w-4 sm:h-4 md:w-4 md:h-4 flex-shrink-0" />
-                <span className="truncate font-semibold text-white">2026 Completion</span>
+              <div className="flex items-center gap-1 sm:gap-2 bg-white/30 backdrop-blur-md px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-xl border border-white/20">
+                <Clock size={12} className="text-luxury-gold sm:w-4 sm:h-4 md:w-4 md:h-4 flex-shrink-0" />
+                <span className="truncate font-semibold text-white text-xs sm:text-sm">2026 Move-in</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/30 backdrop-blur-md px-4 py-3 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-xl border border-white/20">
-                <span className="w-5 h-5 sm:w-4 sm:h-4 bg-luxury-gold rounded-full flex items-center justify-center text-sm sm:text-xs font-bold text-primary flex-shrink-0">4</span>
-                <span className="truncate font-semibold text-white">1 Minute From Hwy 410</span>
+              <div className="flex items-center gap-1 sm:gap-2 bg-white/30 backdrop-blur-md px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-xl border border-white/20">
+                <span className="w-4 h-4 sm:w-4 sm:h-4 bg-luxury-gold rounded-full flex items-center justify-center text-xs sm:text-xs font-bold text-primary flex-shrink-0">4</span>
+                <span className="truncate font-semibold text-white text-xs sm:text-sm">Near Hwy 410</span>
               </div>
             </div>
 
