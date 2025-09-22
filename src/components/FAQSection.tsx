@@ -30,7 +30,7 @@ const FAQSection = () => {
     },
     {
       question: "How do I get more information about available homes?",
-      answer: "Contact Rahul Jindal, your dedicated real estate sales representative, at 416-903-8026 or info@rahuljindal.ca. Get exclusive floor plans, pricing information, and schedule a consultation to learn more about these luxury Markham new homes."
+      answer: "Contact our team to get exclusive floor plans, pricing information, and schedule a consultation to learn more about these luxury Markham new homes at Union Village."
     },
     {
       question: "What transportation options are available?",
@@ -83,22 +83,21 @@ const FAQSection = () => {
                 Still Have Questions?
               </h3>
               <p className="text-muted-foreground mb-6">
-                Rahul Jindal is here to help you find your perfect Unionville home. 
-                Get personalized answers and expert guidance.
+                Our team is here to help you find your perfect Union Village home. 
+                Get personalized answers and expert guidance about these premium Markham new homes.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                  href="tel:416-903-8026"
-                  className="inline-flex items-center justify-center px-6 py-3 luxury-gradient text-primary font-semibold rounded-md hover:scale-105 transition-transform duration-200"
+              <div className="flex justify-center">
+                <button 
+                  onClick={() => {
+                    const element = document.querySelector('#contact');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="inline-flex items-center justify-center px-8 py-3 luxury-gradient text-primary font-semibold rounded-md hover:scale-105 transition-transform duration-200"
                 >
-                  Call: 416-903-8026
-                </a>
-                <a 
-                  href="mailto:info@rahuljindal.ca"
-                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-accent text-accent hover:bg-accent hover:text-primary rounded-md transition-all duration-200"
-                >
-                  Email: info@rahuljindal.ca
-                </a>
+                  Contact Our Team
+                </button>
               </div>
             </div>
           </Card>
