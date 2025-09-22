@@ -26,9 +26,10 @@ const Navigation = () => {
       ]
     : [
         { label: 'Overview', href: '#overview' },
-        { label: 'Location', href: '#location' },
+        { label: 'Caledon Location', href: '#location' },
         { label: 'Homes', href: '#home-collection' },
         { label: 'Amenities', href: '#amenities' },
+        { label: 'FAQ', href: '#faq' },
         { label: 'Contact', href: '#contact' },
       ];
 

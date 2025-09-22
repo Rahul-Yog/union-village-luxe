@@ -1,9 +1,13 @@
 import { Card } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { HelpCircle } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 
 const FAQSection = () => {
-  const faqs = [
+  const location = useLocation();
+  const isCrownOfCaledon = location.pathname === '/crown-of-caledon';
+
+  const unionVillageFaqs = [
     {
       question: "Where are Union Village homes located?",
       answer: "Union Village is located at 16th Avenue and Kennedy Road in Markham, Ontario. This prestigious location offers easy access to Unionville's historic charm and metropolitan conveniences, making it one of the most sought-after areas for new homes in Markham."
@@ -37,6 +41,43 @@ const FAQSection = () => {
       answer: "Union Village offers excellent connectivity with GO Transit access just 5 minutes away, Highway 407 nearby, and easy access to downtown Toronto. The location provides the perfect balance of suburban living with urban accessibility."
     }
   ];
+
+  const crownOfCaledonFaqs = [
+    {
+      question: "Where is Crown of Caledon located?",
+      answer: "Crown of Caledon is located at Hurontario Street and Mayfield Road in Caledon, Ontario. This prestigious location offers the perfect blend of suburban tranquility and urban accessibility in one of the GTA's most desirable communities."
+    },
+    {
+      question: "What types of homes are available at Crown of Caledon?",
+      answer: "Crown of Caledon offers both freehold townhomes and detached homes, providing options for different family sizes and preferences. All homes feature premium finishes, spacious layouts, and modern amenities."
+    },
+    {
+      question: "Who is the builder for Crown of Caledon?",
+      answer: "Crown of Caledon is built by Fieldgate Homes, a trusted builder with over 65 years of excellence in creating quality communities throughout the Greater Toronto Area. Fieldgate is known for their attention to detail and commitment to customer satisfaction."
+    },
+    {
+      question: "When will Crown of Caledon homes be ready?",
+      answer: "Crown of Caledon is currently in pre-construction phase. Contact our team for the most up-to-date information on construction timelines and occupancy dates."
+    },
+    {
+      question: "What makes Crown of Caledon special?",
+      answer: "Crown of Caledon combines luxury living with natural beauty, featuring premium finishes, thoughtful design, and access to Caledon's pristine conservation areas. The community offers modern amenities while maintaining the charm of rural Caledon."
+    },
+    {
+      question: "What schools are available near Crown of Caledon?",
+      answer: "The area is served by excellent schools in both the Peel District School Board and Dufferin-Peel Catholic District School Board systems. Families have access to quality education options within the growing Caledon community."
+    },
+    {
+      question: "How do I get more information about Crown of Caledon?",
+      answer: "Contact our team to get exclusive floor plans, pricing information, and schedule a consultation to learn more about these premium new homes in Caledon."
+    },
+    {
+      question: "What transportation options are available from Crown of Caledon?",
+      answer: "Crown of Caledon offers excellent connectivity with Highway 410 just 5 minutes away, Highway 407 ETR access, and GO Transit connections through Bramalea Station. Downtown Toronto is easily accessible for commuters."
+    }
+  ];
+
+  const faqs = isCrownOfCaledon ? crownOfCaledonFaqs : unionVillageFaqs;
 
   return (
     <section id="faq" className="section-spacing bg-muted/30">

@@ -9,51 +9,33 @@ const CrownAmenities = () => {
       description: "Beautifully landscaped green spaces and walking trails connecting you to Caledon's natural beauty"
     },
     {
-      icon: Car,
-      title: "2-Car Garages",
-      description: "Every home includes a spacious 2-car garage with additional driveway parking for family convenience"
-    },
-    {
       icon: Shield,
       title: "Safe Community",
       description: "Gated community features with 24/7 security monitoring for complete peace of mind"
     },
     {
-      icon: Wifi,
-      title: "Smart Home Ready",
-      description: "Pre-wired for high-speed internet, smart home systems, and modern technology integration"
-    },
-    {
       icon: Users,
       title: "Community Center",
-      description: "Dedicated spaces for cultural celebrations, community events, and religious observances"
+      description: "Dedicated spaces for community events and gatherings"
     },
     {
       icon: Heart,
       title: "Family Wellness",
       description: "Health and wellness facilities designed with multigenerational families in mind"
+    },
+    {
+      icon: Dumbbell,
+      title: "Recreation Facilities",
+      description: "Children's playground, sports courts, walking paths, and garden areas for community activities"
+    },
+    {
+      icon: Wifi,
+      title: "Modern Infrastructure", 
+      description: "High-speed internet ready and smart technology integration throughout the community"
     }
   ];
 
   const culturalAmenities = [
-    {
-      title: "Cultural Celebration Spaces",
-      features: [
-        "Large community hall for festivals",
-        "Outdoor gathering areas for ceremonies", 
-        "Kitchen facilities for community meals",
-        "Prayer and meditation spaces"
-      ]
-    },
-    {
-      title: "Family Recreation",
-      features: [
-        "Children's playground with safety features",
-        "Sports courts for cricket & other games",
-        "Walking paths for evening strolls",
-        "Garden areas for community growing"
-      ]
-    },
     {
       title: "Convenience Services",
       features: [
@@ -97,7 +79,7 @@ const CrownAmenities = () => {
         </div>
 
         {/* Cultural & Family Features */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid lg:grid-cols-1 gap-8 mb-12">
           {culturalAmenities.map((section, index) => (
             <Card key={index} className="p-6 border-l-4 border-l-accent">
               <h3 className="text-xl font-bold text-foreground mb-4">{section.title}</h3>

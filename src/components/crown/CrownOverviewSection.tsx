@@ -6,7 +6,7 @@ const CrownOverviewSection = () => {
     {
       icon: Home,
       title: "Townhomes & Detached Homes",
-      description: "Freehold townhomes AND 38'/60' single-family detached homes - both options available!"
+      description: "Freehold townhomes and single-family detached homes - both options available!"
     },
     {
       icon: Heart,
@@ -41,13 +41,14 @@ const CrownOverviewSection = () => {
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            The Gateway to <span className="text-accent">Affordable Luxury</span>
+            Crown of <span className="text-accent">Caledon</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto rounded-full"></div>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
-            Crown of Caledon offers <strong>both freehold townhomes AND detached homes (38' & 60')</strong> 
-            starting from just $730K - significantly less than competitors at $750K+. Built by Fieldgate Homes 
-            with 65+ years of excellence, perfect for modern families seeking quality & value.
+            Introducing Crown of Caledon, where luxury meets comfort in one of the GTA's most prestigious locations. 
+            This exclusive development features premium freehold townhomes and spacious detached homes, 
+            all crafted with unmatched quality and attention to detail by Fieldgate Homes. 
+            Experience the perfect blend of modern design and natural beauty in Caledon's thriving community.
           </p>
         </div>
 
@@ -56,23 +57,23 @@ const CrownOverviewSection = () => {
           {/* Left Column - Description */}
           <div className="space-y-6">
             <div className="prose prose-lg">
-               <p className="text-muted-foreground leading-relaxed">
-                 Crown of Caledon represents the perfect harmony between modern luxury and cultural connection. 
-                 Built by Fieldgate Homes with over 65 years of excellence, this exceptional community offers 
-                 <span className="font-semibold text-foreground"> both freehold townhomes AND 38'/60' detached homes starting from just $730,000</span> 
-                 - <strong className="text-accent">$20,000+ less than competitors</strong> in the same area.
-               </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Crown of Caledon represents the pinnacle of modern living, offering an exclusive collection of 
+                freehold townhomes and detached homes in one of Ontario's most desirable communities. Located at the 
+                prestigious intersection of Hurontario Street and Mayfield Road, this development seamlessly blends 
+                luxury with the natural beauty of Caledon.
+              </p>
               
               <p className="text-muted-foreground leading-relaxed">
-                Thoughtfully designed for modern families seeking quality and value, Crown of Caledon celebrates 
-                contemporary living while providing spacious layouts and premium amenities. From spacious 1,602 to 1,620 sq ft 
-                layouts to proximity to all essential services, every detail has been carefully considered.
+                Each home is thoughtfully designed with premium finishes, spacious layouts, and modern amenities that 
+                cater to today's discerning homeowners. From elegant architectural details to gourmet kitchens with 
+                premium appliances, every element reflects our commitment to quality and sophisticated living.
               </p>
 
               <p className="text-muted-foreground leading-relaxed">
-                Located in the prestigious Town of Caledon, residents enjoy the perfect balance of suburban 
-                tranquility and urban convenience, with easy access to the GTA while being surrounded by 
-                nature's beauty.
+                The community offers an ideal balance of rural charm and urban convenience, with access to pristine 
+                natural spaces, top-rated schools, and recreational facilities, while maintaining excellent 
+                connectivity throughout the Greater Toronto Area.
               </p>
             </div>
           </div>

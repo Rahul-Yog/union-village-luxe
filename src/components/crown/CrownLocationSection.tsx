@@ -1,91 +1,125 @@
-import { MapPin, Clock, Car, Plane, GraduationCap, ShoppingBag, Building2, TreePine } from 'lucide-react';
+import { MapPin, Clock, Car, GraduationCap, ShoppingCart, TreePine, Home, Train } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import neighborhoodMap from '@/assets/crown-neighborhood-map.jpg';
 
 const CrownLocationSection = () => {
   const keyDistances = [
-    { icon: Car, title: "Highway 410", time: "5 min", description: "Direct GTA access" },
-    { icon: GraduationCap, title: "Sheridan College", time: "15 min", description: "Davis Campus" },
-    { icon: ShoppingBag, title: "Bramalea City Centre", time: "12 min", description: "Major shopping" },
-    { icon: Plane, title: "Pearson Airport", time: "25 min", description: "International travel" },
-    { icon: Building2, title: "Downtown Toronto", time: "45 min", description: "Financial district" },
-    { icon: TreePine, title: "Credit Valley", time: "8 min", description: "Conservation area" }
+    {
+      icon: ShoppingCart,
+      title: "Bramalea City Centre", 
+      time: "8 minutes",
+      description: "Major shopping mall with 300+ stores and dining"
+    },
+    {
+      icon: GraduationCap,
+      title: "Top-Rated Schools",
+      time: "5-10 minutes", 
+      description: "Access to excellent Peel District schools"
+    },
+    {
+      icon: Train,
+      title: "GO Transit",
+      time: "12 minutes",
+      description: "Bramalea GO Station for GTA connectivity"
+    },
+    {
+      icon: TreePine,
+      title: "Conservation Areas", 
+      time: "15 minutes",
+      description: "Heart Lake Conservation & Chinguacousy Park"
+    }
   ];
 
   const communityFeatures = [
     {
-      title: "Shopping & Services",
+      title: "Shopping & Dining",
       items: [
-        "Major shopping centers nearby",
-        "Grocery stores and pharmacies",
-        "Restaurants and entertainment", 
-        "Banking and professional services"
+        "Bramalea City Centre - Major shopping destination",
+        "Local plazas with grocery and retail", 
+        "Diverse restaurant selection",
+        "Professional services nearby"
       ]
     },
     {
-      title: "Educational Excellence", 
+      title: "Education & Recreation",
       items: [
-        "Peel District School Board",
-        "Dufferin-Peel Catholic DSB",
-        "Private schools available",
-        "French immersion programs"
+        "Peel District School Board schools",
+        "Recreation centers and sports facilities",
+        "Community centers and libraries", 
+        "Parks and playgrounds throughout"
       ]
     },
     {
-      title: "Recreation & Wellness",
+      title: "Transportation & Connectivity",
       items: [
-        "Caledon Recreation Complex", 
-        "Credit Valley Golf Club",
-        "Hiking & nature trails",
-        "Community centers"
+        "Highway 410 access - 5 minutes",
+        "Highway 407 ETR - 10 minutes",
+        "GO Transit connections to downtown", 
+        "YRT bus routes throughout area"
       ]
     }
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section id="location" className="py-20 bg-muted/30">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            Premium Caledon Location
+            Caledon Location & <span className="text-accent">Neighbourhood</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto rounded-full"></div>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Perfectly positioned for modern living with cultural connections and natural beauty
+            Strategically located at Hurontario Street and Mayfield Road, Crown of Caledon offers the perfect 
+            blend of suburban tranquility and urban accessibility in one of the GTA's most desirable areas.
           </p>
         </div>
 
-        {/* Location Highlights */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {keyDistances.map((item, index) => (
-            <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 group hover:border-accent/50">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                  <item.icon className="h-6 w-6 text-accent" />
+        {/* Neighbourhood Map */}
+        <div className="mb-16">
+          <Card className="overflow-hidden">
+            <div className="relative">
+              <img 
+                src={neighborhoodMap} 
+                alt="Crown of Caledon Neighbourhood Map showing townhomes, detached homes and community layout"
+                className="w-full h-auto max-h-96 object-contain bg-white"
+              />
+              <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm rounded-lg p-3">
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-5 w-5 text-accent" />
+                  <span className="font-semibold text-foreground">Crown of Caledon Site Plan</span>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-foreground">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
-                </div>
-                <div className="text-right">
-                  <div className="flex items-center gap-1 text-accent font-bold">
-                    <Clock className="h-4 w-4" />
-                    {item.time}
-                  </div>
-                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        {/* Key Distances */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {keyDistances.map((location, index) => (
+            <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow duration-300">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <location.icon className="h-8 w-8 text-accent" />
+              </div>
+              <h3 className="font-semibold text-foreground text-lg mb-2">{location.title}</h3>
+              <p className="text-muted-foreground mb-3">{location.description}</p>
+              <div className="flex items-center justify-center gap-2">
+                <Clock className="h-4 w-4 text-accent" />
+                <span className="text-accent font-semibold">{location.time}</span>
               </div>
             </Card>
           ))}
         </div>
 
-        {/* Detailed Features */}
+        {/* Community Features */}
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
-          {communityFeatures.map((feature, index) => (
+          {communityFeatures.map((category, index) => (
             <Card key={index} className="p-6 border-l-4 border-l-accent">
-              <h3 className="text-xl font-bold text-foreground mb-4">{feature.title}</h3>
-              <ul className="space-y-2">
-                {feature.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="flex items-start gap-2">
+              <h3 className="text-xl font-bold text-foreground mb-4">{category.title}</h3>
+              <ul className="space-y-3">
+                {category.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
                     <span className="text-muted-foreground">{item}</span>
                   </li>
@@ -95,32 +129,32 @@ const CrownLocationSection = () => {
           ))}
         </div>
 
-        {/* Get Consultation at Home */}
-        <Card className="p-8 bg-gradient-to-r from-accent/5 to-primary/5 border-accent/20">
-          <div className="text-center space-y-4">
-            <div className="flex items-center justify-center gap-2">
-              <MapPin className="h-6 w-6 text-accent" />
-              <h3 className="text-2xl font-bold text-foreground">Get Personal Consultation</h3>
+        {/* CTA Section */}
+        <Card className="p-8 bg-gradient-to-r from-accent/5 via-primary/5 to-secondary/5 border-accent/20">
+          <div className="text-center space-y-6">
+            <div className="flex items-center justify-center gap-4">
+              <Home className="h-8 w-8 text-accent" />
+              <h3 className="text-2xl font-bold text-foreground">
+                Get Personal Consultation
+              </h3>
             </div>
-            <p className="text-lg text-muted-foreground">
-              Schedule a personalized consultation from the comfort of your home
+            
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Discover why Crown of Caledon is the perfect place to call home. Get detailed information 
+              about floor plans, pricing, and availability.
             </p>
-            <p className="text-muted-foreground">
-              Our experts will bring all the information directly to you
-            </p>
-            <div className="pt-4">
-              <button 
-                onClick={() => {
-                  const element = document.querySelector('#contact');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-3 rounded-md font-semibold transition-colors"
-              >
-                Book Consultation Now
-              </button>
-            </div>
+            
+            <Button 
+              onClick={() => {
+                const element = document.querySelector('#contact');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="luxury-gradient text-primary font-semibold hover:scale-105 transition-transform duration-200 px-8 py-3"
+            >
+              Schedule Consultation
+            </Button>
           </div>
         </Card>
       </div>
