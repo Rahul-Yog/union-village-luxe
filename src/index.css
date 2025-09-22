@@ -1,118 +1,113 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Crown of Caledon Design System */
+/* Union Village Design System */
 
 @layer base {
   :root {
-    /* Luxury Real Estate Color Palette */
+    /* Modern Real Estate Color Palette */
     --background: 0 0% 100%;
-    --foreground: 215 28% 17%;
+    --foreground: 222 84% 4.9%;
     
     /* Primary Brand Colors */
-    --primary: 215 28% 17%; /* Deep Navy */
-    --primary-foreground: 0 0% 98%;
-    --primary-light: 215 25% 25%;
-    --primary-lighter: 215 20% 35%;
-    
-    /* Luxury Accent Colors */
-    --luxury-gold: 43 87% 51%; /* Sophisticated Gold */
-    --luxury-gold-light: 43 87% 61%;
-    --luxury-gold-dark: 43 87% 41%;
+    --primary: 221.2 83.2% 53.3%; /* Modern Blue */
+    --primary-foreground: 210 40% 98%;
+    --primary-light: 221.2 83.2% 63.3%;
+    --primary-lighter: 221.2 83.2% 73.3%;
     
     /* Trust Building Colors */
-    --trust-blue: 215 84% 58%;
-    --trust-green: 120 65% 40%;
+    --trust-blue: 221.2 83.2% 53.3%;
+    --trust-green: 142.1 76.2% 36.3%;
     
     /* Background Variations */
-    --background-muted: 220 14% 96%;
+    --background-muted: 210 40% 98%;
     --background-elevated: 0 0% 98%;
-    --background-overlay: 215 28% 17% / 0.95;
+    --background-overlay: 222 84% 4.9% / 0.8;
     
     /* Card and Surface Colors */
     --card: 0 0% 100%;
-    --card-foreground: 215 28% 17%;
-    --card-elevated: 0 0% 98%;
+    --card-foreground: 222 84% 4.9%;
+    --card-elevated: 210 40% 98%;
     
     /* Interactive Elements */
     --popover: 0 0% 100%;
-    --popover-foreground: 215 28% 17%;
-    
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 215 28% 17%;
-    
-    --muted: 220 14% 96%;
-    --muted-foreground: 215 16% 47%;
-    
-    --accent: 43 87% 51%;
-    --accent-foreground: 215 28% 17%;
-    
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    
+    --popover-foreground: 222 84% 4.9%;
+
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 222 84% 4.9%;
+
+    --muted: 210 40% 98%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 98%;
+    --accent-foreground: 222 84% 4.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
     /* Form Elements */
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 43 87% 51%;
-    
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(215 28% 17%), hsl(215 25% 25%));
-    --gradient-luxury: linear-gradient(135deg, hsl(43 87% 51%), hsl(43 87% 61%));
-    --gradient-overlay: linear-gradient(180deg, hsl(215 28% 17% / 0.8), hsl(215 28% 17% / 0.95));
-    
+    --gradient-hero: linear-gradient(135deg, hsl(221.2 83.2% 53.3%), hsl(221.2 83.2% 63.3%));
+    --gradient-primary: linear-gradient(135deg, hsl(221.2 83.2% 53.3%), hsl(221.2 83.2% 63.3%));
+    --gradient-overlay: linear-gradient(180deg, hsl(222 84% 4.9% / 0.6), hsl(222 84% 4.9% / 0.8));
+
     /* Shadows */
-    --shadow-luxury: 0 25px 50px -12px hsl(215 28% 17% / 0.25);
-    --shadow-elegant: 0 10px 25px -3px hsl(215 28% 17% / 0.1);
-    --shadow-card: 0 4px 6px -1px hsl(215 28% 17% / 0.1);
-    
+    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-elegant: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --shadow-large: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+
     /* Typography */
-    --font-display: 'Playfair Display', serif;
+    --font-display: 'Open Sans', sans-serif;
     --font-body: 'Inter', sans-serif;
-    
+
     /* Spacing and Layout */
     --radius: 0.5rem;
     --container-padding: 1rem;
     --section-spacing: 6rem;
-    
+
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
   .dark {
-    --background: 215 28% 17%;
-    --foreground: 0 0% 98%;
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
     
-    --card: 215 25% 25%;
-    --card-foreground: 0 0% 98%;
+    --card: 222 84% 4.9%;
+    --card-foreground: 210 40% 98%;
     
-    --popover: 215 25% 25%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 222 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
     
-    --primary: 43 87% 51%;
-    --primary-foreground: 215 28% 17%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 222 84% 4.9%;
     
-    --secondary: 215 20% 35%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
     
-    --muted: 215 20% 35%;
-    --muted-foreground: 215 16% 65%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
     
-    --accent: 43 87% 51%;
-    --accent-foreground: 215 28% 17%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
     
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
     
-    --border: 215 20% 35%;
-    --input: 215 20% 35%;
-    --ring: 43 87% 51%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 221.2 83.2% 53.3%;
     
-    --gradient-hero: linear-gradient(135deg, hsl(215 28% 17%), hsl(215 25% 25%));
-    --gradient-overlay: linear-gradient(180deg, hsl(215 28% 17% / 0.9), hsl(215 28% 17% / 0.95));
+    --gradient-hero: linear-gradient(135deg, hsl(221.2 83.2% 53.3%), hsl(221.2 83.2% 63.3%));
+    --gradient-overlay: linear-gradient(180deg, hsl(222 84% 4.9% / 0.8), hsl(222 84% 4.9% / 0.9));
   }
 }
 
@@ -147,8 +142,8 @@
     background: var(--gradient-hero);
   }
   
-  .luxury-gradient {
-    background: var(--gradient-luxury);
+  .primary-gradient {
+    background: var(--gradient-primary);
   }
   
   .overlay-gradient {
@@ -173,8 +168,8 @@
   }
   
   .hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-luxury);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elegant);
   }
   
   /* Trust Building Elements */
@@ -187,19 +182,18 @@
     @apply text-trust-green font-semibold;
   }
   
-  /* Luxury Card Styles */
-  .luxury-card {
+  /* Modern Card Styles */
+  .modern-card {
     @apply bg-card border border-border rounded-lg p-6 shadow-[var(--shadow-card)] hover-lift;
-    backdrop-filter: blur(10px);
   }
   
   /* CTA Button Styles */
   .cta-primary {
-    @apply luxury-gradient text-primary font-semibold py-4 px-8 rounded-lg shadow-[var(--shadow-elegant)] hover:shadow-[var(--shadow-luxury)] transition-all duration-300 transform hover:scale-105;
+    @apply primary-gradient text-primary-foreground font-semibold py-4 px-8 rounded-lg shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-elegant)] transition-all duration-300 transform hover:scale-105;
   }
   
   .cta-secondary {
-    @apply border-2 border-accent text-accent font-semibold py-4 px-8 rounded-lg hover:bg-accent hover:text-accent-foreground transition-all duration-300;
+    @apply border-2 border-primary text-primary font-semibold py-4 px-8 rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300;
   }
 }
 
@@ -213,7 +207,7 @@
   }
   
   .text-gradient {
-    background: var(--gradient-luxury);
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
