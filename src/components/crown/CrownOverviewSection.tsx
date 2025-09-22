@@ -31,7 +31,7 @@ const CrownOverviewSection = () => {
     {
       icon: Car,
       title: "GTA Connectivity",
-      description: "Quick access to Highway 410, 427 & GO Transit for easy commuting"
+      description: "Quick access to Highway 410, 407 & GO Transit for easy commuting"
     }
   ];
 

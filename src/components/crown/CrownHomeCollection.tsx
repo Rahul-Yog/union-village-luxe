@@ -569,7 +569,7 @@ const CrownHomeCollection = () => {
                 Our real estate specialists will help you compare options, understand pricing, 
                 and find the perfect home that matches your lifestyle and budget.
               </p>
-              <div className="flex gap-4 justify-center">
+              <div className="flex justify-center">
                 <Button 
                   onClick={() => {
                     setSelectedCollection('consultation');
@@ -579,14 +579,6 @@ const CrownHomeCollection = () => {
                   className="bg-accent hover:bg-accent/90 text-white px-6"
                 >
                   Schedule Consultation
-                </Button>
-                <Button 
-                  onClick={handleQuickMatch}
-                  variant="outline"
-                  size="lg"
-                  className="px-6"
-                >
-                  Take Quick Quiz
                 </Button>
               </div>
             </div>
