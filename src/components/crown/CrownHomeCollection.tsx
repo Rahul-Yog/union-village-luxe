@@ -24,6 +24,9 @@ import traditionElevC from '@/assets/tradition-elev-c.png';
 import tiaraElevA from '@/assets/tiara-elev-a.png';
 import tiaraElevB from '@/assets/tiara-elev-b.png';
 import tiaraElevC from '@/assets/tiara-elev-c.png';
+import jubileeElevA from '@/assets/jubilee-elev-a.png';
+import jubileeElevB from '@/assets/jubilee-elev-b.png';
+import jubileeElevC from '@/assets/jubilee-elev-c.png';
 
 const CrownHomeCollection = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -100,6 +103,18 @@ const CrownHomeCollection = () => {
       features: ['5-6 Bedrooms', '5-6 Bathrooms', '3 Car Garage', '3,000+ sq ft'],
       priceRange: 'Starting from $1.2M',
       badge: 'Luxury',
+      available: true
+    },
+    {
+      id: 'jubilee-38',
+      title: 'The Jubilee - 38 Feet',
+      subtitle: 'Executive Collection',
+      description: 'Sophisticated 38-foot detached homes featuring 3 distinctive elevation designs with contemporary styling and premium architectural details.',
+      elevations: 3,
+      images: [jubileeElevA, jubileeElevB, jubileeElevC],
+      features: ['4-5 Bedrooms', '3.5-4 Bathrooms', '2 Car Garage', '2,500+ sq ft'],
+      priceRange: 'Starting from $1.05M',
+      badge: 'Executive',
       available: true
     },
     {
