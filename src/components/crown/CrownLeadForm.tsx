@@ -76,6 +76,7 @@ const CrownLeadForm = () => {
           newsletter_consent: formData.newsletter,
           privacy_consent: formData.privacy,
           form_type: 'crown_lead_form',
+          source: 'crown-of-caledon-website',
           user_agent: navigator.userAgent
         }
       });

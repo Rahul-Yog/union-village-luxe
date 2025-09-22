@@ -119,9 +119,6 @@ const CrownFooter = () => {
           <div className="grid md:grid-cols-2 gap-6 items-center">
             <div className="text-primary-foreground/60 text-sm">
               <p className="mb-2">
-                © {currentYear} Crown of Caledon by Fieldgate Homes
-              </p>
-              <p className="mb-2">
                 Not intended to solicit buyers or sellers currently under contract with a real estate brokerage.
               </p>
               <p>

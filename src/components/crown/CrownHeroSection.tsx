@@ -45,8 +45,8 @@ const CrownHeroSection = () => {
                 <span className="truncate">2026 Completion</span>
               </div>
               <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0">
-                <span className="w-3 h-3 sm:w-4 sm:h-4 bg-luxury-gold rounded-full flex items-center justify-center text-[8px] sm:text-xs font-bold text-primary flex-shrink-0">B</span>
-                <span className="truncate">On Brampton Border</span>
+                <span className="w-3 h-3 sm:w-4 sm:h-4 bg-luxury-gold rounded-full flex items-center justify-center text-[8px] sm:text-xs font-bold text-primary flex-shrink-0">4</span>
+                <span className="truncate">1 Minute From Hwy 410</span>
               </div>
             </div>
 
@@ -77,8 +77,6 @@ const CrownHeroSection = () => {
             <div className="flex flex-wrap justify-center items-center gap-4 mb-10 text-white/80">
               <span className="text-sm">Developed by</span>
               <div className="flex items-center gap-4">
-                <img src={crownLogo} alt="Crown of Caledon" className="h-8 object-contain" />
-                <span className="text-white/50">•</span>
                 <span className="font-semibold text-luxury-gold">Fieldgate Homes</span>
               </div>
             </div>
