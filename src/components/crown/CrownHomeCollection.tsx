@@ -85,7 +85,7 @@ const CrownHomeCollection = () => {
       elevations: 3,
       images: [endUnitElevA, endUnitElevB, endUnitElevC],
       features: ['3 Bedrooms', '2.5-3 Bathrooms', '1 Car Garage', '1,620+ sq ft'],
-      priceRange: 'Starting from $750K',
+      priceRange: 'Starting from $830K',
       badge: 'End Unit Premium',
       available: true,
       units: 'Limited availability'
@@ -223,7 +223,7 @@ const CrownHomeCollection = () => {
       title: 'Compact Living',
       subtitle: '1,200 - 2,000 sq ft',
       description: 'Perfect for young professionals, couples, or downsizers',
-      priceRange: '$730K - $820K',
+      priceRange: 'Starting from $1,049,990',
       collections: detachedCollections.filter(c => 
         ['compact-home-1', 'compact-home-2', 'compact-home-3', 'compact-home-4'].includes(c.id)
       )
@@ -233,7 +233,7 @@ const CrownHomeCollection = () => {
       title: 'Executive Homes', 
       subtitle: '2,000 - 3,000 sq ft',
       description: 'Sophisticated homes for executives and established families',
-      priceRange: '$950K - $1.1M',
+      priceRange: 'Starting from $1,179,990',
       collections: detachedCollections.filter(c => 
         ['family-home-1', 'family-home-2'].includes(c.id)
       )
@@ -243,7 +243,7 @@ const CrownHomeCollection = () => {
       title: 'Estate Collection',
       subtitle: '3,000 - 3,500 sq ft',
       description: 'Luxury homes with premium finishes and locations',
-      priceRange: '$1.35M+',
+      priceRange: 'Starting from $1,299,900',
       collections: detachedCollections.filter(c => 
         ['premium-estate'].includes(c.id)
       )
@@ -400,25 +400,6 @@ const CrownHomeCollection = () => {
           </p>
         </div>
 
-        {/* Quick Match CTA */}
-        <div className="mb-8">
-          <Card className="bg-gradient-to-r from-accent/10 to-primary/10 border-accent/20 max-w-4xl mx-auto">
-            <div className="p-6 text-center">
-              <h3 className="text-xl font-bold text-foreground mb-2">
-                🎯 Find Your Perfect Home in 30 Seconds
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                Answer 3 quick questions and get personalized recommendations
-              </p>
-              <Button 
-                onClick={handleQuickMatch}
-                className="bg-accent hover:bg-accent/90 text-white px-6"
-              >
-                Take Quick Match Quiz
-              </Button>
-            </div>
-          </Card>
-        </div>
 
         {/* Category Navigation */}
         <Tabs value={activeCategory} onValueChange={setActiveCategory} className="mb-8">
