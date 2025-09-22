@@ -95,23 +95,31 @@ const CrownLocationSection = () => {
           ))}
         </div>
 
-        {/* Address & Contact */}
+        {/* Get Consultation at Home */}
         <Card className="p-8 bg-gradient-to-r from-accent/5 to-primary/5 border-accent/20">
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-2">
               <MapPin className="h-6 w-6 text-accent" />
-              <h3 className="text-2xl font-bold text-foreground">Visit Our Location</h3>
+              <h3 className="text-2xl font-bold text-foreground">Get Personal Consultation</h3>
             </div>
             <p className="text-lg text-muted-foreground">
-              Crown of Caledon Sales Centre
+              Schedule a personalized consultation from the comfort of your home
             </p>
             <p className="text-muted-foreground">
-              Caledon, Ontario, Canada
+              Our experts will bring all the information directly to you
             </p>
             <div className="pt-4">
-              <p className="text-sm text-muted-foreground">
-                Sales Hours: Monday - Sunday 10:00 AM - 6:00 PM
-              </p>
+              <button 
+                onClick={() => {
+                  const element = document.querySelector('#contact');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-3 rounded-md font-semibold transition-colors"
+              >
+                Book Consultation Now
+              </button>
             </div>
           </div>
         </Card>

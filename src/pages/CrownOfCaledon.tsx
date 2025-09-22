@@ -6,8 +6,8 @@ import CrownLocationSection from '@/components/crown/CrownLocationSection';
 import CrownHomeCollection from '@/components/crown/CrownHomeCollection';
 import CrownAmenities from '@/components/crown/CrownAmenities';
 import FAQSection from '@/components/FAQSection';
-import LeadForm from '@/components/LeadForm';
-import Footer from '@/components/Footer';
+import CrownLeadForm from '@/components/crown/CrownLeadForm';
+import CrownFooter from '@/components/crown/CrownFooter';
 
 const CrownOfCaledon = () => {
   return (
@@ -98,9 +98,9 @@ const CrownOfCaledon = () => {
           <CrownHomeCollection />
           <CrownAmenities />
           <FAQSection />
-          <LeadForm />
+          <CrownLeadForm />
         </main>
-        <Footer />
+        <CrownFooter />
       </div>
     </>
   );

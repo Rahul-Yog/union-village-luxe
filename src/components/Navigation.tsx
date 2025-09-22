@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import unionVillageLogo from '@/assets/union-village-logo.jpg';
+import crownLogo from '@/assets/crown-logo.png';
 import AuthButton from '@/components/AuthButton';
 import { useAuth } from '@/hooks/useAuth';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -46,8 +47,8 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <img 
-              src={unionVillageLogo} 
-              alt="Union Village - Unionville Houses For Sale | Luxury New Homes in Markham" 
+              src={isCrownOfCaledon ? crownLogo : unionVillageLogo} 
+              alt={isCrownOfCaledon ? "Crown of Caledon - Luxury New Homes in Caledon by Fieldgate" : "Union Village - Unionville Houses For Sale | Luxury New Homes in Markham"} 
               className="h-12 w-auto"
             />
           </div>
