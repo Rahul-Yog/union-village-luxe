@@ -47,7 +47,7 @@ import luxuryEstate1ElevC from '@/assets/luxury-estate-1-elev-c.png';
 const CrownHomeCollection = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [selectedCollection, setSelectedCollection] = useState<string>('');
-  const [activeCategory, setActiveCategory] = useState<string>('featured');
+  const [activeCategory, setActiveCategory] = useState<string>('townhomes');
   const [showAllCollections, setShowAllCollections] = useState(false);
   const [showQuickMatch, setShowQuickMatch] = useState(false);
 
@@ -422,25 +422,10 @@ const CrownHomeCollection = () => {
 
         {/* Category Navigation */}
         <Tabs value={activeCategory} onValueChange={setActiveCategory} className="mb-8">
-          <TabsList className="grid w-full grid-cols-4 max-w-2xl mx-auto">
-            <TabsTrigger value="featured">Featured</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-2 max-w-xl mx-auto">
             <TabsTrigger value="townhomes">Townhomes</TabsTrigger>
             <TabsTrigger value="detached">Detached</TabsTrigger>
-            <TabsTrigger value="all">All Homes</TabsTrigger>
           </TabsList>
-
-          {/* Featured Collections */}
-          <TabsContent value="featured" className="space-y-8">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-foreground mb-2">Featured Collections</h3>
-              <p className="text-muted-foreground">Our most popular and exclusive home designs</p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              {getFeaturedCollections().map((collection) => (
-                <CollectionCard key={collection.id} collection={collection} />
-              ))}
-            </div>
-          </TabsContent>
 
           {/* Townhomes */}
           <TabsContent value="townhomes" className="space-y-8">
@@ -590,78 +575,7 @@ const CrownHomeCollection = () => {
               </div>
             ))}
           </TabsContent>
-
-          {/* All Collections */}
-          <TabsContent value="all" className="space-y-8">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-foreground mb-2">Complete Home Collection</h3>
-              <p className="text-muted-foreground">Browse all available home designs and floor plans</p>
-            </div>
-            
-            {/* Price Filter Pills */}
-            <div className="flex justify-center gap-2 mb-6">
-              <Badge variant="outline" className="cursor-pointer hover:bg-accent hover:text-white transition-colors">
-                Under $800K
-              </Badge>
-              <Badge variant="outline" className="cursor-pointer hover:bg-accent hover:text-white transition-colors">
-                $800K - $1.1M
-              </Badge>
-              <Badge variant="outline" className="cursor-pointer hover:bg-accent hover:text-white transition-colors">
-                $1.1M+
-              </Badge>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {allCollections.map((collection) => (
-                <CollectionCard key={collection.id} collection={collection} />
-              ))}
-            </div>
-          </TabsContent>
         </Tabs>
-
-        {/* Dynasty Spotlight - Special Featured Section */}
-        {activeCategory === 'featured' && (
-          <div className="mt-16">
-            <Card className="bg-gradient-to-r from-yellow-50 to-amber-50 border-2 border-yellow-200">
-              <div className="p-8 text-center">
-                <div className="flex justify-center mb-4">
-                  <Badge className="bg-gradient-to-r from-yellow-600 to-yellow-500 text-white font-bold text-lg px-4 py-2">
-                    <Star className="w-4 h-4 mr-2" />
-                    Coming Soon: The Dynasty Collection
-                  </Badge>
-                </div>
-                <h3 className="text-3xl font-bold text-foreground mb-4">
-                  The Dynasty - Corner Detached Homes
-                </h3>
-                <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-                  Our most exclusive release featuring premium corner lots with enhanced privacy, 
-                  larger outdoor spaces, and distinctive architectural elevations. Limited availability.
-                </p>
-                <div className="flex justify-center gap-4 mb-6">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-accent">3,200+</div>
-                    <div className="text-sm text-muted-foreground">Square Feet</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-accent">$1.35M</div>
-                    <div className="text-sm text-muted-foreground">Starting Price</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-accent">Limited</div>
-                    <div className="text-sm text-muted-foreground">Corner Lots</div>
-                  </div>
-                </div>
-                <Button 
-                  onClick={() => handleViewFloorPlans('dynasty-corner')}
-                  size="lg"
-                  className="bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-700 hover:to-yellow-600 text-white px-8 py-4 hover:scale-105 transition-transform duration-200"
-                >
-                  Join VIP Preview List
-                </Button>
-              </div>
-            </Card>
-          </div>
-        )}
 
         {/* CTA Section */}
         <div className="text-center mt-16">
