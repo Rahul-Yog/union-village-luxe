@@ -18,6 +18,12 @@ import freeholdElevB from '@/assets/freehold-elev-b.png';
 import freeholdElevC from '@/assets/freehold-elev-c.png';
 import monarchElevA from '@/assets/monarch-elev-a.png';
 import monarchElevB from '@/assets/monarch-elev-b.png';
+import traditionElevA from '@/assets/tradition-elev-a.png';
+import traditionElevB from '@/assets/tradition-elev-b.png';
+import traditionElevC from '@/assets/tradition-elev-c.png';
+import tiaraElevA from '@/assets/tiara-elev-a.png';
+import tiaraElevB from '@/assets/tiara-elev-b.png';
+import tiaraElevC from '@/assets/tiara-elev-c.png';
 
 const CrownHomeCollection = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -76,9 +82,9 @@ const CrownHomeCollection = () => {
       id: 'tradition-38',
       title: 'The Tradition - 38 Feet',
       subtitle: 'Classic Family Living',
-      description: 'Traditional 38-foot detached homes featuring 3 timeless elevation styles.',
+      description: 'Traditional 38-foot detached homes featuring 3 timeless elevation styles with classic architectural details.',
       elevations: 3,
-      images: [townElevC],
+      images: [traditionElevA, traditionElevB, traditionElevC],
       features: ['4-6 Bedrooms', '4-5 Bathrooms', '2 Car Garage', '2,600+ sq ft'],
       priceRange: 'Starting from $980K',
       badge: 'Family Home',
@@ -88,9 +94,9 @@ const CrownHomeCollection = () => {
       id: 'tiara-38',
       title: 'The Tiara - 38 Feet',
       subtitle: 'Luxury Collection',
-      description: 'Premium 38-foot detached homes with 3 luxury elevation designs and high-end finishes.',
+      description: 'Premium 38-foot detached homes with 3 luxury elevation designs and high-end finishes throughout.',
       elevations: 3,
-      images: [townElevA],
+      images: [tiaraElevA, tiaraElevB, tiaraElevC],
       features: ['5-6 Bedrooms', '5-6 Bathrooms', '3 Car Garage', '3,000+ sq ft'],
       priceRange: 'Starting from $1.2M',
       badge: 'Luxury',
