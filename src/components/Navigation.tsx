@@ -25,12 +25,12 @@ const Navigation = () => {
         { label: 'Contact Agent', href: '#contact' },
       ]
     : [
-        { label: 'Overview', href: '#overview' },
-        { label: 'Caledon Location', href: '#location' },
-        { label: 'Homes', href: '#home-collection' },
-        { label: 'Amenities', href: '#amenities' },
-        { label: 'FAQ', href: '#faq' },
-        { label: 'Contact', href: '#contact' },
+        { label: 'Crown of Caledon Homes', href: '#overview' },
+        { label: 'Caledon Location & Neighbourhood', href: '#location' },
+        { label: 'Caledon New Homes Collection', href: '#home-collection' },
+        { label: 'Community Amenities', href: '#amenities' },
+        { label: 'Crown of Caledon FAQ', href: '#faq' },
+        { label: 'Schedule Consultation', href: '#contact' },
       ];
 
   const scrollToSection = (href: string) => {
@@ -105,7 +105,7 @@ const Navigation = () => {
               onClick={() => scrollToSection('#contact')}
               className="luxury-gradient text-primary font-semibold hover:scale-105 transition-transform duration-200"
             >
-              Get Floor Plans
+              {isCrownOfCaledon ? 'Get Crown Floor Plans' : 'Get Floor Plans'}
             </Button>
           </div>
 
@@ -169,7 +169,7 @@ const Navigation = () => {
                   onClick={() => scrollToSection('#contact')}
                   className="luxury-gradient text-primary font-semibold w-full"
                 >
-                  Get Floor Plans
+                  {isCrownOfCaledon ? 'Get Crown Floor Plans' : 'Get Floor Plans'}
                 </Button>
               </div>
             </div>

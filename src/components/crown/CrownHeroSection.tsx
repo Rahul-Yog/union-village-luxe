@@ -90,7 +90,7 @@ const CrownHeroSection = () => {
                 size="lg"
                 className="luxury-gradient text-primary font-semibold px-8 py-4 text-lg hover:scale-105 transition-transform duration-200 shadow-luxury"
               >
-                Get Exclusive Floor Plans
+                Get Crown Floor Plans
               </Button>
               <Button 
                 onClick={() => scrollToSection('#overview')}
