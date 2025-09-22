@@ -2,8 +2,10 @@ import Navigation from '@/components/Navigation';
 import HeroSectionWithModal from '@/components/HeroSectionWithModal';
 import OverviewSection from '@/components/OverviewSection';
 import LocationSection from '@/components/LocationSection';
+import EnhancedHomeCollection from '@/components/EnhancedHomeCollection';
+import CommunityRenderings from '@/components/CommunityRenderings';
 import SitePlanSectionWithModal from '@/components/SitePlanSectionWithModal';
-import HomeCollection from '@/components/HomeCollection';
+import FAQSection from '@/components/FAQSection';
 import UnionVillageLeadForm from '@/components/UnionVillageLeadForm';
 import UnionVillageFooter from '@/components/UnionVillageFooter';
 
@@ -14,8 +16,10 @@ const Index = () => {
       <HeroSectionWithModal />
       <OverviewSection />
       <LocationSection />
+      <EnhancedHomeCollection />
+      <CommunityRenderings />
       <SitePlanSectionWithModal />
-      <HomeCollection />
+      <FAQSection />
       <UnionVillageLeadForm />
       <UnionVillageFooter />
     </div>
