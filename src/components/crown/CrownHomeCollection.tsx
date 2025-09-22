@@ -30,6 +30,16 @@ import jubileeElevB from '@/assets/jubilee-elev-b.png';
 import jubileeElevC from '@/assets/jubilee-elev-c.png';
 import floorPlanTeaser from '@/assets/floor-plan-teaser.jpg';
 
+// Import new crown-free elevation images
+import monarchElevANew from '@/assets/monarch-elev-a-new.png';
+import monarchElevBNew from '@/assets/monarch-elev-b-new.png';
+import tiaraElevANew from '@/assets/tiara-elev-a-new.png';
+import tiaraElevBNew from '@/assets/tiara-elev-b-new.png';
+import tiaraElevCNew from '@/assets/tiara-elev-c-new.png';
+import jubileeElevANew from '@/assets/jubilee-elev-a-new.png';
+import jubileeElevBNew from '@/assets/jubilee-elev-b-new.png';
+import jubileeElevCNew from '@/assets/jubilee-elev-c-new.png';
+
 const CrownHomeCollection = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [selectedCollection, setSelectedCollection] = useState<string>('');
@@ -118,7 +128,7 @@ const CrownHomeCollection = () => {
       category: 'detached',
       tier: 'starter',
       elevations: 2,
-      images: [monarchElevA, monarchElevB],
+      images: [monarchElevANew, monarchElevBNew],
       features: ['3-4 Bedrooms', '2.5-3 Bathrooms', '2 Car Garage', '1,400-1,600 sq ft'],
       priceRange: 'Starting from $730K',
       badge: 'Available Now',
@@ -148,7 +158,7 @@ const CrownHomeCollection = () => {
       category: 'detached',
       tier: 'starter',
       elevations: 3,
-      images: [jubileeElevA, jubileeElevB, jubileeElevC],
+      images: [jubileeElevANew, jubileeElevBNew, jubileeElevCNew],
       features: ['3-4 Bedrooms', '2.5-3 Bathrooms', '2 Car Garage', '1,600-1,800 sq ft'],
       priceRange: 'Starting from $780K',
       badge: 'Executive Style',
@@ -163,7 +173,7 @@ const CrownHomeCollection = () => {
       category: 'detached',
       tier: 'starter',
       elevations: 3,
-      images: [tiaraElevA, tiaraElevB, tiaraElevC],
+      images: [tiaraElevANew, tiaraElevBNew, tiaraElevCNew],
       features: ['4 Bedrooms', '3-3.5 Bathrooms', '2 Car Garage', '1,800-2,000 sq ft'],
       priceRange: 'Starting from $820K',
       badge: 'Luxury Features',
