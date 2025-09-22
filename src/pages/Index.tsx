@@ -6,8 +6,8 @@ import SitePlanSectionWithModal from '@/components/SitePlanSectionWithModal';
 import EnhancedHomeCollection from '@/components/EnhancedHomeCollection';
 import CommunityRenderings from '@/components/CommunityRenderings';
 import FAQSection from '@/components/FAQSection';
-import LeadForm from '@/components/LeadForm';
-import Footer from '@/components/Footer';
+import UnionVillageLeadForm from '@/components/UnionVillageLeadForm';
+import UnionVillageFooter from '@/components/UnionVillageFooter';
 
 const Index = () => {
   return (
@@ -20,8 +20,8 @@ const Index = () => {
       <EnhancedHomeCollection />
       <CommunityRenderings />
       <FAQSection />
-      <LeadForm />
-      <Footer />
+      <UnionVillageLeadForm />
+      <UnionVillageFooter />
     </div>
   );
 };
