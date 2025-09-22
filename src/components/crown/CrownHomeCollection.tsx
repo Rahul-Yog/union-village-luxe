@@ -13,6 +13,9 @@ import townElevC from '@/assets/town-elev-c.png';
 import abbeyElevA from '@/assets/abbey-elev-a.png';
 import abbeyElevB from '@/assets/abbey-elev-b.png';
 import abbeyElevC from '@/assets/abbey-elev-c.png';
+import freeholdCorner from '@/assets/freehold-corner.png';
+import freeholdElevB from '@/assets/freehold-elev-b.png';
+import freeholdElevC from '@/assets/freehold-elev-c.png';
 
 const CrownHomeCollection = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -46,10 +49,10 @@ const CrownHomeCollection = () => {
     {
       id: 'freehold-townhomes',
       title: 'Freehold Townhomes',
-      subtitle: 'Premium Ownership',
-      description: 'Spacious freehold townhomes with 3 unique elevation designs and premium finishes.',
-      elevations: 3,
-      images: [townElevA],
+      subtitle: 'Surrey • Balmoral • Pembroke • Cornwall • Windsor',
+      description: 'Spacious freehold townhomes with multiple unique elevation designs featuring premium finishes and corner units available.',
+      elevations: 5,
+      images: [freeholdCorner, freeholdElevB, freeholdElevC],
       features: ['3-4 Bedrooms', '3-4 Bathrooms', '2 Car Garage', '1,800+ sq ft'],
       priceRange: 'Starting from $780K',
       badge: 'Freehold',
