@@ -8,6 +8,7 @@ import CrownAmenities from '@/components/crown/CrownAmenities';
 import FAQSection from '@/components/FAQSection';
 import CrownLeadForm from '@/components/crown/CrownLeadForm';
 import CrownFooter from '@/components/crown/CrownFooter';
+import CrownImageAdmin from '@/components/crown/CrownImageAdmin';
 
 const CrownOfCaledon = () => {
   return (
@@ -165,6 +166,7 @@ const CrownOfCaledon = () => {
         </main>
         <CrownFooter />
       </div>
+      <CrownImageAdmin />
     </>
   );
 };
