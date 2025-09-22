@@ -39,6 +39,11 @@ import estateHome3ElevC from '@/assets/estate-home-3-elev-c.png';
 import estateHome4ElevA from '@/assets/estate-home-4-elev-a.png';
 import estateHome4ElevB from '@/assets/estate-home-4-elev-b.png';
 
+// Import luxury estate home elevation images
+import luxuryEstate1ElevA from '@/assets/luxury-estate-1-elev-a.png';
+import luxuryEstate1ElevB from '@/assets/luxury-estate-1-elev-b.png';
+import luxuryEstate1ElevC from '@/assets/luxury-estate-1-elev-c.png';
+
 const CrownHomeCollection = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [selectedCollection, setSelectedCollection] = useState<string>('');
@@ -105,19 +110,19 @@ const CrownHomeCollection = () => {
   const detachedCollections = [
     {
       id: 'premium-estate',
-      title: 'Premium Estate Homes',
-      subtitle: 'Limited Release Premium',
-      description: 'Exclusive corner detached homes with premium positioning and enhanced lot sizes. Coming soon with distinctive architectural elevations.',
+      title: 'Luxury Estate Homes',
+      subtitle: 'Premium Estate Collection',
+      description: 'Exclusive luxury estate homes with sophisticated architectural elevations and premium positioning on larger lots.',
       category: 'detached',
       tier: 'luxury',
       elevations: 3,
-      images: [compactHome2ElevA, compactHome2ElevB, compactHome2ElevA], // Placeholder images
+      images: [luxuryEstate1ElevA, luxuryEstate1ElevB, luxuryEstate1ElevC],
       features: ['5-6 Bedrooms', '4-5 Bathrooms', '2-3 Car Garage', '3,200+ sq ft'],
       priceRange: 'Starting from $1.35M',
-      badge: 'Coming Soon',
-      available: false,
+      badge: 'Available Now',
+      available: true,
       featured: true,
-      units: 'VIP Preview List'
+      units: 'Limited Estate Lots'
     },
     {
       id: 'compact-home-2',

@@ -30,10 +30,10 @@ const CrownImageAdmin = () => {
       category: 'Detached - Executive'
     },
     {
-      name: 'Executive Home Collection - Premium',
-      images: ['estate-home-3-elev-a.png', 'estate-home-3-elev-b.png', 'estate-home-3-elev-c.png', 'estate-home-4-elev-a.png'],
+      name: 'Luxury Estate Collection',
+      images: ['luxury-estate-1-elev-a.png', 'luxury-estate-1-elev-b.png', 'luxury-estate-1-elev-c.png'],
       status: 'Cleaned',
-      category: 'Detached - Executive'
+      category: 'Detached - Estate'
     },
     {
       name: 'Classic Compact Homes',
