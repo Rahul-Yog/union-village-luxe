@@ -458,11 +458,54 @@ const CrownHomeCollection = () => {
                 
                 <Carousel className="w-full">
                   <CarouselContent className="-ml-2 md:-ml-4">
-                    {category.collections.map((collection) => (
-                      <CarouselItem key={collection.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                        <CollectionCard collection={collection} />
-                      </CarouselItem>
-                    ))}
+                    {category.collections.flatMap((collection) => 
+                      collection.images.map((image, imageIndex) => (
+                        <CarouselItem key={`${collection.id}-${imageIndex}`} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                          <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                            <div className="relative">
+                              <div className="relative h-64 overflow-hidden bg-muted/20">
+                                <img 
+                                  src={image} 
+                                  alt={`${category.title} - Elevation ${imageIndex + 1}`}
+                                  className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                              </div>
+                              
+                              <div className="absolute top-4 right-4">
+                                <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                                  <span className="font-semibold text-foreground text-sm">{category.priceRange}</span>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="p-6">
+                              <div className="space-y-4">
+                                <div>
+                                  <h3 className="text-lg font-bold text-foreground mb-1">
+                                    {category.title} - Elevation {imageIndex + 1}
+                                  </h3>
+                                  <p className="text-sm text-muted-foreground font-medium">
+                                    {category.subtitle}
+                                  </p>
+                                </div>
+                                
+                                <p className="text-muted-foreground leading-relaxed text-sm">
+                                  {category.description}
+                                </p>
+
+                                <Button 
+                                  onClick={() => handleViewFloorPlans(`${category.id}-elevation-${imageIndex + 1}`)}
+                                  className="w-full bg-accent hover:bg-accent/90 text-white transition-all duration-300"
+                                >
+                                  View Floor Plans & Pricing
+                                </Button>
+                              </div>
+                            </div>
+                          </Card>
+                        </CarouselItem>
+                      ))
+                    )}
                   </CarouselContent>
                   <CarouselPrevious />
                   <CarouselNext />
