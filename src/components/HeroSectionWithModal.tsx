@@ -29,22 +29,22 @@ const HeroSectionWithModal = () => {
         <div className="relative z-10 container-custom text-center text-white">
           <div className="max-w-4xl mx-auto animate-fade-in">
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center gap-1 sm:gap-3 md:gap-6 mb-8 text-[9px] sm:text-xs md:text-sm px-2">
-              <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0">
-                <MapPin size={10} className="text-luxury-gold sm:w-3 sm:h-3 md:w-4 md:h-4 flex-shrink-0" />
-                <span className="truncate">16th & Kennedy</span>
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-2 sm:gap-3 md:gap-6 mb-8 text-xs sm:text-sm md:text-sm px-4">
+              <div className="flex items-center gap-1 sm:gap-2 bg-white/20 backdrop-blur-md px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-lg border border-white/10">
+                <MapPin size={12} className="text-luxury-gold sm:w-3 sm:h-3 md:w-4 md:h-4 flex-shrink-0" />
+                <span className="truncate font-medium text-white">16th & Kennedy</span>
               </div>
-              <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0">
-                <DollarSign size={10} className="text-luxury-gold sm:w-3 sm:h-3 md:w-4 md:h-4 flex-shrink-0" />
-                <span className="truncate">$1.4M+</span>
+              <div className="flex items-center gap-1 sm:gap-2 bg-white/20 backdrop-blur-md px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-lg border border-white/10">
+                <DollarSign size={12} className="text-luxury-gold sm:w-3 sm:h-3 md:w-4 md:h-4 flex-shrink-0" />
+                <span className="truncate font-medium text-white">$1.4M+</span>
               </div>
-              <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0">
-                <Clock size={10} className="text-luxury-gold sm:w-3 sm:h-3 md:w-4 md:h-4 flex-shrink-0" />
-                <span className="truncate">2026</span>
+              <div className="flex items-center gap-1 sm:gap-2 bg-white/20 backdrop-blur-md px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-lg border border-white/10">
+                <Clock size={12} className="text-luxury-gold sm:w-3 sm:h-3 md:w-4 md:h-4 flex-shrink-0" />
+                <span className="truncate font-medium text-white">2026</span>
               </div>
-              <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0">
-                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 bg-luxury-gold rounded-full flex items-center justify-center text-[7px] sm:text-[8px] md:text-xs font-bold text-primary flex-shrink-0">2</span>
-                <span className="truncate">Phase 2</span>
+              <div className="flex items-center gap-1 sm:gap-2 bg-white/20 backdrop-blur-md px-2 py-2 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-lg border border-white/10">
+                <span className="w-4 h-4 sm:w-3 sm:h-3 md:w-4 md:h-4 bg-luxury-gold rounded-full flex items-center justify-center text-xs sm:text-[8px] md:text-xs font-bold text-primary flex-shrink-0">2</span>
+                <span className="truncate font-medium text-white">Phase 2</span>
               </div>
             </div>
 
