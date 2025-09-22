@@ -511,72 +511,68 @@ const CrownHomeCollection = () => {
                   )}
                 </div>
                 
-                <div className="grid lg:grid-cols-4 gap-6">
-                  {/* Floor Plan Teaser */}
-                  <div className="lg:col-span-1">
-                    <div className="relative group/teaser bg-background rounded-lg shadow-lg overflow-hidden h-96 cursor-pointer">
-                      <img 
-                        src={floorPlanTeaser} 
-                        alt="Floor Plan Preview"
-                        className="w-full h-full object-cover filter blur-sm group-hover/teaser:blur-none transition-all duration-300"
-                      />
-                      <div className="absolute inset-0 bg-primary/20 rounded-lg flex items-center justify-center group-hover/teaser:bg-primary/10 transition-all duration-300">
-                        <div className="text-center">
-                          <Eye className="h-8 w-8 text-white mx-auto mb-2" />
-                          <h5 className="font-bold text-lg text-white mb-1">Floor Plans</h5>
-                          <p className="text-sm text-white/90">View detailed layouts</p>
+                <Carousel className="w-full">
+                  <CarouselContent>
+                    {/* Elevation Images */}
+                    {category.collections.flatMap((collection) => 
+                      collection.images.map((image, imageIndex) => (
+                        <CarouselItem key={`${collection.id}-${imageIndex}`}>
+                          <div className="relative h-96 overflow-hidden bg-background rounded-lg shadow-lg">
+                            <img 
+                              src={image} 
+                              alt={`${category.title} - Elevation`}
+                              className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                            
+                            <div className="absolute top-4 right-4">
+                              <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                                <span className="font-semibold text-foreground text-sm">{category.priceRange}</span>
+                              </div>
+                            </div>
+
+                            <div className="absolute bottom-4 left-4 right-4">
+                              <Button 
+                                onClick={() => handleViewFloorPlans(`${category.id}-elevation`)}
+                                className="w-full bg-accent hover:bg-accent/90 text-white transition-all duration-300"
+                              >
+                                View Floor Plans & Pricing
+                              </Button>
+                            </div>
+                          </div>
+                        </CarouselItem>
+                      ))
+                    )}
+                    
+                    {/* Floor Plan Teaser - After all elevations */}
+                    <CarouselItem key={`${category.id}-floorplan-teaser`}>
+                      <div className="relative group/teaser bg-background rounded-lg shadow-lg overflow-hidden h-96 cursor-pointer">
+                        <img 
+                          src={floorPlanTeaser} 
+                          alt="Floor Plan Preview"
+                          className="w-full h-full object-cover filter blur-sm group-hover/teaser:blur-none transition-all duration-300"
+                        />
+                        <div className="absolute inset-0 bg-primary/20 rounded-lg flex items-center justify-center group-hover/teaser:bg-primary/10 transition-all duration-300">
+                          <div className="text-center">
+                            <Eye className="h-8 w-8 text-white mx-auto mb-2" />
+                            <h5 className="font-bold text-lg text-white mb-1">Floor Plans</h5>
+                            <p className="text-sm text-white/90">View detailed layouts</p>
+                          </div>
+                        </div>
+                        <div className="absolute bottom-4 left-4 right-4">
+                          <Button 
+                            onClick={() => handleViewFloorPlans(`${category.id}-floorplans`)}
+                            className="w-full bg-white/90 hover:bg-white text-foreground hover:text-foreground transition-all duration-300"
+                          >
+                            View All Floor Plans
+                          </Button>
                         </div>
                       </div>
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <Button 
-                          onClick={() => handleViewFloorPlans(`${category.id}-floorplans`)}
-                          className="w-full bg-white/90 hover:bg-white text-foreground hover:text-foreground transition-all duration-300"
-                        >
-                          View All Floor Plans
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Carousel */}
-                  <div className="lg:col-span-3">
-                    <Carousel className="w-full">
-                      <CarouselContent>
-                        {category.collections.flatMap((collection) => 
-                          collection.images.map((image, imageIndex) => (
-                            <CarouselItem key={`${collection.id}-${imageIndex}`}>
-                              <div className="relative h-96 overflow-hidden bg-background rounded-lg shadow-lg">
-                                <img 
-                                  src={image} 
-                                  alt={`${category.title} - Elevation`}
-                                  className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                                
-                                <div className="absolute top-4 right-4">
-                                  <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                                    <span className="font-semibold text-foreground text-sm">{category.priceRange}</span>
-                                  </div>
-                                </div>
-
-                                <div className="absolute bottom-4 left-4 right-4">
-                                  <Button 
-                                    onClick={() => handleViewFloorPlans(`${category.id}-elevation`)}
-                                    className="w-full bg-accent hover:bg-accent/90 text-white transition-all duration-300"
-                                  >
-                                    View Floor Plans & Pricing
-                                  </Button>
-                                </div>
-                              </div>
-                            </CarouselItem>
-                          ))
-                        )}
-                      </CarouselContent>
-                      <CarouselPrevious />
-                      <CarouselNext />
-                    </Carousel>
-                  </div>
-                </div>
+                    </CarouselItem>
+                  </CarouselContent>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </Carousel>
               </div>
             ))}
           </TabsContent>
