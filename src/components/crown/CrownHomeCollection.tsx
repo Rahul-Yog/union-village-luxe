@@ -111,63 +111,127 @@ const CrownHomeCollection = () => {
     },
     {
       id: 'monarch-38',
-      title: 'The Monarch - 38 Feet',
-      subtitle: 'Premium Detached Collection',
-      description: 'Elegant 38-foot detached homes with sophisticated elevation options featuring modern design.',
+      title: 'The Monarch',
+      subtitle: 'Compact Living Collection',
+      description: 'Elegant detached homes with sophisticated elevation options featuring modern design.',
       category: 'detached',
-      tier: 'premium',
+      tier: 'starter',
       elevations: 2,
       images: [monarchElevA, monarchElevB],
-      features: ['4-5 Bedrooms', '3.5-4 Bathrooms', '2 Car Garage', '2,400+ sq ft'],
-      priceRange: 'Starting from $950K',
+      features: ['3-4 Bedrooms', '2.5-3 Bathrooms', '2 Car Garage', '1,400-1,600 sq ft'],
+      priceRange: 'Starting from $730K',
       badge: 'Available Now',
       available: true,
       units: '8 lots remaining'
     },
     {
       id: 'tradition-38',
-      title: 'The Tradition - 38 Feet',
-      subtitle: 'Classic Family Collection',
-      description: 'Traditional 38-foot detached homes featuring timeless elevation styles with classic architectural details.',
+      title: 'The Tradition',
+      subtitle: 'Compact Living Collection',
+      description: 'Traditional detached homes featuring timeless elevation styles with classic architectural details.',
       category: 'detached',
-      tier: 'premium',
+      tier: 'starter',
       elevations: 3,
       images: [traditionElevA, traditionElevB, traditionElevC],
-      features: ['4-6 Bedrooms', '4-5 Bathrooms', '2 Car Garage', '2,600+ sq ft'],
-      priceRange: 'Starting from $980K',
+      features: ['3-4 Bedrooms', '2.5-3 Bathrooms', '2 Car Garage', '1,500-1,700 sq ft'],
+      priceRange: 'Starting from $750K',
       badge: 'Family Favorite',
       available: true,
       units: 'Multiple lots available'
     },
     {
       id: 'jubilee-38',
-      title: 'The Jubilee - 38 Feet',
-      subtitle: 'Executive Collection',
-      description: 'Sophisticated 38-foot detached homes featuring distinctive elevation designs with contemporary styling.',
+      title: 'The Jubilee',
+      subtitle: 'Compact Living Collection',
+      description: 'Sophisticated detached homes featuring distinctive elevation designs with contemporary styling.',
       category: 'detached',
-      tier: 'premium',
+      tier: 'starter',
       elevations: 3,
       images: [jubileeElevA, jubileeElevB, jubileeElevC],
-      features: ['4-5 Bedrooms', '3.5-4 Bathrooms', '2 Car Garage', '2,500+ sq ft'],
-      priceRange: 'Starting from $1.05M',
+      features: ['3-4 Bedrooms', '2.5-3 Bathrooms', '2 Car Garage', '1,600-1,800 sq ft'],
+      priceRange: 'Starting from $780K',
       badge: 'Executive Style',
       available: true,
       units: '12 lots available'
     },
     {
       id: 'tiara-38',
-      title: 'The Tiara - 38 Feet',
-      subtitle: 'Luxury Collection',
-      description: 'Premium 38-foot detached homes with luxury elevation designs and high-end finishes throughout.',
+      title: 'The Tiara',
+      subtitle: 'Compact Living Collection',
+      description: 'Premium detached homes with luxury elevation designs and high-end finishes throughout.',
       category: 'detached',
-      tier: 'luxury',
+      tier: 'starter',
       elevations: 3,
       images: [tiaraElevA, tiaraElevB, tiaraElevC],
-      features: ['5-6 Bedrooms', '5-6 Bathrooms', '3 Car Garage', '3,000+ sq ft'],
-      priceRange: 'Starting from $1.2M',
+      features: ['4 Bedrooms', '3-3.5 Bathrooms', '2 Car Garage', '1,800-2,000 sq ft'],
+      priceRange: 'Starting from $820K',
       badge: 'Luxury Features',
       available: true,
       units: '6 lots remaining'
+    },
+    {
+      id: 'abbey-detached',
+      title: 'The Abbey',
+      subtitle: 'Family Homes Collection',
+      description: 'Spacious family detached homes with multiple elevation options and premium finishes.',
+      category: 'detached',
+      tier: 'premium',
+      elevations: 3,
+      images: [abbeyElevA, abbeyElevB, abbeyElevC],
+      features: ['4-5 Bedrooms', '3.5-4 Bathrooms', '2 Car Garage', '2,200-2,600 sq ft'],
+      priceRange: 'Starting from $950K',
+      badge: 'Family Size',
+      available: true,
+      units: 'Multiple lots available'
+    },
+    {
+      id: 'town-detached',
+      title: 'The Town',
+      subtitle: 'Family Homes Collection',
+      description: 'Contemporary detached homes featuring open-concept layouts and modern architectural details.',
+      category: 'detached',
+      tier: 'premium',
+      elevations: 3,
+      images: [townElevA, townElevB, townElevC],
+      features: ['4-5 Bedrooms', '4-4.5 Bathrooms', '2-3 Car Garage', '2,400-2,800 sq ft'],
+      priceRange: 'Starting from $1.05M',
+      badge: 'Popular Choice',
+      available: true,
+      units: '15 lots available'
+    }
+  ];
+
+  // Size-based categories for detached homes based on floor plan brochure
+  const sizeCategories = [
+    {
+      id: 'compact',
+      title: 'Compact Living',
+      subtitle: '1,200 - 2,000 sq ft',
+      description: 'Perfect for young professionals, couples, or downsizers',
+      priceRange: '$730K - $820K',
+      collections: detachedCollections.filter(c => 
+        ['monarch-38', 'tradition-38', 'jubilee-38', 'tiara-38'].includes(c.id)
+      )
+    },
+    {
+      id: 'family',
+      title: 'Family Homes', 
+      subtitle: '2,000 - 3,000 sq ft',
+      description: 'Ideal for growing families with spacious layouts',
+      priceRange: '$950K - $1.1M',
+      collections: detachedCollections.filter(c => 
+        ['abbey-detached', 'town-detached'].includes(c.id)
+      )
+    },
+    {
+      id: 'estate',
+      title: 'Estate Collection',
+      subtitle: '3,000 - 3,500 sq ft',
+      description: 'Luxury homes with premium finishes and locations',
+      priceRange: '$1.35M+',
+      collections: detachedCollections.filter(c => 
+        ['dynasty-corner'].includes(c.id)
+      )
     }
   ];
 
@@ -376,17 +440,35 @@ const CrownHomeCollection = () => {
             </div>
           </TabsContent>
 
-          {/* Detached Homes */}
+          {/* Detached Homes with Size-Based Carousels */}
           <TabsContent value="detached" className="space-y-8">
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-foreground mb-2">Detached Homes</h3>
-              <p className="text-muted-foreground">Spacious family homes with premium lots</p>
+              <h3 className="text-2xl font-bold text-foreground mb-2">Detached Homes by Size</h3>
+              <p className="text-muted-foreground">Choose your ideal home size and browse available elevations</p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {detachedCollections.map((collection) => (
-                <CollectionCard key={collection.id} collection={collection} />
-              ))}
-            </div>
+            
+            {sizeCategories.map((category) => (
+              <div key={category.id} className="space-y-4">
+                <div className="text-center">
+                  <h4 className="text-xl font-bold text-foreground">{category.title}</h4>
+                  <p className="text-accent font-semibold">{category.subtitle}</p>
+                  <p className="text-sm text-muted-foreground">{category.description}</p>
+                  <p className="text-sm font-medium text-foreground">{category.priceRange}</p>
+                </div>
+                
+                <Carousel className="w-full">
+                  <CarouselContent className="-ml-2 md:-ml-4">
+                    {category.collections.map((collection) => (
+                      <CarouselItem key={collection.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                        <CollectionCard collection={collection} />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </Carousel>
+              </div>
+            ))}
           </TabsContent>
 
           {/* All Collections */}
