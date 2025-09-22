@@ -16,6 +16,8 @@ import abbeyElevC from '@/assets/abbey-elev-c.png';
 import freeholdCorner from '@/assets/freehold-corner.png';
 import freeholdElevB from '@/assets/freehold-elev-b.png';
 import freeholdElevC from '@/assets/freehold-elev-c.png';
+import monarchElevA from '@/assets/monarch-elev-a.png';
+import monarchElevB from '@/assets/monarch-elev-b.png';
 
 const CrownHomeCollection = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -62,9 +64,9 @@ const CrownHomeCollection = () => {
       id: 'monarch-38',
       title: 'The Monarch - 38 Feet',
       subtitle: 'Single Family Detached',
-      description: 'Elegant 38-foot detached homes with 2 sophisticated elevation options.',
+      description: 'Elegant 38-foot detached homes with 2 sophisticated elevation options featuring modern design and premium finishes.',
       elevations: 2,
-      images: [townElevB],
+      images: [monarchElevA, monarchElevB],
       features: ['4-5 Bedrooms', '3.5-4 Bathrooms', '2 Car Garage', '2,400+ sq ft'],
       priceRange: 'Starting from $950K',
       badge: 'Detached',
