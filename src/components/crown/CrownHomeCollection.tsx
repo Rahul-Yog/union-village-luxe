@@ -2,7 +2,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Home, Star, Filter, ChevronDown, ChevronUp } from 'lucide-react';
+import { Home, Star, Filter, ChevronDown, ChevronUp, Eye } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { useState } from 'react';
 import ContactModal from '@/components/crown/CrownContactModal';
@@ -514,23 +514,23 @@ const CrownHomeCollection = () => {
                 <div className="grid lg:grid-cols-4 gap-6">
                   {/* Floor Plan Teaser */}
                   <div className="lg:col-span-1">
-                    <div className="bg-background rounded-lg shadow-lg overflow-hidden h-96 flex flex-col">
-                      <div className="flex-1 relative">
-                        <img 
-                          src={floorPlanTeaser} 
-                          alt="Floor Plan Preview"
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                        <div className="absolute bottom-4 left-4 right-4 text-white">
-                          <h5 className="font-bold text-lg mb-2">Floor Plans Available</h5>
-                          <p className="text-sm opacity-90">View detailed layouts and dimensions</p>
+                    <div className="relative group/teaser bg-background rounded-lg shadow-lg overflow-hidden h-96 cursor-pointer">
+                      <img 
+                        src={floorPlanTeaser} 
+                        alt="Floor Plan Preview"
+                        className="w-full h-full object-cover filter blur-sm group-hover/teaser:blur-none transition-all duration-300"
+                      />
+                      <div className="absolute inset-0 bg-primary/20 rounded-lg flex items-center justify-center group-hover/teaser:bg-primary/10 transition-all duration-300">
+                        <div className="text-center">
+                          <Eye className="h-8 w-8 text-white mx-auto mb-2" />
+                          <h5 className="font-bold text-lg text-white mb-1">Floor Plans</h5>
+                          <p className="text-sm text-white/90">View detailed layouts</p>
                         </div>
                       </div>
-                      <div className="p-4">
+                      <div className="absolute bottom-4 left-4 right-4">
                         <Button 
                           onClick={() => handleViewFloorPlans(`${category.id}-floorplans`)}
-                          className="w-full bg-primary hover:bg-primary/90 text-white"
+                          className="w-full bg-white/90 hover:bg-white text-foreground hover:text-foreground transition-all duration-300"
                         >
                           View All Floor Plans
                         </Button>
