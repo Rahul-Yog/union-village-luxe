@@ -31,22 +31,22 @@ const CrownHeroSection = () => {
         <div className="relative z-10 container-custom text-center text-white">
           <div className="max-w-4xl mx-auto animate-fade-in">
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center gap-1 sm:gap-3 md:gap-6 mb-8 text-[9px] sm:text-xs md:text-sm px-2">
-              <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0">
-                <MapPin size={10} className="text-luxury-gold sm:w-3 sm:h-3 md:w-4 md:h-4 flex-shrink-0" />
-                <span className="truncate">Hurontario & Mayfield</span>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-6 mb-8 text-xs sm:text-sm md:text-sm px-2">
+              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-2 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-lg">
+                <MapPin size={14} className="text-luxury-gold sm:w-4 sm:h-4 md:w-4 md:h-4 flex-shrink-0" />
+                <span className="truncate font-medium">Hurontario & Mayfield</span>
               </div>
-              <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0">
-                <DollarSign size={10} className="text-luxury-gold sm:w-3 sm:h-3 md:w-4 md:h-4 flex-shrink-0" />
-                <span className="truncate">From $730K</span>
+              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-2 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-lg">
+                <DollarSign size={14} className="text-luxury-gold sm:w-4 sm:h-4 md:w-4 md:h-4 flex-shrink-0" />
+                <span className="truncate font-medium">From $730K</span>
               </div>
-              <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0">
-                <Clock size={10} className="text-luxury-gold sm:w-3 sm:h-3 md:w-4 md:h-4 flex-shrink-0" />
-                <span className="truncate">2026 Completion</span>
+              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-2 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-lg">
+                <Clock size={14} className="text-luxury-gold sm:w-4 sm:h-4 md:w-4 md:h-4 flex-shrink-0" />
+                <span className="truncate font-medium">2026 Completion</span>
               </div>
-              <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0">
-                <span className="w-3 h-3 sm:w-4 sm:h-4 bg-luxury-gold rounded-full flex items-center justify-center text-[8px] sm:text-xs font-bold text-primary flex-shrink-0">4</span>
-                <span className="truncate">1 Minute From Hwy 410</span>
+              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-2 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-lg">
+                <span className="w-4 h-4 sm:w-4 sm:h-4 bg-luxury-gold rounded-full flex items-center justify-center text-xs sm:text-xs font-bold text-primary flex-shrink-0">4</span>
+                <span className="truncate font-medium">1 Minute From Hwy 410</span>
               </div>
             </div>
 
