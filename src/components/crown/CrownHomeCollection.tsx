@@ -8,37 +8,26 @@ import { useState } from 'react';
 import ContactModal from '@/components/crown/CrownContactModal';
 
 // Import elevation images
-import townElevA from '@/assets/town-elev-a.png';
-import townElevB from '@/assets/town-elev-b.png';
-import townElevC from '@/assets/town-elev-c.png';
-import abbeyElevA from '@/assets/abbey-elev-a.png';
-import abbeyElevB from '@/assets/abbey-elev-b.png';
-import abbeyElevC from '@/assets/abbey-elev-c.png';
+import estateHome1ElevA from '@/assets/estate-home-1-elev-a.png';
+import estateHome1ElevB from '@/assets/estate-home-1-elev-b.png';
+import estateHome1ElevC from '@/assets/estate-home-1-elev-c.png';
+import endUnitElevA from '@/assets/abbey-elev-a.png';
+import endUnitElevB from '@/assets/abbey-elev-b.png';
+import endUnitElevC from '@/assets/abbey-elev-c.png';
 import freeholdCorner from '@/assets/freehold-corner.png';
 import freeholdElevB from '@/assets/freehold-elev-b.png';
 import freeholdElevC from '@/assets/freehold-elev-c.png';
-import monarchElevA from '@/assets/monarch-elev-a.png';
-import monarchElevB from '@/assets/monarch-elev-b.png';
-import traditionElevA from '@/assets/tradition-elev-a.png';
-import traditionElevB from '@/assets/tradition-elev-b.png';
-import traditionElevC from '@/assets/tradition-elev-c.png';
-import tiaraElevA from '@/assets/tiara-elev-a.png';
-import tiaraElevB from '@/assets/tiara-elev-b.png';
-import tiaraElevC from '@/assets/tiara-elev-c.png';
-import jubileeElevA from '@/assets/jubilee-elev-a.png';
-import jubileeElevB from '@/assets/jubilee-elev-b.png';
-import jubileeElevC from '@/assets/jubilee-elev-c.png';
+import cityHomeElevA from '@/assets/town-elev-a.png';
+import cityHomeElevB from '@/assets/town-elev-b.png';
+import cityHomeElevC from '@/assets/town-elev-c.png';
 import floorPlanTeaser from '@/assets/floor-plan-teaser.jpg';
 
-// Import new crown-free elevation images
-import monarchElevANew from '@/assets/monarch-elev-a-new.png';
-import monarchElevBNew from '@/assets/monarch-elev-b-new.png';
-import tiaraElevANew from '@/assets/tiara-elev-a-new.png';
-import tiaraElevBNew from '@/assets/tiara-elev-b-new.png';
-import tiaraElevCNew from '@/assets/tiara-elev-c-new.png';
-import jubileeElevANew from '@/assets/jubilee-elev-a-new.png';
-import jubileeElevBNew from '@/assets/jubilee-elev-b-new.png';
-import jubileeElevCNew from '@/assets/jubilee-elev-c-new.png';
+// Import new crown-free compact home elevation images
+import compactHome1ElevC from '@/assets/compact-home-1-elev-c.png';
+import compactHome2ElevA from '@/assets/compact-home-2-elev-a.png';
+import compactHome2ElevB from '@/assets/compact-home-2-elev-b.png';
+import compactHome3ElevB from '@/assets/compact-home-3-elev-b.png';
+import compactHome3ElevC from '@/assets/compact-home-3-elev-c.png';
 
 const CrownHomeCollection = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -49,10 +38,10 @@ const CrownHomeCollection = () => {
 
   // Reorganized collections with categories and tiers
   const featuredCollections = [
-    'dynasty-corner', // Placeholder for Dynasty
+    'premium-estate', // Placeholder for Premium Estate
     'freehold-townhomes',
-    'monarch-38', 
-    'tiara-38'
+    'compact-home-2', 
+    'compact-home-3'
   ];
 
   const townhomeCollections = [
@@ -64,7 +53,7 @@ const CrownHomeCollection = () => {
       category: 'townhome',
       tier: 'starter',
       elevations: 4,
-      images: [townElevA, townElevB, townElevC],
+      images: [cityHomeElevA, cityHomeElevB, cityHomeElevC],
       features: ['3 Bedrooms', '2.5-3 Bathrooms', '1 Car Garage', '1,602-1,620 sq ft'],
       priceRange: 'Starting from $730K',
       badge: 'Most Popular',
@@ -74,12 +63,12 @@ const CrownHomeCollection = () => {
     {
       id: 'end-units-city-townhomes',
       title: 'End Unit Townhomes',
-      subtitle: 'Abbey Collection',
+      subtitle: 'Premium End Units',
       description: 'Premium end unit townhomes with enhanced privacy and additional windows.',
       category: 'townhome',
       tier: 'starter',
       elevations: 3,
-      images: [abbeyElevA, abbeyElevB, abbeyElevC],
+      images: [endUnitElevA, endUnitElevB, endUnitElevC],
       features: ['3 Bedrooms', '2.5-3 Bathrooms', '1 Car Garage', '1,620+ sq ft'],
       priceRange: 'Starting from $750K',
       badge: 'End Unit Premium',
@@ -105,14 +94,14 @@ const CrownHomeCollection = () => {
 
   const detachedCollections = [
     {
-      id: 'dynasty-corner',
-      title: 'The Dynasty - Corner Detached',
+      id: 'premium-estate',
+      title: 'Premium Estate Homes',
       subtitle: 'Limited Release Premium',
       description: 'Exclusive corner detached homes with premium positioning and enhanced lot sizes. Coming soon with distinctive architectural elevations.',
       category: 'detached',
       tier: 'luxury',
       elevations: 3,
-      images: [monarchElevA, monarchElevB, monarchElevA], // Placeholder images
+      images: [compactHome2ElevA, compactHome2ElevB, compactHome2ElevA], // Placeholder images
       features: ['5-6 Bedrooms', '4-5 Bathrooms', '2-3 Car Garage', '3,200+ sq ft'],
       priceRange: 'Starting from $1.35M',
       badge: 'Coming Soon',
@@ -121,14 +110,14 @@ const CrownHomeCollection = () => {
       units: 'VIP Preview List'
     },
     {
-      id: 'monarch-38',
-      title: 'The Monarch',
+      id: 'compact-home-2',
+      title: 'Modern Compact Homes',
       subtitle: 'Compact Living Collection',
       description: 'Elegant detached homes with sophisticated elevation options featuring modern design.',
       category: 'detached',
       tier: 'starter',
       elevations: 2,
-      images: [monarchElevANew, monarchElevBNew],
+      images: [compactHome2ElevA, compactHome2ElevB],
       features: ['3-4 Bedrooms', '2.5-3 Bathrooms', '2 Car Garage', '1,400-1,600 sq ft'],
       priceRange: 'Starting from $730K',
       badge: 'Available Now',
@@ -136,14 +125,14 @@ const CrownHomeCollection = () => {
       units: '8 lots remaining'
     },
     {
-      id: 'tradition-38',
-      title: 'The Tradition',
+      id: 'compact-home-1',
+      title: 'Classic Compact Homes',
       subtitle: 'Compact Living Collection',
       description: 'Traditional detached homes featuring timeless elevation styles with classic architectural details.',
       category: 'detached',
       tier: 'starter',
       elevations: 3,
-      images: [traditionElevA, traditionElevB, traditionElevC],
+      images: [estateHome1ElevA, estateHome1ElevB, estateHome1ElevC],
       features: ['3-4 Bedrooms', '2.5-3 Bathrooms', '2 Car Garage', '1,500-1,700 sq ft'],
       priceRange: 'Starting from $750K',
       badge: 'Family Favorite',
@@ -151,14 +140,14 @@ const CrownHomeCollection = () => {
       units: 'Multiple lots available'
     },
     {
-      id: 'jubilee-38',
-      title: 'The Jubilee',
+      id: 'compact-home-4',
+      title: 'Executive Compact Homes',
       subtitle: 'Compact Living Collection',
       description: 'Sophisticated detached homes featuring distinctive elevation designs with contemporary styling.',
       category: 'detached',
       tier: 'starter',
-      elevations: 3,
-      images: [jubileeElevANew, jubileeElevBNew, jubileeElevCNew],
+      elevations: 1,
+      images: [compactHome1ElevC],
       features: ['3-4 Bedrooms', '2.5-3 Bathrooms', '2 Car Garage', '1,600-1,800 sq ft'],
       priceRange: 'Starting from $780K',
       badge: 'Executive Style',
@@ -166,14 +155,14 @@ const CrownHomeCollection = () => {
       units: '12 lots available'
     },
     {
-      id: 'tiara-38',
-      title: 'The Tiara',
+      id: 'compact-home-3',
+      title: 'Luxury Compact Homes',
       subtitle: 'Compact Living Collection',
       description: 'Premium detached homes with luxury elevation designs and high-end finishes throughout.',
       category: 'detached',
       tier: 'starter',
-      elevations: 3,
-      images: [tiaraElevANew, tiaraElevBNew, tiaraElevCNew],
+      elevations: 2,
+      images: [compactHome3ElevB, compactHome3ElevC],
       features: ['4 Bedrooms', '3-3.5 Bathrooms', '2 Car Garage', '1,800-2,000 sq ft'],
       priceRange: 'Starting from $820K',
       badge: 'Luxury Features',
@@ -181,14 +170,14 @@ const CrownHomeCollection = () => {
       units: '6 lots remaining'
     },
     {
-      id: 'abbey-detached',
-      title: 'The Abbey',
+      id: 'family-home-1',
+      title: 'Spacious Family Homes',
       subtitle: 'Family Homes Collection',
       description: 'Spacious family detached homes with multiple elevation options and premium finishes.',
       category: 'detached',
       tier: 'premium',
       elevations: 3,
-      images: [abbeyElevA, abbeyElevB, abbeyElevC],
+      images: [endUnitElevA, endUnitElevB, endUnitElevC],
       features: ['4-5 Bedrooms', '3.5-4 Bathrooms', '2 Car Garage', '2,200-2,600 sq ft'],
       priceRange: 'Starting from $950K',
       badge: 'Family Size',
@@ -196,14 +185,14 @@ const CrownHomeCollection = () => {
       units: 'Multiple lots available'
     },
     {
-      id: 'town-detached',
-      title: 'The Town',
+      id: 'family-home-2',
+      title: 'Contemporary Family Homes',
       subtitle: 'Family Homes Collection',
       description: 'Contemporary detached homes featuring open-concept layouts and modern architectural details.',
       category: 'detached',
       tier: 'premium',
       elevations: 3,
-      images: [townElevA, townElevB, townElevC],
+      images: [cityHomeElevA, cityHomeElevB, cityHomeElevC],
       features: ['4-5 Bedrooms', '4-4.5 Bathrooms', '2-3 Car Garage', '2,400-2,800 sq ft'],
       priceRange: 'Starting from $1.05M',
       badge: 'Popular Choice',
@@ -221,7 +210,7 @@ const CrownHomeCollection = () => {
       description: 'Perfect for young professionals, couples, or downsizers',
       priceRange: '$730K - $820K',
       collections: detachedCollections.filter(c => 
-        ['monarch-38', 'tradition-38', 'jubilee-38', 'tiara-38'].includes(c.id)
+        ['compact-home-1', 'compact-home-2', 'compact-home-3', 'compact-home-4'].includes(c.id)
       )
     },
     {
@@ -231,7 +220,7 @@ const CrownHomeCollection = () => {
       description: 'Ideal for growing families with spacious layouts',
       priceRange: '$950K - $1.1M',
       collections: detachedCollections.filter(c => 
-        ['abbey-detached', 'town-detached'].includes(c.id)
+        ['family-home-1', 'family-home-2'].includes(c.id)
       )
     },
     {
@@ -241,7 +230,7 @@ const CrownHomeCollection = () => {
       description: 'Luxury homes with premium finishes and locations',
       priceRange: '$1.35M+',
       collections: detachedCollections.filter(c => 
-        ['dynasty-corner'].includes(c.id)
+        ['premium-estate'].includes(c.id)
       )
     }
   ];
@@ -310,7 +299,7 @@ const CrownHomeCollection = () => {
             <span className="font-semibold text-foreground text-sm">{collection.priceRange}</span>
           </div>
         </div>
-        {collection.id === 'dynasty-corner' && (
+        {collection.id === 'premium-estate' && (
           <div className="absolute bottom-4 left-4">
             <Badge className="bg-gradient-to-r from-yellow-600 to-yellow-500 text-white font-bold">
               <Star className="w-3 h-3 mr-1" />
@@ -363,16 +352,16 @@ const CrownHomeCollection = () => {
           <Button 
             onClick={() => handleViewFloorPlans(collection.id)}
             className={`w-full ${collection.available 
-              ? collection.id === 'dynasty-corner' 
+              ? collection.id === 'premium-estate' 
                 ? 'bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-700 hover:to-yellow-600 text-white' 
                 : 'bg-accent hover:bg-accent/90 text-white'
               : 'bg-muted text-muted-foreground cursor-not-allowed'
             } transition-all duration-300`}
-            disabled={!collection.available && collection.id !== 'dynasty-corner'}
+            disabled={!collection.available && collection.id !== 'premium-estate'}
           >
             {collection.available 
               ? 'View Floor Plans & Pricing' 
-              : collection.id === 'dynasty-corner'
+              : collection.id === 'premium-estate'
                 ? 'Join VIP Preview List'
                 : 'Register Interest'}
           </Button>

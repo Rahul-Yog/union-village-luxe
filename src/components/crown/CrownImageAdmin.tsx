@@ -12,7 +12,7 @@ const CrownImageAdmin = () => {
   // Admin collections data matching the current structure
   const collectionsWithBranding = [
     {
-      name: 'Abbey Collection',
+      name: 'End Unit Collection',
       images: ['abbey-elev-a.png', 'abbey-elev-b.png', 'abbey-elev-c.png'],
       status: 'Has Branding',
       category: 'Townhomes'
@@ -24,32 +24,32 @@ const CrownImageAdmin = () => {
       category: 'Townhomes'
     },
     {
-      name: 'Town Collection',
+      name: 'Family Home Collection',
       images: ['town-elev-a.png', 'town-elev-b.png', 'town-elev-c.png'],
       status: 'Has Branding',
       category: 'Detached - Estate'
     },
     {
-      name: 'Tradition Collection',
-      images: ['tradition-elev-a.png', 'tradition-elev-b.png', 'tradition-elev-c.png'],
-      status: 'Has Branding',
-      category: 'Detached - Estate'
-    },
-    {
-      name: 'Monarch Collection',
-      images: ['monarch-elev-a-new.png', 'monarch-elev-b-new.png'],
+      name: 'Classic Compact Homes',
+      images: ['estate-home-1-elev-a.png', 'estate-home-1-elev-b.png', 'estate-home-1-elev-c.png'],
       status: 'Cleaned',
       category: 'Detached - Compact'
     },
     {
-      name: 'Jubilee Collection',
-      images: ['jubilee-elev-a-new.png', 'jubilee-elev-b-new.png', 'jubilee-elev-c-new.png'],
+      name: 'Modern Compact Homes',
+      images: ['compact-home-2-elev-a.png', 'compact-home-2-elev-b.png'],
       status: 'Cleaned',
       category: 'Detached - Compact'
     },
     {
-      name: 'Tiara Collection',
-      images: ['tiara-elev-a-new.png', 'tiara-elev-b-new.png', 'tiara-elev-c-new.png'],
+      name: 'Executive Compact Homes',
+      images: ['compact-home-1-elev-c.png'],
+      status: 'Cleaned',
+      category: 'Detached - Compact'
+    },
+    {
+      name: 'Luxury Compact Homes',
+      images: ['compact-home-3-elev-b.png', 'compact-home-3-elev-c.png'],
       status: 'Cleaned',
       category: 'Detached - Compact'
     }
