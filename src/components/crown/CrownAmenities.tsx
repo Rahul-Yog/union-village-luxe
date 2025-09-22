@@ -35,20 +35,9 @@ const CrownAmenities = () => {
     }
   ];
 
-  const culturalAmenities = [
-    {
-      title: "Convenience Services",
-      features: [
-        "Visitor parking throughout",
-        "Package delivery reception",
-        "Maintenance services available", 
-        "Snow removal included"
-      ]
-    }
-  ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-background to-secondary/20">
+    <section id="amenities" className="py-20 bg-gradient-to-b from-background to-secondary/20">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
@@ -78,22 +67,6 @@ const CrownAmenities = () => {
           ))}
         </div>
 
-        {/* Cultural & Family Features */}
-        <div className="grid lg:grid-cols-1 gap-8 mb-12">
-          {culturalAmenities.map((section, index) => (
-            <Card key={index} className="p-6 border-l-4 border-l-accent">
-              <h3 className="text-xl font-bold text-foreground mb-4">{section.title}</h3>
-              <ul className="space-y-3">
-                {section.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-muted-foreground">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
-          ))}
-        </div>
 
         {/* Sustainability & Environment */}
         <Card className="p-8 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-green-200 dark:border-green-800">
