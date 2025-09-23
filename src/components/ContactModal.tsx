@@ -184,8 +184,8 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
+      <DialogContent className="max-w-2xl w-full mx-4 max-h-[95vh] flex flex-col">
+        <DialogHeader className="flex-shrink-0">
           <DialogTitle className="text-2xl font-display font-bold text-primary">
             {getFormTitle()}
           </DialogTitle>
@@ -194,7 +194,8 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
           </p>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-6 mt-6">
+        <div className="flex-1 overflow-y-auto pr-2 -mr-2">
+          <form onSubmit={handleSubmit} className="space-y-6 mt-6 pb-6">
           {/* Honeypot field - hidden from users */}
           <input
             type="text"
@@ -407,7 +408,8 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
               ⚡ We typically respond within 2 hours during business hours
             </p>
           </div>
-        </form>
+          </form>
+        </div>
       </DialogContent>
     </Dialog>
   );

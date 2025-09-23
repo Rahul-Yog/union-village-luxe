@@ -76,9 +76,10 @@ const HeroSectionWithModal = () => {
               <Button 
                 onClick={() => setIsFloorPlansModalOpen(true)}
                 size="lg"
-                className="luxury-gradient text-primary font-semibold px-8 py-4 text-lg hover:scale-105 transition-transform duration-200 shadow-luxury"
+                className="luxury-gradient text-primary font-semibold px-6 py-4 text-base sm:text-lg hover:scale-105 transition-transform duration-200 shadow-luxury w-full sm:w-auto max-w-xs sm:max-w-none whitespace-nowrap sm:whitespace-normal"
               >
-                Get Exclusive Floor Plans
+                <span className="sm:hidden">Unlock Floor Plans & Pricing</span>
+                <span className="hidden sm:inline">Get Exclusive Floor Plans</span>
               </Button>
               <Button 
                 onClick={() => scrollToSection('#overview')}
