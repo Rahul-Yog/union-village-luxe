@@ -184,8 +184,8 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl w-full mx-4 max-h-[95vh] flex flex-col">
-        <DialogHeader className="flex-shrink-0">
+      <DialogContent className="max-w-2xl w-full mx-4 max-h-[90vh] sm:max-h-[85vh] flex flex-col p-0">
+        <DialogHeader className="flex-shrink-0 p-6 pb-4">
           <DialogTitle className="text-2xl font-display font-bold text-primary">
             {getFormTitle()}
           </DialogTitle>
@@ -194,8 +194,8 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
           </p>
         </DialogHeader>
 
-        <div className="flex-1 overflow-y-auto pr-2 -mr-2">
-          <form onSubmit={handleSubmit} className="space-y-6 mt-6 pb-6">
+        <div className="flex-1 overflow-y-auto px-6 pb-6" style={{ scrollbarWidth: 'thin' }}>
+          <form onSubmit={handleSubmit} className="space-y-6">
           {/* Honeypot field - hidden from users */}
           <input
             type="text"
