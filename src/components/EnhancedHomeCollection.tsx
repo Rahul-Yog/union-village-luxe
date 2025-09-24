@@ -110,13 +110,13 @@ const EnhancedHomeCollection = () => {
       title: "50' Single Family Home",
       images: [home50Modern, home50English, home50French, home50Contemporary, home50FamilyRoom, home50Foyer],
       description: "Luxury estate homes on generous 50-foot lots, featuring the finest finishes and most spacious layouts in the community, designed with feng shui expertise.",
-      features: ["4-5 Bedrooms", "3.5-5.5 Bathrooms", "Triple Car Garage", "Estate Lots"],
+      features: ["4-5 Bedrooms", "3.5-5.5 Bathrooms", "2 Garage", "Estate Lots"],
       priceRange: "Starting from $2.7M",
       badge: "Ultra Luxury",
       architecturalStyle: "Modern / English Manor / French",
       bedrooms: "4-5",
       bathrooms: "3.5-5.5",
-      garage: "Triple",
+      garage: "2",
       lotSize: "50 feet"
     }
   ];
