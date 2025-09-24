@@ -184,17 +184,20 @@ const ContactModal = ({ isOpen, onClose, formType }: ContactModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl w-full mx-4 max-h-[90vh] sm:max-h-[85vh] flex flex-col p-0">
-        <DialogHeader className="flex-shrink-0 p-6 pb-4">
-          <DialogTitle className="text-2xl font-display font-bold text-primary">
+      <DialogContent className="max-w-2xl w-full mx-4 max-h-[95vh] flex flex-col p-0 overflow-hidden">
+        <DialogHeader className="flex-shrink-0 p-6 pb-2">
+          <DialogTitle className="text-xl font-display font-bold text-primary">
             {getFormTitle()}
           </DialogTitle>
-          <p className="text-muted-foreground mt-2">
+          <p className="text-muted-foreground text-sm mt-1">
             {getFormMessage()}
           </p>
         </DialogHeader>
 
-        <div className="flex-1 overflow-y-auto px-6 pb-6" style={{ scrollbarWidth: 'thin' }}>
+        <div className="flex-1 overflow-y-auto px-6 pb-6" style={{ 
+          scrollbarWidth: 'thin',
+          scrollbarColor: 'hsl(var(--muted-foreground)) transparent'
+        }}>
           <form onSubmit={handleSubmit} className="space-y-6">
           {/* Honeypot field - hidden from users */}
           <input
