@@ -26,7 +26,7 @@ const HeroSectionWithModal = () => {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 container-custom text-center text-white">
+        <div className="relative z-10 container-custom text-center text-white pt-20 md:pt-24">
           <div className="max-w-4xl mx-auto animate-fade-in">
             {/* NEW PHASE ANNOUNCEMENT BANNER */}
             <div className="mb-6 animate-pulse">
