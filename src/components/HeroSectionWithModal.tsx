@@ -28,23 +28,37 @@ const HeroSectionWithModal = () => {
         {/* Content */}
         <div className="relative z-10 container-custom text-center text-white">
           <div className="max-w-4xl mx-auto animate-fade-in">
+            {/* NEW PHASE ANNOUNCEMENT BANNER */}
+            <div className="mb-6 animate-pulse">
+              <div className="inline-block bg-gradient-to-r from-luxury-gold via-yellow-400 to-luxury-gold px-6 py-3 rounded-full shadow-2xl border-2 border-white/30">
+                <p className="text-primary font-bold text-sm md:text-base">
+                  🎉 NEW PHASE RELEASING NOVEMBER 2025 🎉
+                </p>
+              </div>
+            </div>
+            <div className="mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">
+                Single Detached Homes Starting from <span className="text-luxury-gold">$1.9M</span>
+              </h2>
+            </div>
+            
             {/* Trust Indicators */}
             <div className="flex flex-wrap justify-center gap-1 sm:gap-3 md:gap-6 mb-8 text-[9px] sm:text-xs md:text-sm px-2">
               <div className="flex items-center gap-1 bg-white/15 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-lg">
                 <MapPin size={10} className="text-luxury-gold sm:w-3 sm:h-3 md:w-4 md:h-4 flex-shrink-0" />
                 <span className="truncate font-medium text-white">16th & Kennedy</span>
               </div>
-              <div className="flex items-center gap-1 bg-white/15 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-lg">
+              <div className="flex items-center gap-1 bg-gradient-to-r from-luxury-gold/30 to-yellow-500/30 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-lg border border-luxury-gold/50">
                 <DollarSign size={10} className="text-luxury-gold sm:w-3 sm:h-3 md:w-4 md:h-4 flex-shrink-0" />
-                <span className="truncate font-medium text-white">$1.4M+</span>
+                <span className="truncate font-bold text-white">From $1.9M</span>
               </div>
-              <div className="flex items-center gap-1 bg-white/15 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-lg">
+              <div className="flex items-center gap-1 bg-gradient-to-r from-luxury-gold/30 to-yellow-500/30 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-lg border border-luxury-gold/50">
                 <Clock size={10} className="text-luxury-gold sm:w-3 sm:h-3 md:w-4 md:h-4 flex-shrink-0" />
-                <span className="truncate font-medium text-white">2026</span>
+                <span className="truncate font-bold text-white">Nov 2025</span>
               </div>
-              <div className="flex items-center gap-1 bg-white/15 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-lg">
-                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 bg-luxury-gold rounded-full flex items-center justify-center text-[7px] sm:text-[8px] md:text-xs font-bold text-primary flex-shrink-0">2</span>
-                <span className="truncate font-medium text-white">Phase 2</span>
+              <div className="flex items-center gap-1 bg-gradient-to-r from-luxury-gold/30 to-yellow-500/30 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full min-w-0 shadow-lg border border-luxury-gold/50 animate-pulse">
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 bg-luxury-gold rounded-full flex items-center justify-center text-[7px] sm:text-[8px] md:text-xs font-bold text-primary flex-shrink-0">NEW</span>
+                <span className="truncate font-bold text-white">Phase 3</span>
               </div>
             </div>
 
@@ -57,6 +71,7 @@ const HeroSectionWithModal = () => {
 
             {/* Subheadline */}
             <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
+              <strong className="text-luxury-gold">New Phase: Single Detached Homes</strong> now releasing in November 2025. 
               Discover luxury Unionville homes for sale in Markham's most sought-after master-planned community. 
               Where modern design meets small-town charm, crafted by award-winning developers.
             </p>
