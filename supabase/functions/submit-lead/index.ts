@@ -1,11 +1,29 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.3';
+import { z } from 'https://deno.land/x/zod@v3.22.4/mod.ts';
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
     "authorization, x-client-info, apikey, content-type",
 };
+
+// Zod validation schema for lead submissions
+const LeadSubmissionSchema = z.object({
+  first_name: z.string().trim().min(1, "First name is required").max(100, "First name too long"),
+  last_name: z.string().trim().min(1, "Last name is required").max(100, "Last name too long"),
+  email: z.string().trim().email("Invalid email format").max(255, "Email too long"),
+  phone: z.string().max(20, "Phone number too long").optional(),
+  interested_in: z.string().max(100, "Interest field too long").optional(),
+  price_range: z.string().max(50, "Price range too long").optional(),
+  timeline: z.string().max(50, "Timeline too long").optional(),
+  message: z.string().max(1000, "Message too long").optional(),
+  is_realtor: z.boolean(),
+  newsletter_consent: z.boolean(),
+  privacy_consent: z.boolean(),
+  form_type: z.string().max(50, "Form type too long"),
+  user_agent: z.string().max(500, "User agent too long")
+});
 
 interface LeadSubmissionRequest {
   first_name: string;
@@ -36,7 +54,28 @@ const handler = async (req: Request): Promise<Response> => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     );
 
-    const leadData: LeadSubmissionRequest = await req.json();
+    // Parse and validate input data
+    const rawData = await req.json();
+    const validationResult = LeadSubmissionSchema.safeParse(rawData);
+    
+    if (!validationResult.success) {
+      console.error('Validation failed:', validationResult.error.errors);
+      return new Response(
+        JSON.stringify({ 
+          error: 'Invalid input data',
+          details: validationResult.error.errors.map(e => ({
+            field: e.path.join('.'),
+            message: e.message
+          }))
+        }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
+    const leadData: LeadSubmissionRequest = validationResult.data;
     console.log('Processing lead submission:', leadData.email);
 
     // Insert lead data using service role (bypasses RLS policies)
