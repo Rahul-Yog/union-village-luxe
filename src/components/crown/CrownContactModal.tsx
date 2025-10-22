@@ -6,10 +6,10 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
-import { Mail, Phone, User, MessageSquare, Clock, Home } from 'lucide-react';
+import { Mail, Phone, User, Home } from 'lucide-react';
 
 interface CrownContactModalProps {
   isOpen: boolean;
@@ -26,12 +26,9 @@ const CrownContactModal = ({ isOpen, onClose, formType }: CrownContactModalProps
     email: '',
     phone: '',
     interestedIn: '',
-    timeline: '',
-    message: '',
+    priceRange: '',
     isRealtor: '',
-    emailConsent: false,
-    phoneConsent: false,
-    privacy: false,
+    contactConsent: false,
     honeypot: '' // Bot protection
   });
 
@@ -71,19 +68,10 @@ const CrownContactModal = ({ isOpen, onClose, formType }: CrownContactModalProps
     }
 
     // Basic validation
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.isRealtor || !formData.privacy) {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.isRealtor || !formData.contactConsent) {
       toast({
         title: "Missing Information",
-        description: "Please fill in all required fields including the realtor question and privacy policy.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    if (!formData.emailConsent && !formData.phoneConsent) {
-      toast({
-        title: "Consent Required",
-        description: "Please provide consent for us to contact you.",
+        description: "Please fill in all required fields including phone number, realtor question, and consent.",
         variant: "destructive",
       });
       return;
@@ -98,13 +86,11 @@ const CrownContactModal = ({ isOpen, onClose, formType }: CrownContactModalProps
           first_name: formData.firstName,
           last_name: formData.lastName,
           email: formData.email,
-          phone: formData.phone || null,
+          phone: formData.phone,
           interested_in: formData.interestedIn || null,
-          timeline: formData.timeline || null,
-          message: formData.message || null,
+          price_range: formData.priceRange || null,
           is_realtor: formData.isRealtor === 'yes',
-          newsletter_consent: formData.emailConsent,
-          privacy_consent: formData.privacy,
+          contact_consent: formData.contactConsent,
           form_type: `crown-${formType}`,
           user_agent: navigator.userAgent
         }
@@ -144,12 +130,9 @@ const CrownContactModal = ({ isOpen, onClose, formType }: CrownContactModalProps
         email: '',
         phone: '',
         interestedIn: '',
-        timeline: '',
-        message: '',
+        priceRange: '',
         isRealtor: '',
-        emailConsent: false,
-        phoneConsent: false,
-        privacy: false,
+        contactConsent: false,
         honeypot: ''
       });
       onClose();
@@ -240,7 +223,7 @@ const CrownContactModal = ({ isOpen, onClose, formType }: CrownContactModalProps
             <div>
               <Label htmlFor="phone" className="flex items-center gap-2">
                 <Phone size={16} />
-                Phone Number
+                Phone Number *
               </Label>
               <Input
                 id="phone"
@@ -248,16 +231,17 @@ const CrownContactModal = ({ isOpen, onClose, formType }: CrownContactModalProps
                 value={formData.phone}
                 onChange={(e) => handleInputChange('phone', e.target.value)}
                 placeholder="(416) 123-4567"
+                required
               />
             </div>
           </div>
 
-          {/* Interest and Timeline */}
+          {/* Interest and Budget */}
           <div className="grid grid-cols-2 gap-4">
             <div>
               <Label htmlFor="interestedIn" className="flex items-center gap-2">
                 <Home size={16} />
-                Interested In
+                Home Interest
               </Label>
               <Select value={formData.interestedIn} onValueChange={(value) => handleInputChange('interestedIn', value)}>
                 <SelectTrigger>
@@ -274,20 +258,17 @@ const CrownContactModal = ({ isOpen, onClose, formType }: CrownContactModalProps
             </div>
 
             <div>
-              <Label htmlFor="timeline" className="flex items-center gap-2">
-                <Clock size={16} />
-                Purchase Timeline
-              </Label>
-              <Select value={formData.timeline} onValueChange={(value) => handleInputChange('timeline', value)}>
+              <Label htmlFor="priceRange">Budget</Label>
+              <Select value={formData.priceRange} onValueChange={(value) => handleInputChange('priceRange', value)}>
                 <SelectTrigger>
-                  <SelectValue placeholder="When are you looking to buy?" />
+                  <SelectValue placeholder="Select your budget" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="asap">As soon as possible</SelectItem>
-                  <SelectItem value="3-6-months">3-6 months</SelectItem>
-                  <SelectItem value="6-12-months">6-12 months</SelectItem>
-                  <SelectItem value="1-2-years">1-2 years</SelectItem>
-                  <SelectItem value="researching">Just researching</SelectItem>
+                  <SelectItem value="730k-800k">$730K - $800K</SelectItem>
+                  <SelectItem value="800k-900k">$800K - $900K</SelectItem>
+                  <SelectItem value="900k-1m">$900K - $1M</SelectItem>
+                  <SelectItem value="1m+">$1M+</SelectItem>
+                  <SelectItem value="flexible">Flexible</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -295,79 +276,28 @@ const CrownContactModal = ({ isOpen, onClose, formType }: CrownContactModalProps
 
           {/* Realtor Question */}
           <div>
-            <Label className="text-base font-medium">Are you a Realtor? *</Label>
-            <RadioGroup 
-              value={formData.isRealtor} 
-              onValueChange={(value) => handleInputChange('isRealtor', value)}
-              className="flex gap-6 mt-2"
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="yes" id="realtor-yes-crown" />
-                <Label htmlFor="realtor-yes-crown">Yes</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="no" id="realtor-no-crown" />
-                <Label htmlFor="realtor-no-crown">No</Label>
-              </div>
-            </RadioGroup>
+            <Label htmlFor="isRealtor" className="text-base font-medium">Are you a Realtor? *</Label>
+            <Select value={formData.isRealtor} onValueChange={(value) => handleInputChange('isRealtor', value)} required>
+              <SelectTrigger className="mt-2">
+                <SelectValue placeholder="Select an option" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="yes">Yes</SelectItem>
+                <SelectItem value="no">No</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
-          {/* Message */}
-          <div>
-            <Label htmlFor="message" className="flex items-center gap-2">
-              <MessageSquare size={16} />
-              Additional Comments
-            </Label>
-            <Textarea
-              id="message"
-              value={formData.message}
-              onChange={(e) => handleInputChange('message', e.target.value)}
-              placeholder="Any specific questions about Crown of Caledon or requirements?"
-              rows={3}
-            />
-          </div>
-
-          {/* Consent Checkboxes */}
-          <div className="space-y-3 bg-muted/50 p-4 rounded-lg">
-            <p className="text-sm font-medium text-primary mb-3">How would you like us to contact you?</p>
-            
-            <div className="flex items-start gap-2">
-              <Checkbox 
-                id="emailConsent"
-                checked={formData.emailConsent}
-                onCheckedChange={(checked) => handleInputChange('emailConsent', !!checked)}
-              />
-              <Label htmlFor="emailConsent" className="text-sm leading-relaxed">
-                Yes, you may contact me via email with information about Crown of Caledon and other real estate opportunities.
-              </Label>
-            </div>
-            
-            <div className="flex items-start gap-2">
-              <Checkbox 
-                id="phoneConsent"
-                checked={formData.phoneConsent}
-                onCheckedChange={(checked) => handleInputChange('phoneConsent', !!checked)}
-              />
-              <Label htmlFor="phoneConsent" className="text-sm leading-relaxed">
-                Yes, you may contact me via phone/text with information about Crown of Caledon and other real estate opportunities.
-              </Label>
-            </div>
-          </div>
-
-          {/* Privacy Policy */}
-          <div className="flex items-start gap-2">
+          {/* Consent Checkbox */}
+          <div className="flex items-start gap-2 bg-muted/50 p-4 rounded-lg">
             <Checkbox 
-              id="privacy"
-              checked={formData.privacy}
-              onCheckedChange={(checked) => handleInputChange('privacy', !!checked)}
+              id="contactConsent"
+              checked={formData.contactConsent}
+              onCheckedChange={(checked) => handleInputChange('contactConsent', !!checked)}
               required
             />
-            <Label htmlFor="privacy" className="text-sm leading-relaxed">
-              I agree to the{' '}
-              <a href="/privacy-policy" target="_blank" className="text-accent hover:underline">
-                privacy policy
-              </a>{' '}
-              and consent to being contacted about Crown of Caledon. *
+            <Label htmlFor="contactConsent" className="text-sm leading-relaxed">
+              I consent to be contacted via SMS, phone call, and email regarding this inquiry and future opportunities. *
             </Label>
           </div>
 

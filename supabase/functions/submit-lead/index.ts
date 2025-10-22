@@ -13,14 +13,11 @@ const LeadSubmissionSchema = z.object({
   first_name: z.string().trim().min(1, "First name is required").max(100, "First name too long"),
   last_name: z.string().trim().min(1, "Last name is required").max(100, "Last name too long"),
   email: z.string().trim().email("Invalid email format").max(255, "Email too long"),
-  phone: z.string().max(20, "Phone number too long").nullable().optional(),
+  phone: z.string().trim().min(1, "Phone number is required").max(20, "Phone number too long"),
   interested_in: z.string().max(100, "Interest field too long").nullable().optional(),
   price_range: z.string().max(50, "Price range too long").nullable().optional(),
-  timeline: z.string().max(50, "Timeline too long").nullable().optional(),
-  message: z.string().max(1000, "Message too long").nullable().optional(),
   is_realtor: z.boolean(),
-  newsletter_consent: z.boolean(),
-  privacy_consent: z.boolean(),
+  contact_consent: z.boolean(),
   form_type: z.string().max(50, "Form type too long"),
   user_agent: z.string().max(500, "User agent too long")
 });
@@ -29,14 +26,11 @@ interface LeadSubmissionRequest {
   first_name: string;
   last_name: string;
   email: string;
-  phone?: string;
+  phone: string;
   interested_in?: string;
   price_range?: string;
-  timeline?: string;
-  message?: string;
   is_realtor: boolean;
-  newsletter_consent: boolean;
-  privacy_consent: boolean;
+  contact_consent: boolean;
   form_type: string;
   user_agent: string;
 }
@@ -88,11 +82,11 @@ const handler = async (req: Request): Promise<Response> => {
         phone: leadData.phone,
         interested_in: leadData.interested_in,
         price_range: leadData.price_range,
-        timeline: leadData.timeline,
-        message: leadData.message,
+        timeline: null,
+        message: null,
         is_realtor: leadData.is_realtor,
-        newsletter_consent: leadData.newsletter_consent,
-        privacy_consent: leadData.privacy_consent,
+        newsletter_consent: leadData.contact_consent,
+        privacy_consent: leadData.contact_consent,
         source: 'website',
         form_type: leadData.form_type,
         user_agent: leadData.user_agent
