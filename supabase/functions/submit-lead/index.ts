@@ -43,7 +43,11 @@ const handler = async (req: Request): Promise<Response> => {
 
   try {
     // Rate limiting: Check IP-based submission frequency
-    const clientIp = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'unknown';
+    // Extract first IP from x-forwarded-for (can contain multiple IPs separated by commas)
+    const forwardedFor = req.headers.get('x-forwarded-for');
+    const clientIp = forwardedFor 
+      ? forwardedFor.split(',')[0].trim() 
+      : req.headers.get('x-real-ip') || 'unknown';
     
     // Create Supabase client with service role key (bypasses RLS)
     const supabase = createClient(

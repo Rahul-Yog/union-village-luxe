@@ -121,8 +121,13 @@ const CrownFooter = () => {
               <p className="mb-2">
                 Not intended to solicit buyers or sellers currently under contract with a real estate brokerage.
               </p>
-              <p>
+              <p className="mb-2">
                 <strong>Disclaimer:</strong> We are independent Real Estate Broker/Sales Representatives. We do not represent the Builder. All information on the project is subject to change by the Builder. E. & O.E.
+              </p>
+              <p>
+                <a href="https://unionvillagehomes.ca/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-primary-foreground hover:text-luxury-gold transition-colors underline">
+                  Privacy Policy
+                </a>
               </p>
             </div>
             
