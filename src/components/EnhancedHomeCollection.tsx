@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -46,8 +45,6 @@ import home43Bathroom from '@/assets/43-feet-bathroom.jpg';
 import home43Kitchen from '@/assets/43-feet-kitchen.jpg';
 
 const EnhancedHomeCollection = () => {
-  const [selectedHome, setSelectedHome] = useState<string | null>(null);
-
   const homeTypes = [
     {
       id: 'traditional-townhomes',
@@ -227,43 +224,19 @@ const EnhancedHomeCollection = () => {
                   </div>
                 </div>
 
-                {/* CTAs */}
-                <div className="space-y-2">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button className="w-full luxury-gradient text-primary font-semibold hover:scale-105 transition-transform duration-200">
-                        <Eye className="mr-2 h-4 w-4" />
-                        Unlock Floor Plans & Pricing
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-2xl">
-                      <LeadForm />
-                    </DialogContent>
-                  </Dialog>
-                  
-                  <Button 
-                    variant="outline" 
-                    className="w-full"
-                    onClick={() => setSelectedHome(selectedHome === home.id ? null : home.id)}
-                  >
-                    {selectedHome === home.id ? 'Hide Details' : 'View Details'}
-                  </Button>
-                </div>
+                {/* CTA */}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button className="w-full luxury-gradient text-primary font-semibold hover:scale-105 transition-transform duration-200">
+                      <Eye className="mr-2 h-4 w-4" />
+                      Unlock Floor Plans & Pricing
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-2xl">
+                    <LeadForm />
+                  </DialogContent>
+                </Dialog>
 
-                {/* Expandable Details */}
-                {selectedHome === home.id && (
-                  <div className="mt-4 pt-4 border-t animate-fade-in">
-                    <h4 className="font-semibold text-primary mb-3">Key Features:</h4>
-                    <div className="grid grid-cols-1 gap-2">
-                      {home.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <div className="w-1.5 h-1.5 luxury-gradient rounded-full"></div>
-                          <span>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
             </Card>
           ))}

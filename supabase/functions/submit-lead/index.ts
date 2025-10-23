@@ -82,8 +82,6 @@ const handler = async (req: Request): Promise<Response> => {
         phone: leadData.phone,
         interested_in: leadData.interested_in,
         price_range: leadData.price_range,
-        timeline: null,
-        message: null,
         is_realtor: leadData.is_realtor,
         newsletter_consent: leadData.contact_consent,
         privacy_consent: leadData.contact_consent,
