@@ -31,7 +31,6 @@ const CrownLeadForm = () => {
     
     // Bot protection - honeypot field should be empty
     if (formData.honeypot) {
-      console.log('Bot detected');
       return;
     }
     
@@ -66,7 +65,6 @@ const CrownLeadForm = () => {
       });
 
       if (error) {
-        console.error('Error submitting lead:', error);
         toast({
           title: "Something went wrong",
           description: "Please try again or contact us directly.",
@@ -74,8 +72,6 @@ const CrownLeadForm = () => {
         });
         return;
       }
-
-      console.log('Lead submitted successfully:', data);
       
       toast({
         title: "Thank you for your interest!",
@@ -95,7 +91,6 @@ const CrownLeadForm = () => {
         honeypot: ''
       });
     } catch (error) {
-      console.error('Error submitting form:', error);
       toast({
         title: "Something went wrong",
         description: "Please try again or contact us directly.",

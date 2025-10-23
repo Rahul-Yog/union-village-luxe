@@ -1,7 +1,7 @@
 project_id = "kundhcwjungidjsmerqf"
 
 [functions.send-lead-notification]
-verify_jwt = false
+verify_jwt = true
 
 [functions.submit-lead]
 verify_jwt = false

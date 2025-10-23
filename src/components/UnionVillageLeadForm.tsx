@@ -31,7 +31,6 @@ const UnionVillageLeadForm = () => {
     
     // Bot protection - honeypot field should be empty
     if (formData.honeypot) {
-      console.log('Bot detected');
       return;
     }
     
@@ -65,7 +64,6 @@ const UnionVillageLeadForm = () => {
       });
 
       if (error) {
-        console.error('Error submitting lead:', error);
         toast({
           title: "Something went wrong",
           description: "Please try again or contact us directly.",
@@ -73,34 +71,15 @@ const UnionVillageLeadForm = () => {
         });
         return;
       }
-
-      console.log('Lead submitted successfully:', data);
       
-      // Track Google Ads conversion with enhanced debugging
-      console.log('Checking gtag availability:', typeof (window as any).gtag);
+      // Track Google Ads conversion
       if (typeof (window as any).gtag !== 'undefined') {
-        console.log('Firing gtag conversion event for AW-482683507');
         (window as any).gtag('event', 'conversion', {
           'send_to': 'AW-482683507/LHxtCNag5u8ZEKKsltgC',
           'event_category': 'Lead Generation',
           'event_label': 'Lead Form Submission',
           'value': 1
         });
-        console.log('gtag conversion event fired successfully');
-      } else {
-        console.warn('gtag not available - conversion not tracked');
-        // Fallback: Try again after a short delay
-        setTimeout(() => {
-          if (typeof (window as any).gtag !== 'undefined') {
-            console.log('Firing delayed gtag conversion event');
-            (window as any).gtag('event', 'conversion', {
-              'send_to': 'AW-482683507/LHxtCNag5u8ZEKKsltgC',
-              'event_category': 'Lead Generation',
-              'event_label': 'Lead Form Submission',
-              'value': 1
-            });
-          }
-        }, 1000);
       }
       
       toast({
@@ -121,7 +100,6 @@ const UnionVillageLeadForm = () => {
         honeypot: ''
       });
     } catch (error) {
-      console.error('Error submitting form:', error);
       toast({
         title: "Something went wrong",
         description: "Please try again or contact us directly.",

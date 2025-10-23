@@ -42,11 +42,41 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
+    // Rate limiting: Check IP-based submission frequency
+    const clientIp = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'unknown';
+    
     // Create Supabase client with service role key (bypasses RLS)
     const supabase = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     );
+
+    // Check for recent submissions from same IP (last 5 minutes)
+    const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000).toISOString();
+    const { data: recentSubmissions, error: rateLimitError } = await supabase
+      .from('leads')
+      .select('id, created_at')
+      .eq('ip_address', clientIp)
+      .gte('created_at', fiveMinutesAgo);
+
+    if (rateLimitError) {
+      console.error('Rate limit check error:', rateLimitError);
+    }
+
+    // Allow max 3 submissions per IP per 5 minutes
+    if (recentSubmissions && recentSubmissions.length >= 3) {
+      console.warn(`Rate limit exceeded for IP: ${clientIp}`);
+      return new Response(
+        JSON.stringify({ 
+          error: 'Too many submissions. Please try again later.',
+          details: 'Rate limit exceeded'
+        }),
+        {
+          status: 429,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
 
     // Parse and validate input data
     const rawData = await req.json();
@@ -70,7 +100,6 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const leadData: LeadSubmissionRequest = validationResult.data;
-    console.log('Processing lead submission:', leadData.email);
 
     // Insert lead data using service role (bypasses RLS policies)
     const { data: lead, error: leadError } = await supabase
@@ -87,7 +116,8 @@ const handler = async (req: Request): Promise<Response> => {
         privacy_consent: leadData.contact_consent,
         source: 'website',
         form_type: leadData.form_type,
-        user_agent: leadData.user_agent
+        user_agent: leadData.user_agent,
+        ip_address: clientIp
       })
       .select()
       .single();
@@ -105,12 +135,15 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log('Lead saved successfully:', lead.id);
 
-    // Send notification email
+    // Send notification email with service role authorization
     try {
       const { error: notificationError } = await supabase.functions.invoke(
         'send-lead-notification',
         {
-          body: { leadId: lead.id }
+          body: { leadId: lead.id },
+          headers: {
+            Authorization: `Bearer ${Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')}`
+          }
         }
       );
 

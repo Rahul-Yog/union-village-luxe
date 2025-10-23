@@ -97,7 +97,6 @@ const CrownContactModal = ({ isOpen, onClose, formType }: CrownContactModalProps
       });
 
       if (error) {
-        console.error('Error submitting lead:', error);
         toast({
           title: "Error",
           description: "Something went wrong. Please try again or contact us directly.",
@@ -105,8 +104,6 @@ const CrownContactModal = ({ isOpen, onClose, formType }: CrownContactModalProps
         });
         return;
       }
-
-      console.log('Crown of Caledon lead submitted successfully:', data);
 
       // Track Google Ads conversion
       if (typeof (window as any).gtag !== 'undefined') {
@@ -137,7 +134,6 @@ const CrownContactModal = ({ isOpen, onClose, formType }: CrownContactModalProps
       });
       onClose();
     } catch (error) {
-      console.error('Error submitting form:', error);
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",
