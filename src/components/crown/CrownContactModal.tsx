@@ -68,10 +68,10 @@ const CrownContactModal = ({ isOpen, onClose, formType }: CrownContactModalProps
     }
 
     // Basic validation
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.isRealtor || !formData.contactConsent) {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.isRealtor || !formData.contactConsent) {
       toast({
         title: "Missing Information",
-        description: "Please fill in all required fields including phone number, realtor question, and consent.",
+        description: "Please fill in all required fields.",
         variant: "destructive",
       });
       return;
@@ -219,7 +219,7 @@ const CrownContactModal = ({ isOpen, onClose, formType }: CrownContactModalProps
             <div>
               <Label htmlFor="phone" className="flex items-center gap-2">
                 <Phone size={16} />
-                Phone Number *
+                Phone Number
               </Label>
               <Input
                 id="phone"
@@ -227,7 +227,6 @@ const CrownContactModal = ({ isOpen, onClose, formType }: CrownContactModalProps
                 value={formData.phone}
                 onChange={(e) => handleInputChange('phone', e.target.value)}
                 placeholder="(416) 123-4567"
-                required
               />
             </div>
           </div>

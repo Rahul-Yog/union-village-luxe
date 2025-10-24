@@ -35,10 +35,10 @@ const CrownLeadForm = () => {
     }
     
     // Basic validation
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.isRealtor || !formData.contactConsent) {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.isRealtor || !formData.contactConsent) {
       toast({
         title: "Please fill in all required fields",
-        description: "Make sure to complete all required fields including phone number, realtor question, and consent.",
+        description: "Make sure to complete all required fields.",
         variant: "destructive",
       });
       return;
@@ -205,14 +205,13 @@ const CrownLeadForm = () => {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="phone">Phone Number *</Label>
+                      <Label htmlFor="phone">Phone Number</Label>
                       <Input
                         id="phone"
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => handleInputChange('phone', e.target.value)}
                         placeholder="(416) 123-4567"
-                        required
                       />
                     </div>
                   </div>

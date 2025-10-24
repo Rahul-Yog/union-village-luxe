@@ -13,7 +13,7 @@ const LeadSubmissionSchema = z.object({
   first_name: z.string().trim().min(1, "First name is required").max(100, "First name too long"),
   last_name: z.string().trim().min(1, "Last name is required").max(100, "Last name too long"),
   email: z.string().trim().email("Invalid email format").max(255, "Email too long"),
-  phone: z.string().trim().min(1, "Phone number is required").max(20, "Phone number too long"),
+  phone: z.string().trim().max(20, "Phone number too long").optional().or(z.literal('')),
   interested_in: z.string().max(100, "Interest field too long").nullable().optional(),
   price_range: z.string().max(50, "Price range too long").nullable().optional(),
   is_realtor: z.boolean(),
