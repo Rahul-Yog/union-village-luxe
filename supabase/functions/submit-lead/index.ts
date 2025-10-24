@@ -139,6 +139,47 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log('Lead saved successfully:', lead.id);
 
+    // Add subscriber to Mailchimp
+    try {
+      const mailchimpApiKey = Deno.env.get('MAILCHIMP_API_KEY');
+      const mailchimpAudienceId = Deno.env.get('MAILCHIMP_AUDIENCE_ID');
+      
+      if (mailchimpApiKey && mailchimpAudienceId && leadData.contact_consent) {
+        // Extract datacenter from API key (part after the last dash)
+        const datacenter = mailchimpApiKey.split('-').pop();
+        const mailchimpUrl = `https://${datacenter}.api.mailchimp.com/3.0/lists/${mailchimpAudienceId}/members`;
+        
+        const mailchimpResponse = await fetch(mailchimpUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': `apikey ${mailchimpApiKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email_address: leadData.email,
+            status: 'subscribed',
+            merge_fields: {
+              FNAME: leadData.first_name,
+              LNAME: leadData.last_name,
+              PHONE: leadData.phone || '',
+            },
+            tags: [leadData.form_type, leadData.interested_in].filter(Boolean),
+          }),
+        });
+
+        if (mailchimpResponse.ok) {
+          console.log('Successfully added subscriber to Mailchimp');
+        } else {
+          const errorText = await mailchimpResponse.text();
+          console.error('Mailchimp subscription error:', errorText);
+          // Don't fail the whole request if Mailchimp fails
+        }
+      }
+    } catch (mailchimpError) {
+      console.error('Failed to add to Mailchimp:', mailchimpError);
+      // Don't fail the whole request if Mailchimp fails
+    }
+
     // Send notification email with service role authorization
     try {
       const { error: notificationError } = await supabase.functions.invoke(
