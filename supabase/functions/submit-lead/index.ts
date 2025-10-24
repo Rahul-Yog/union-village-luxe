@@ -144,10 +144,33 @@ const handler = async (req: Request): Promise<Response> => {
       const mailchimpApiKey = Deno.env.get('MAILCHIMP_API_KEY');
       const mailchimpAudienceId = Deno.env.get('MAILCHIMP_AUDIENCE_ID');
       
+      console.log('Mailchimp integration check:', {
+        hasApiKey: !!mailchimpApiKey,
+        hasAudienceId: !!mailchimpAudienceId,
+        hasConsent: leadData.contact_consent
+      });
+      
       if (mailchimpApiKey && mailchimpAudienceId && leadData.contact_consent) {
+        console.log('Attempting to add subscriber to Mailchimp for:', leadData.email);
+        
         // Extract datacenter from API key (part after the last dash)
         const datacenter = mailchimpApiKey.split('-').pop();
         const mailchimpUrl = `https://${datacenter}.api.mailchimp.com/3.0/lists/${mailchimpAudienceId}/members`;
+        
+        console.log('Mailchimp URL:', mailchimpUrl);
+        
+        const mailchimpPayload = {
+          email_address: leadData.email,
+          status: 'subscribed',
+          merge_fields: {
+            FNAME: leadData.first_name,
+            LNAME: leadData.last_name,
+            PHONE: leadData.phone || '',
+          },
+          tags: [leadData.form_type, leadData.interested_in].filter(Boolean),
+        };
+        
+        console.log('Mailchimp payload:', JSON.stringify(mailchimpPayload, null, 2));
         
         const mailchimpResponse = await fetch(mailchimpUrl, {
           method: 'POST',
@@ -155,28 +178,26 @@ const handler = async (req: Request): Promise<Response> => {
             'Authorization': `apikey ${mailchimpApiKey}`,
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            email_address: leadData.email,
-            status: 'subscribed',
-            merge_fields: {
-              FNAME: leadData.first_name,
-              LNAME: leadData.last_name,
-              PHONE: leadData.phone || '',
-            },
-            tags: [leadData.form_type, leadData.interested_in].filter(Boolean),
-          }),
+          body: JSON.stringify(mailchimpPayload),
         });
 
+        const responseText = await mailchimpResponse.text();
+        
         if (mailchimpResponse.ok) {
-          console.log('Successfully added subscriber to Mailchimp');
+          console.log('Successfully added subscriber to Mailchimp:', responseText);
         } else {
-          const errorText = await mailchimpResponse.text();
-          console.error('Mailchimp subscription error:', errorText);
-          // Don't fail the whole request if Mailchimp fails
+          console.error('Mailchimp subscription error - Status:', mailchimpResponse.status);
+          console.error('Mailchimp error response:', responseText);
         }
+      } else {
+        console.log('Skipping Mailchimp - missing requirements:', {
+          apiKey: !mailchimpApiKey ? 'MISSING' : 'present',
+          audienceId: !mailchimpAudienceId ? 'MISSING' : 'present',
+          consent: !leadData.contact_consent ? 'FALSE' : 'true'
+        });
       }
     } catch (mailchimpError) {
-      console.error('Failed to add to Mailchimp:', mailchimpError);
+      console.error('Failed to add to Mailchimp - Exception:', mailchimpError);
       // Don't fail the whole request if Mailchimp fails
     }
 
