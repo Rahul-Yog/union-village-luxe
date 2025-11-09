@@ -167,7 +167,7 @@ const handler = async (req: Request): Promise<Response> => {
             LNAME: leadData.last_name,
             PHONE: leadData.phone || '',
           },
-          tags: [leadData.form_type, leadData.interested_in].filter(Boolean),
+          tags: ['Union Village', 'Markham', leadData.form_type, leadData.interested_in].filter(Boolean),
         };
         
         console.log('Mailchimp payload:', JSON.stringify(mailchimpPayload, null, 2));
