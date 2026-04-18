@@ -82,10 +82,18 @@ const UnionVillageLeadForm = () => {
         });
       }
       
-      toast({
-        title: "Thank you for your interest!",
-        description: "Floor plans and pricing information will be sent to your email.",
-      });
+      const mcStatus = (data as any)?.mailchimpStatus;
+      if (mcStatus === 'existing') {
+        toast({
+          title: "You're already on our list!",
+          description: "We've updated your details. Floor plans and pricing will be sent to your email shortly.",
+        });
+      } else {
+        toast({
+          title: "Thank you for your interest!",
+          description: "Floor plans and pricing information will be sent to your email.",
+        });
+      }
       
       // Reset form
       setFormData({
