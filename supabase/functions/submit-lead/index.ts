@@ -155,25 +155,41 @@ const handler = async (req: Request): Promise<Response> => {
         
         // Extract datacenter from API key (part after the last dash)
         const datacenter = mailchimpApiKey.split('-').pop();
-        const mailchimpUrl = `https://${datacenter}.api.mailchimp.com/3.0/lists/${mailchimpAudienceId}/members`;
+        // Use MD5 hash of lowercased email as subscriber hash for PUT (upsert)
+        const emailLower = leadData.email.toLowerCase();
+        const encoder = new TextEncoder();
+        const data = encoder.encode(emailLower);
+        const hashBuffer = await crypto.subtle.digest('MD5', data).catch(async () => {
+          // Fallback: MD5 not always available in Deno's SubtleCrypto, use manual implementation
+          const { Md5 } = await import('https://deno.land/std@0.190.0/hash/md5.ts');
+          const md5 = new Md5();
+          md5.update(emailLower);
+          return md5.digest();
+        });
+        const subscriberHash = Array.from(new Uint8Array(hashBuffer as ArrayBuffer))
+          .map(b => b.toString(16).padStart(2, '0'))
+          .join('');
         
-        console.log('Mailchimp URL:', mailchimpUrl);
+        const mailchimpUrl = `https://${datacenter}.api.mailchimp.com/3.0/lists/${mailchimpAudienceId}/members/${subscriberHash}`;
+        
+        console.log('Mailchimp URL (PUT upsert):', mailchimpUrl);
+        
+        const tags = ['Union Village', 'Markham', leadData.form_type, leadData.interested_in].filter(Boolean);
         
         const mailchimpPayload = {
           email_address: leadData.email,
-          status: 'subscribed',
+          status_if_new: 'subscribed',
           merge_fields: {
             FNAME: leadData.first_name,
             LNAME: leadData.last_name,
             PHONE: leadData.phone || '',
           },
-          tags: ['Union Village', 'Markham', leadData.form_type, leadData.interested_in].filter(Boolean),
         };
         
         console.log('Mailchimp payload:', JSON.stringify(mailchimpPayload, null, 2));
         
         const mailchimpResponse = await fetch(mailchimpUrl, {
-          method: 'POST',
+          method: 'PUT',
           headers: {
             'Authorization': `apikey ${mailchimpApiKey}`,
             'Content-Type': 'application/json',
@@ -184,7 +200,26 @@ const handler = async (req: Request): Promise<Response> => {
         const responseText = await mailchimpResponse.text();
         
         if (mailchimpResponse.ok) {
-          console.log('Successfully added subscriber to Mailchimp:', responseText);
+          console.log('Successfully upserted subscriber to Mailchimp:', responseText);
+          
+          // Add tags via separate endpoint (PUT to /members doesn't merge tags)
+          const tagsUrl = `https://${datacenter}.api.mailchimp.com/3.0/lists/${mailchimpAudienceId}/members/${subscriberHash}/tags`;
+          const tagsPayload = {
+            tags: tags.map(name => ({ name, status: 'active' })),
+          };
+          const tagsResponse = await fetch(tagsUrl, {
+            method: 'POST',
+            headers: {
+              'Authorization': `apikey ${mailchimpApiKey}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(tagsPayload),
+          });
+          if (tagsResponse.ok) {
+            console.log('Successfully applied tags:', tags.join(', '));
+          } else {
+            console.error('Tag application failed:', tagsResponse.status, await tagsResponse.text());
+          }
         } else {
           console.error('Mailchimp subscription error - Status:', mailchimpResponse.status);
           console.error('Mailchimp error response:', responseText);
